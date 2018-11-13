@@ -2,7 +2,7 @@ import * as React from 'react';
 import logo from '../../common/assets/img/logo.svg';
 import './App.css';
 
-const App: React.SFC = () =>
+export const App: React.SFC = () =>
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
