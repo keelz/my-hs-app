@@ -8,6 +8,7 @@ export type AppState = {
 
 /** ACTIONS */
 export const APP_DID_LOAD_ACTION = 'APP_DID_LOAD_ACTION';
+export const APP_SET_LOADED_ACTION = 'APP_SET_LOADED_ACTION';
 
 /** FACTORIES */
 export const appStateFactory = () => ({
@@ -19,10 +20,17 @@ export const appDidLoadAction = () =>
   (dispatch: Dispatch) =>
   dispatch({ type: APP_DID_LOAD_ACTION });
 
+export const appSetLoadedAction = (loaded: boolean) =>
+  (dispatch: Dispatch) =>
+  dispatch({ type: APP_SET_LOADED_ACTION, payload: { loaded } });
+
 /** REDUCER */
 export default (state: AppState = appStateFactory(), action: ActionType<any>): AppState => {
   const { type } = action;
   switch (type) {
+    case APP_SET_LOADED_ACTION: return {
+      loaded: action.payload.loaded,
+    };
     default: return state;
   }
 };

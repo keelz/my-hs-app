@@ -2,10 +2,10 @@
 
 exports[`redux store composes the default development state correctly 1`] = `
 Object {
-  "app": Object {
+  "App": Object {
     "loaded": false,
   },
-  "browser": Object {
+  "Browser": Object {
     "_responsiveState": true,
     "breakpoints": Object {
       "extraSmall": 480,

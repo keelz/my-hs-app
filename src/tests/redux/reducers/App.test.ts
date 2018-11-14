@@ -2,7 +2,9 @@ import reducer, {
   appDidLoadAction,
   appStateFactory,
   APP_DID_LOAD_ACTION,
+  APP_SET_LOADED_ACTION,
 } from '../../../redux/reducers/App';
+import { stat } from 'fs';
 
 const compose = () => {
   const store = {
@@ -32,5 +34,17 @@ describe('App reducer', () => {
     const state = appStateFactory();
     const newState = reducer(state, { type: APP_DID_LOAD_ACTION });
     expect(newState).toEqual(state);
+  });
+
+  it(`handles ${APP_SET_LOADED_ACTION} correctly`, () => {
+    const state = appStateFactory();
+    const newState = reducer(state, {
+      type: APP_SET_LOADED_ACTION,
+      payload: { loaded: true },
+    });
+    expect(newState).toEqual({
+      ...state,
+      loaded: true,
+    });
   });
 });

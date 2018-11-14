@@ -30,4 +30,16 @@ exports[`App snapshots renders App component correctly 1`] = `
 </div>
 `;
 
-exports[`App snapshots renders index component correctly 1`] = `<Component />`;
+exports[`App snapshots renders index component correctly when loaded is false 1`] = `
+<div>
+  <div>
+    App is Loading
+  </div>
+</div>
+`;
+
+exports[`App snapshots renders index component correctly when loaded is true 1`] = `
+<div>
+  <Component />
+</div>
+`;
