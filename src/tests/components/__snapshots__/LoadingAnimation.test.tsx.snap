@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingAnimation snapshots renders correctly 1`] = `
+<div
+  className="loading-animation-container"
+>
+  <div
+    className="loading-animation"
+  />
+</div>
+`;

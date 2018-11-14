@@ -1,5 +1,6 @@
 import * as React from 'react';
 import App from './App';
+import LoadingAnimation from '../LoadingAnimation';
 
 // implementation props
 type AppProps = {};
@@ -20,10 +21,10 @@ class Index extends React.Component<Props> {
 
   render() {
     return (
-      <div>
+      <div className="App container">
         { this.props.loaded
           ? <App />
-          : <div>App is Loading</div>
+          : <LoadingAnimation />
         }
       </div>
     );
