@@ -4,7 +4,6 @@ import reducer, {
   APP_DID_LOAD_ACTION,
   APP_SET_LOADED_ACTION,
 } from '../../../redux/reducers/App';
-import { stat } from 'fs';
 
 const compose = () => {
   const store = {
