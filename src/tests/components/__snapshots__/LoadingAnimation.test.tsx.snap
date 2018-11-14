@@ -5,7 +5,7 @@ exports[`LoadingAnimation snapshots renders correctly 1`] = `
   className="loading-animation-container"
 >
   <div
-    className="loading-animation"
+    className="loading-animation-spinner"
   />
 </div>
 `;
