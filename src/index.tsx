@@ -6,13 +6,10 @@ import store from './redux/store';
 import App from './redux/containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-export const RootComponent: React.SFC = () =>
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>;
-
-ReactDOM.render(
-  <RootComponent />,
+  </Provider>,
   document.getElementById('root') as HTMLElement
 );
 
