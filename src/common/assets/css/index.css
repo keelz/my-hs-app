@@ -20,7 +20,7 @@ body {
   align-items: center;
 }
 
-.loading-animation {
+.loading-animation-spinner {
   border: .5rem solid #f3f3f3; /* Light grey */
   border-top: .5rem solid #3498db; /* Blue */
   border-radius: 50%;
