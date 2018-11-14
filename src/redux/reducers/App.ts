@@ -6,14 +6,14 @@ export type AppState = {
   loaded: boolean;
 };
 
-/** ACTIONS */
-export const APP_DID_LOAD_ACTION = 'APP_DID_LOAD_ACTION';
-export const APP_SET_LOADED_ACTION = 'APP_SET_LOADED_ACTION';
-
 /** FACTORIES */
 export const appStateFactory = () => ({
   loaded: false,
 });
+
+/** ACTIONS */
+export const APP_DID_LOAD_ACTION = 'APP_DID_LOAD_ACTION';
+export const APP_SET_LOADED_ACTION = 'APP_SET_LOADED_ACTION';
 
 /** ACTION CREATORS */
 export const appDidLoadAction = () =>
