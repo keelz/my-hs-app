@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`redux store composes the default development state correctly 1`] = `
+Object {
+  "app": Object {
+    "loaded": false,
+  },
+  "browser": Object {
+    "_responsiveState": true,
+    "breakpoints": Object {
+      "extraSmall": 480,
+      "infinity": Infinity,
+      "large": 1200,
+      "medium": 992,
+      "small": 768,
+    },
+    "greaterThan": Object {
+      "extraSmall": true,
+      "infinity": false,
+      "large": true,
+      "medium": true,
+      "small": true,
+    },
+    "is": Object {
+      "extraSmall": false,
+      "infinity": true,
+      "large": false,
+      "medium": false,
+      "small": false,
+    },
+    "lessThan": Object {
+      "extraSmall": false,
+      "infinity": false,
+      "large": false,
+      "medium": false,
+      "small": false,
+    },
+    "mediaType": "infinity",
+    "orientation": null,
+  },
+}
+`;

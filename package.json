@@ -46,7 +46,15 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/components/**/*.{ts,tsx}"
+      "src/components/**/*.{ts,tsx}",
+      "src/redux/middleware/**/*.ts",
+      "src/redux/reducers/**/*.ts"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
