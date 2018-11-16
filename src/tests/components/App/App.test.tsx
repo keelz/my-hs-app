@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Index from '../../../components/App';
-import { App } from '../../../components/App/App';
+import App from '../../../components/App/App';
 
 const defaultState = {
   loaded: true,

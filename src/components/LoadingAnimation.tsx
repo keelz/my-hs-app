@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-const LoadingAnimation: React.SFC = () =>
+interface LoadingAnimationProps {}
+
+const LoadingAnimation: React.SFC<LoadingAnimationProps> = props =>
   <div className="loading-animation-container">
     <div className="loading-animation-spinner" />
   </div>;

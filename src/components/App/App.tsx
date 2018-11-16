@@ -1,17 +1,19 @@
 import * as React from 'react';
-import logo from '../../common/assets/img/logo.svg';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppBody from './Body';
+import AppFooter from './Footer';
+import AppHeader from './Header';
 import './App.css';
 
-export const App: React.SFC = () =>
-  <div>
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1 className="App-title">Welcome to React</h1>
-    </header>
-    <section className="App-body">
-      <p>app content placeholder</p>
-    </section>
-    <section className="App-footer"></section>
-  </div>;
+interface AppProps {}
+
+const App: React.SFC<AppProps> = props =>
+  <Router>
+    <React.Fragment>
+      <AppHeader />
+      <AppBody />
+      <AppFooter />
+    </React.Fragment>
+  </Router>;
 
 export default App;

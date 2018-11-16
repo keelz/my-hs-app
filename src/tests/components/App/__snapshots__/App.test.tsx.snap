@@ -1,32 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshots renders App component correctly 1`] = `
-<div>
-  <header
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <h1
-      className="App-title"
-    >
-      Welcome to React
-    </h1>
-  </header>
-  <section
-    className="App-body"
-  >
-    <p>
-      app content placeholder
-    </p>
-  </section>
-  <section
-    className="App-footer"
-  />
-</div>
+<BrowserRouter>
+  <AppHeader />
+  <AppBody />
+  <AppFooter />
+</BrowserRouter>
 `;
 
 exports[`App snapshots renders index component correctly when loaded is false 1`] = `
@@ -41,6 +20,6 @@ exports[`App snapshots renders index component correctly when loaded is true 1`]
 <div
   className="App container"
 >
-  <Component />
+  <App />
 </div>
 `;

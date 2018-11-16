@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader snapshots renders correctly 1`] = `
+<header
+  className="App-header"
+>
+  <AppNavBar />
+</header>
+`;
