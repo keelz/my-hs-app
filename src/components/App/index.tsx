@@ -2,16 +2,16 @@ import * as React from 'react';
 import App from './App';
 import LoadingAnimation from '../LoadingAnimation';
 
-// implementation props
+// implementation props.
 type AppProps = {};
 
-// state props
+// redux props.
 type AppStateProps = {
   loaded: boolean;
   appDidLoadAction: () => any;
 };
 
-// composed props
+// component props.
 type Props = AppProps & AppStateProps;
 
 class Index extends React.Component<Props> {
