@@ -10,6 +10,7 @@
     "test": "react-scripts-ts test --env=jsdom"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.23",
     "react": "^16.6.3",
@@ -46,6 +47,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
+      "src/common/services/**/*.{ts,tsx}",
       "src/components/**/*.{ts,tsx}",
       "src/redux/middleware/**/*.ts",
       "src/redux/reducers/**/*.ts"

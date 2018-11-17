@@ -13,7 +13,7 @@ type Props = AppRouterProps & AppRouterStateProps;
 
 const AppRouter: React.SFC<Props> = props =>
   <Switch>
-    <Route exact path="/" component={() => <Placeholder text="root" />} />
+    <Route exact path="/" component={() => <Placeholder text="gfy" />} />
     <Route path="/test" component={() => <Placeholder text="test" />} />
   </Switch>;
 
