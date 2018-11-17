@@ -4,6 +4,7 @@ import { Dispatch } from 'redux';
 /** MODELS */
 export type AppState = {
   loaded: boolean;
+  test?: any;
 };
 
 /** FACTORIES */
@@ -20,9 +21,15 @@ export const appDidLoadAction = () =>
   (dispatch: Dispatch) =>
   dispatch({ type: APP_DID_LOAD_ACTION });
 
-export const appSetLoadedAction = (loaded: boolean) =>
+export const appSetLoadedAction = (loaded: boolean, response?: any) =>
   (dispatch: Dispatch) =>
-  dispatch({ type: APP_SET_LOADED_ACTION, payload: { loaded } });
+  dispatch({
+    type: APP_SET_LOADED_ACTION,
+    payload: {
+      loaded,
+      response,
+    },
+  });
 
 /** REDUCER */
 export default (state: AppState = appStateFactory(), action: ActionType<any>): AppState => {
@@ -30,6 +37,7 @@ export default (state: AppState = appStateFactory(), action: ActionType<any>): A
   switch (type) {
     case APP_SET_LOADED_ACTION: return {
       loaded: action.payload.loaded,
+      test: { ...action.payload.response },
     };
     default: return state;
   }

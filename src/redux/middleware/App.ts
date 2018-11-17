@@ -1,4 +1,6 @@
 import { MiddlewareAPI, Dispatch, Middleware } from 'redux';
+import API from '../../common/constants/api';
+import localApi from '../../common/services/api';
 import { ActionType, RootState } from '../Types';
 import {
   appSetLoadedAction,
@@ -27,10 +29,12 @@ async (action: ActionType<any>) => {
       next(action);
 
       // **OPTIONAL**
-      // Handle asynchronous side effects.
-      await new Promise(resolve => {
-        setTimeout(() => resolve(appSetLoadedAction(true)(api.dispatch)), 3000);
-      });
+      // complete asynchronous tasks synchronously.
+      const response = await localApi.read(API.PATH.READ.TEST);
+
+      // **OPTIONAL**
+      // dispatch side effects.
+      appSetLoadedAction(true, response.data)(api.dispatch);
 
       // **REQUIRED**
       // return void. each case statement that interprets the action type
