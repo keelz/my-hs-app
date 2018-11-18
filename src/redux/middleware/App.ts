@@ -1,10 +1,11 @@
 import { MiddlewareAPI, Dispatch, Middleware } from 'redux';
-import API from '../../common/constants/api';
-import localApi from '../../common/services/api';
+import hsJsonApi from '../../common/services/hsJsonApi';
+import HS_JSON from '../../common/constants/hsJson';
 import { ActionType, RootState } from '../Types';
+import { cardsSetCardsAction } from '../reducers/Cards';
 import {
   appSetLoadedAction,
-  APP_DID_LOAD_ACTION,
+  APP_DID_LOAD,
 } from '../reducers/App';
 
 /**
@@ -20,7 +21,7 @@ async (action: ActionType<any>) => {
   // 1. calls the next: Dispatch<ActionType<any>> argument.
   // 2. returns.
   switch (action.type) {
-    case APP_DID_LOAD_ACTION:
+    case APP_DID_LOAD:
 
       // **OPTIONAL**
       // Call the next argument with the action argument.
@@ -30,11 +31,12 @@ async (action: ActionType<any>) => {
 
       // **OPTIONAL**
       // complete asynchronous tasks synchronously.
-      const response = await localApi.read(API.PATH.READ.TEST);
+      const response = await hsJsonApi.read(HS_JSON.PATH.LATEST);
 
       // **OPTIONAL**
       // dispatch side effects.
-      appSetLoadedAction(true, response.data)(api.dispatch);
+      cardsSetCardsAction(response.data)(api.dispatch);
+      appSetLoadedAction(true)(api.dispatch);
 
       // **REQUIRED**
       // return void. each case statement that interprets the action type
