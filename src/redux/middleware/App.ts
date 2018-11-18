@@ -31,7 +31,7 @@ async (action: ActionType<any>) => {
 
       // **OPTIONAL**
       // complete asynchronous tasks synchronously.
-      const response = await hsJsonApi.read(HS_JSON.PATH.LATEST);
+      const response = await hsJsonApi.read(HS_JSON.PATH.READ.LATEST);
 
       // **OPTIONAL**
       // dispatch side effects.
