@@ -19,17 +19,15 @@ type Props = AppRouterProps & AppRouterStateProps;
 
 const testCard = require('../../common/mocks/card.json');
 
-const composeCard = () =>
-  <Card
-    id={testCard.id}
-    resolution={CardResolution.SMALL}
-    ext={CardExt.PNG}
-    locale={CardLocale.EN} />;
-
 const AppRouter: React.SFC<Props> = props =>
   <Switch>
-    <Route exact path="/" component={() => <Placeholder text="gfy" />} />
-    <Route path="/test" component={composeCard} />
+    <Route exact path="/" component={() => <Placeholder
+      text="HOME" />} />
+    <Route path="/test" component={() => <Card
+      id={testCard.id}
+      resolution={CardResolution.SMALL}
+      ext={CardExt.PNG}
+      locale={CardLocale.EN} />} />
   </Switch>;
 
 export default AppRouter;
