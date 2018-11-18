@@ -7,11 +7,15 @@ const PATH = {
   },
   UPDATE: {},
   DELETE: {},
-  RESPONSE_PARAMS: {},
-  REQUEST_PARAMS: {},
 };
+
+const RESPONSE_PARAMS = {};
+
+const REQUEST_PARAMS = {};
 
 export default {
   BASE_URI,
   PATH,
+  RESPONSE_PARAMS,
+  REQUEST_PARAMS,
 };
