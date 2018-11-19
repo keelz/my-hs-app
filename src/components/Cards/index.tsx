@@ -2,17 +2,17 @@ import * as React from 'react';
 import Card from '../Card';
 import './Cards.css';
 import {
-  Card as CardType,
+  ICard,
   CardResolution,
   CardExt,
   CardLocale
-} from '../../redux/reducers/Cards';
+} from '../../common/models/Card';
 
 interface CardsProps {}
 
 export interface CardsStateProps {
   activeCardClassName: string;
-  cards: CardType[];
+  cards: ICard[];
 }
 
 type Props = CardsProps & CardsStateProps;

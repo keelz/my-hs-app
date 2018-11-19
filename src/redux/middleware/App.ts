@@ -1,7 +1,7 @@
 import { MiddlewareAPI, Dispatch, Middleware } from 'redux';
 import hsJsonApi from '../../common/services/hsJsonApi';
 import HS_JSON from '../../common/constants/hsJson';
-import { ActionType, RootState } from '../Types';
+import { IActionType, IRootState } from '../Types';
 import { cardsSetCardsAction } from '../reducers/Cards';
 import {
   appSetLoadedAction,
@@ -12,9 +12,9 @@ import {
  * Define a redux middleware function.
  * https://redux.js.org/advanced/middleware
  */
-const middleware = (api: MiddlewareAPI, state: RootState) =>
-(next: Dispatch<ActionType<any>>) =>
-async (action: ActionType<any>) => {
+const middleware = (api: MiddlewareAPI, state: IRootState) =>
+(next: Dispatch<IActionType<any>>) =>
+async (action: IActionType<any>) => {
   // Switch action type value to handle side effects.
   // Each case statement MUST return.
   // The Switch statement MUST have a default block that:

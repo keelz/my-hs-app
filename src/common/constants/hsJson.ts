@@ -3,7 +3,7 @@ const BASE_URI = 'https://api.hearthstonejson.com';
 const PATH = {
   CREATE: {},
   READ: {
-    LATEST: '/v1/latest/enUS/cards.json',
+    LATEST: '/v1/latest/enUS/cards.collectible.json',
   },
   UPDATE: {},
   DELETE: {},

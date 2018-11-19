@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import CardClassNavBar from '../../../components/App/CardClassNavBar';
-import { RootState } from 'src/redux/Types';
+import { IRootState } from 'src/redux/Types';
 import { cardsSetActiveClassNameAction } from 'src/redux/reducers/Cards';
 
-const mapStateToProps = (state: RootState) => ({
+const mapStateToProps = (state: IRootState) => ({
   cardClassNames: state.Cards.classNames,
 });
 

@@ -1,4 +1,4 @@
-import { ActionType } from '../Types';
+import { IActionType } from '../Types';
 import { Dispatch } from 'redux';
 
 /** MODELS */
@@ -28,7 +28,7 @@ export const appSetLoadedAction = (loaded: boolean) =>
   });
 
 /** REDUCER */
-export default (state: AppState = appStateFactory(), action: ActionType<any>): AppState => {
+export default (state: AppState = appStateFactory(), action: IActionType<any>): AppState => {
   const { type } = action;
   switch (type) {
     case APP_SET_LOADED: return {

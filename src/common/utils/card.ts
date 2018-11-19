@@ -1,9 +1,9 @@
 import CARD from '../constants/card';
 import HSJSON from '../constants/hsJson';
 import {
-  Card,
+  ICard,
   CardClassName
-} from '../../redux/reducers/Cards';
+} from '../models/Card';
 
 export const cardSrcWithParameters = (
   id: string,
@@ -16,21 +16,27 @@ export const cardSrcWithParameters = (
   .replace(`\{${HSJSON.REQUEST_PARAMS.ID}\}`, id)
   .replace(`\{${HSJSON.REQUEST_PARAMS.EXT}\}`, ext);
 
-export const composeCardClassNames = (cards: Card[]): string[] => cards.reduce(
-  (a: string[], b: Card) => {
-    const { cardClass } = b;
-    switch (cardClass) {
-      case CardClassName.DEATHKNIGHT:
-      case CardClassName.DREAM:
-      case CardClassName.NEUTRAL:
-      case CardClassName.WHIZBANG:
-      case undefined: return a;
-    }
-    if (a.indexOf(cardClass) >= 0) return a;
-    return [...a, cardClass].sort();
-  },
-  []
-) as string[];
+export const composeCardClassNames = (cards: ICard[]): string[] => {
+  // reduce cards to string array and sort.
+  const cardClassNames = cards.reduce(
+    (a: string[], b: ICard) => {
+      const { cardClass } = b;
+      switch (cardClass) {
+        case CardClassName.DEATHKNIGHT:
+        case CardClassName.DREAM:
+        case CardClassName.NEUTRAL:
+        case CardClassName.WHIZBANG:
+        case undefined: return a;
+      }
+      if (a.indexOf(cardClass) >= 0) return a;
+      return [...a, cardClass];
+    },
+    []
+  ).sort() as string[];
+  // push neutral type onto array.
+  cardClassNames.push(CardClassName.NEUTRAL);
+  return cardClassNames;
+};
 
 export default {
   cardSrcWithParameters,

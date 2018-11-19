@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { RootState } from '../../Types';
+import { IRootState } from '../../Types';
 import App from '../../../components/App';
 import { appDidLoadAction } from '../../reducers/App';
 
-const mapStateToProps = (state: RootState) => ({
+const mapStateToProps = (state: IRootState) => ({
   loaded: state.App.loaded,
 });
 

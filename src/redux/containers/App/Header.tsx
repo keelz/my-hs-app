@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { RootState } from '../..//Types';
+import { IRootState } from '../..//Types';
 import Header from '../../../components/App/Header';
 
-const mapStateToProps = (state: RootState) => ({
+const mapStateToProps = (state: IRootState) => ({
   cardClassNames: state.Cards.classNames,
 });
 

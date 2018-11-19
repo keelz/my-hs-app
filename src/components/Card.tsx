@@ -4,7 +4,7 @@ import {
   CardExt,
   CardLocale,
   CardResolution
-} from '../redux/reducers/Cards';
+} from '../common/models/Card';
 
 interface CardProps {
   id: string;
@@ -18,13 +18,16 @@ interface CardStateProps {}
 type Props = CardProps & CardStateProps;
 
 const Card: React.SFC<Props> = props =>
-  <img
-    width={props.resolution}
-    src={cardUtil.cardSrcWithParameters(
-      props.id,
-      props.locale,
-      props.resolution,
-      props.ext
-    )} />;
+  <div>
+    <img
+      width={props.resolution}
+      src={cardUtil.cardSrcWithParameters(
+        props.id,
+        props.locale,
+        props.resolution,
+        props.ext
+      )} />
+    <p>{props.id}</p>
+  </div>;
 
 export default Card;
