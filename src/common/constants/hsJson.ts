@@ -11,7 +11,12 @@ const PATH = {
 
 const RESPONSE_PARAMS = {};
 
-const REQUEST_PARAMS = {};
+const REQUEST_PARAMS = {
+  EXT: 'EXT',
+  ID: 'ID',
+  LOCALE: 'LOCALE',
+  RESOLUTION: 'RESOLUTION',
+};
 
 export default {
   BASE_URI,

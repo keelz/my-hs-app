@@ -1,0 +1,9 @@
+.Cards {}
+
+.Cards-title {}
+
+.Cards-collection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
