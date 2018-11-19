@@ -13,6 +13,10 @@ interface AppNavBarStateProps {
 // component props.
 type Props = AppNavBarProps & AppNavBarStateProps;
 
+const handleSetActiveClassName = (className: string) =>
+  (action: (cn: string) => any) =>
+  () => action(className);
+
 const AppNavBar: React.SFC<Props> = props =>
   <React.Fragment>
     { props.cardClassNames.map(className =>
@@ -20,7 +24,7 @@ const AppNavBar: React.SFC<Props> = props =>
           key={`nav-link-${className}`}
           className="App-nav-link"
           to="cards"
-          onClick={() => props.setActiveClassName(className)}>
+          onClick={handleSetActiveClassName(className)(props.setActiveClassName)}>
           {className}
         </Link>
       )
