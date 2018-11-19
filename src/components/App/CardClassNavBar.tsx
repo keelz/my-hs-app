@@ -14,7 +14,7 @@ interface AppNavBarStateProps {
 type Props = AppNavBarProps & AppNavBarStateProps;
 
 const handleSetActiveClassName = (className: string) =>
-  (action: (cn: string) => any) =>
+  (action: (className: string) => any) =>
   () => action(className);
 
 const AppNavBar: React.SFC<Props> = props =>
