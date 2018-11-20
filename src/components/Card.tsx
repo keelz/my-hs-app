@@ -14,16 +14,14 @@ interface ICardProps {
 }
 
 const Card: React.SFC<ICardProps> = props =>
-  <React.Fragment>
-    <img
-      width={props.resolution}
-      style={{ marginBottom: -45 }}
-      src={cardUtil.cardSrcWithParameters(
-        props.id,
-        props.locale,
-        props.resolution,
-        props.ext
-      )} />
-  </React.Fragment>;
+  <img
+    width={props.resolution}
+    style={{ marginBottom: -45 }}
+    src={cardUtil.cardSrcWithParameters(
+      props.id,
+      props.locale,
+      props.resolution,
+      props.ext
+    )} />;
 
 export default Card;
