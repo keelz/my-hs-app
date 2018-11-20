@@ -6,28 +6,24 @@ import {
   CardResolution
 } from '../common/models/Card';
 
-interface CardProps {
+interface ICardProps {
   id: string;
   ext: CardExt;
   locale: CardLocale;
   resolution: CardResolution;
 }
 
-interface CardStateProps {}
-
-type Props = CardProps & CardStateProps;
-
-const Card: React.SFC<Props> = props =>
-  <div>
+const Card: React.SFC<ICardProps> = props =>
+  <React.Fragment>
     <img
       width={props.resolution}
+      style={{ marginBottom: -45 }}
       src={cardUtil.cardSrcWithParameters(
         props.id,
         props.locale,
         props.resolution,
         props.ext
       )} />
-    <p>{props.id}</p>
-  </div>;
+  </React.Fragment>;
 
 export default Card;
