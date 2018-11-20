@@ -1,11 +1,14 @@
 import * as React from 'react';
-import CardClassNavBar from '../../redux/containers/CardClassNavBar';
+import NavBar from '../NavBar';
 
 // implementation props.
 interface AppHeaderProps {}
 
 // redux props.
-interface AppHeaderStateProps {}
+interface AppHeaderStateProps {
+  cardClassNames: string[];
+  setActiveCardClassName: (cardClassName: string) => any;
+}
 
 // component props.
 type Props = AppHeaderProps & AppHeaderStateProps;
@@ -15,9 +18,23 @@ const style = {
   justifyContent: 'center',
 };
 
+const composeTargets = (
+  withCardClassNames: string[],
+  action: (...args: any[]
+) => any) => withCardClassNames.map(cn => ({
+  action: () => action(cn),
+  path: '/',
+  text: cn,
+}));
+
 const AppHeader: React.SFC<Props> = props =>
   <header className="App-header" style={style}>
-    <CardClassNavBar />
+    <NavBar
+      id="card-class-names-nav-bar"
+      targets={composeTargets(
+        props.cardClassNames,
+        props.setActiveCardClassName
+      )} />
   </header>;
 
 export default AppHeader;

@@ -1,6 +1,5 @@
 import { IActionType } from '../Types';
 import { Dispatch } from 'redux';
-import { composeCardClassNames } from '../../common/utils/card';
 import {
   ICard,
   CardClassName
@@ -9,7 +8,6 @@ import {
 /** STATE MODEL */
 export interface CardsState {
   activeClassName: string;
-  classNames: string[];
   data: ICard[];
 }
 
@@ -17,7 +15,6 @@ export interface CardsState {
 export const defaultState = (): CardsState => ({
   activeClassName: CardClassName.DRUID,
   data: Array(0),
-  classNames: Array(0),
 });
 
 /** ACTIONS */
@@ -25,11 +22,11 @@ export const CARDS_SET_ACTIVE_CLASSNAME = 'CARDS_SET_ACTIVE_CLASSNAME';
 export const CARDS_SET_CARDS = 'CARDS_SET_CARDS';
 
 /** ACTION CREATORS */
-export const cardsSetCardsAction = (cards: ICard[]) =>
+export const cardsSetCardsAction = (data: ICard[]) =>
  (dispatch: Dispatch<IActionType<any>>) =>
  dispatch({
    type: CARDS_SET_CARDS,
-   payload: { data: cards, classNames: composeCardClassNames(cards) },
+   payload: { data },
  });
 
 export const cardsSetActiveClassNameAction = (activeClassName: string) =>
@@ -55,9 +52,6 @@ const reducer = (
       ...state,
       data: !!action.payload
         ? action.payload.data
-        : Array(0),
-      classNames: !!action.payload
-        ? action.payload.classNames
         : Array(0),
     };
     default: return state;
