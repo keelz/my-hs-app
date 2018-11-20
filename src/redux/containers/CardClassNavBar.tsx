@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import CardClassNavBar from '../../../components/App/CardClassNavBar';
-import { IRootState } from 'src/redux/Types';
-import { cardsSetActiveClassNameAction } from 'src/redux/reducers/Cards';
+import CardClassNavBar from '../../components/CardClassNavBar';
+import { IRootState } from '../../redux/Types';
+import { cardsSetActiveClassNameAction } from '../../redux/reducers/Cards';
 
 const mapStateToProps = (state: IRootState) => ({
   cardClassNames: state.Cards.classNames,

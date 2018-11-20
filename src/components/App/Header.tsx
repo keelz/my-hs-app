@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CardClassNavBar from '../../redux/containers/App/CardClassNavBar';
+import CardClassNavBar from '../../redux/containers/CardClassNavBar';
 
 // implementation props.
 interface AppHeaderProps {}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Cards from '../../redux/containers/Cards';
+import Collection from '../../redux/containers/Collection';
 
 // implementation props.
 interface AppRouterProps {}
@@ -13,7 +13,7 @@ type Props = AppRouterProps & AppRouterStateProps;
 
 const AppRouter: React.SFC<Props> = props =>
   <Switch>
-    <Route path="/cards" component={Cards} />
+    <Route exact path="/" component={Collection} />
   </Switch>;
 
 export default AppRouter;

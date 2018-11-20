@@ -1,29 +1,29 @@
 import * as React from 'react';
 import Card from '../Card';
-import './Cards.css';
+import './Collection.css';
+import { ICollection } from '../../common/models/Collection';
 import {
-  ICard,
   CardResolution,
   CardExt,
   CardLocale
 } from '../../common/models/Card';
 
-interface CardsProps {}
+interface ICollectionProps {}
 
-export interface CardsStateProps {
+export interface ICollectionStateProps {
   activeCardClassName: string;
-  cards: ICard[];
+  collection: ICollection;
 }
 
-type Props = CardsProps & CardsStateProps;
+type Props = ICollectionProps & ICollectionStateProps;
 
-const Cards: React.SFC<Props> = props =>
+const Collection: React.SFC<Props> = props =>
   <div className="Cards">
     <div className="Cards-title">
-      {props.activeCardClassName}: {props.cards.length}
+      { props.activeCardClassName }: { props.collection.cards.length }
     </div>
     <div className="Cards-collection">
-      { props.cards.map(card =>
+      { props.collection.cards.map(card =>
         <Card
           key={card.id}
           ext={CardExt.PNG}
@@ -34,4 +34,4 @@ const Cards: React.SFC<Props> = props =>
     </div>
   </div>;
 
-export default Cards;
+export default Collection;

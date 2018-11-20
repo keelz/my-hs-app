@@ -23,7 +23,7 @@ const AppNavBar: React.SFC<Props> = props =>
         <Link
           key={`nav-link-${className}`}
           className="App-nav-link"
-          to="cards"
+          to="/"
           onClick={handleSetActiveClassName(className)(props.setActiveClassName)}>
           {className}
         </Link>

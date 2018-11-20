@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { IRootState } from '../../Types';
 import { ICard } from '../../../common/models/Card';
-import Cards from '../../../components/Cards';
+import Collection, {
+  ICollectionStateProps
+} from '../../../components/Collection';
 
 const getCards = (state: IRootState) => state.Cards.data;
 
@@ -24,11 +26,13 @@ const cardsSelector = createSelector(
         : 0)
 );
 
-const mapStateToProps = (state: IRootState) => ({
+const mapStateToProps = (state: IRootState): ICollectionStateProps => ({
   activeCardClassName: getActiveClassName(state),
-  cards: cardsSelector(state),
+  collection: {
+    cards: cardsSelector(state),
+  },
 });
 
-const ConnectedCards = connect(mapStateToProps)(Cards);
+const ConnectedCollection = connect(mapStateToProps)(Collection);
 
-export default ConnectedCards;
+export default ConnectedCollection;
