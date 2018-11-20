@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { IRootState } from '../../Types';
 import Collection, { ICollectionStateProps } from '../../../components/Collection';
 import {
-  selectActiveClassName,
+  selectActiveCardClassName,
   selectCardsForActiveClassName
 } from '../../selectors/cards';
 
 const mapStateToProps = (state: IRootState): ICollectionStateProps => ({
-  activeCardClassName: selectActiveClassName(state),
+  activeCardClassName: selectActiveCardClassName(state),
   collection: {
     cards: selectCardsForActiveClassName(state),
   },

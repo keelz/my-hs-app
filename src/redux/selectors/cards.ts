@@ -2,31 +2,31 @@ import { createSelector } from 'reselect';
 import { IRootState } from '../Types';
 import { ICard } from '../../common/models/Card';
 
-class Accessors {
+export class Accessors {
   /**
    * get all cards.
    * @param state {IRootState}
    */
-  public static getCards(state: IRootState) {
+  public static getCards(state: IRootState): ICard[] {
     return state.Cards.data;
   }
 
   /**
-   * get active class name.
+   * get active card class name.
    * @param state {IRootState}
    */
-  public static getActiveClassName(state: IRootState) {
+  public static getActiveCardClassName(state: IRootState): string {
     return state.Cards.activeClassName;
   }
 }
 
 /**
- * get active class name.
+ * get active card class name.
  * @param state {IRootState}
  */
-export const selectActiveClassName = (state: IRootState) =>
+export const selectActiveCardClassName = (state: IRootState): string =>
   createSelector(
-    [Accessors.getActiveClassName],
+    [Accessors.getActiveCardClassName],
     (className) => className
   )(state);
 
@@ -34,7 +34,7 @@ export const selectActiveClassName = (state: IRootState) =>
  * get all cards.
  * @param state {IRootState}
  */
-export const selectCards = (state: IRootState) =>
+export const selectCards = (state: IRootState): ICard[] =>
   createSelector(
     [Accessors.getCards],
     (cards) => cards
@@ -44,11 +44,11 @@ export const selectCards = (state: IRootState) =>
  * get cards for active class name.
  * @param state {IRootState}
  */
-export const selectCardsForActiveClassName = (state: IRootState) =>
+export const selectCardsForActiveClassName = (state: IRootState): ICard[] =>
   createSelector(
     [
       Accessors.getCards,
-      Accessors.getActiveClassName,
+      Accessors.getActiveCardClassName,
     ],
     (cards: ICard[], activeClassName: string) =>
       cards
