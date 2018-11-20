@@ -1,17 +1,11 @@
 import * as React from 'react';
 
 // implementation props.
-interface PlaceholderProps {
+interface IPlaceholderProps {
   text: string;
 }
 
-// redux props.
-interface PlaceholderStateProps {}
-
-// component props.
-type Props = PlaceholderProps & PlaceholderStateProps;
-
-const Placeholder: React.SFC<Props> = props =>
+const Placeholder: React.SFC<IPlaceholderProps> = props =>
   <div>{props.text}</div>;
 
 export default Placeholder;

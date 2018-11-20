@@ -1,17 +1,11 @@
 import * as React from 'react';
 import NavBar from '../NavBar';
 
-// implementation props.
-interface AppHeaderProps {}
-
 // redux props.
-interface AppHeaderStateProps {
+interface IAppHeaderStateProps {
   cardClassNames: string[];
   setActiveCardClassName: (cardClassName: string) => any;
 }
-
-// component props.
-type Props = AppHeaderProps & AppHeaderStateProps;
 
 const style = {
   display: 'flex',
@@ -27,7 +21,7 @@ const composeTargets = (
   text: cn,
 }));
 
-const AppHeader: React.SFC<Props> = props =>
+const AppHeader: React.SFC<IAppHeaderStateProps> = props =>
   <header className="App-header" style={style}>
     <NavBar
       id="card-class-names-nav-bar"

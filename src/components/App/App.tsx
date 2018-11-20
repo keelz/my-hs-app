@@ -5,16 +5,7 @@ import AppFooter from './Footer';
 import AppHeader from '../../redux/containers/App/Header';
 import './App.css';
 
-// implementation props.
-interface AppProps {}
-
-// redux props.
-interface AppStateProps {}
-
-// component props.
-type Props = AppProps & AppStateProps;
-
-const App: React.SFC<Props> = props =>
+const App: React.SFC = () =>
   <Router>
     <React.Fragment>
       <AppHeader />

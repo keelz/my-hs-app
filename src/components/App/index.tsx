@@ -2,19 +2,13 @@ import * as React from 'react';
 import App from './App';
 import LoadingAnimation from '../LoadingAnimation';
 
-// implementation props.
-type AppProps = {};
-
 // redux props.
-type AppStateProps = {
+type IAppStateProps = {
   loaded: boolean;
   appDidLoadAction: () => any;
 };
 
-// component props.
-type Props = AppProps & AppStateProps;
-
-class Index extends React.Component<Props> {
+class Index extends React.Component<IAppStateProps> {
   componentDidMount() {
     this.props.appDidLoadAction();
   }

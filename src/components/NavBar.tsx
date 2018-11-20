@@ -2,18 +2,21 @@ import * as React from 'react';
 import * as classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
+// implementation props
 interface INavBarProps {
   id: string;
-  targets: ITarget[];
+  targets: INavBarTarget[];
 }
 
-export interface ITarget {
+// nav bar target interface.
+export interface INavBarTarget {
   action?: (...args: any[]) => void;
   path: string;
   text?: string;
 }
 
-const composeClassnames = () => classnames([
+// compose css class names.
+export const composeClassnames = () => classnames([
   'Nav-bar',
 ]);
 

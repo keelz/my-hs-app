@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { IRootState } from '../Types';
 import { ICard } from '../../common/models/Card';
+import { composeCardClassNames } from '../../common/utils/card';
 
 export class Accessors {
   /**
@@ -28,6 +29,16 @@ export const selectActiveCardClassName = (state: IRootState): string =>
   createSelector(
     [Accessors.getActiveCardClassName],
     (className) => className
+  )(state);
+
+/**
+ * get all unique card class names.
+ * @param state {IRootState}
+ */
+export const selectCardClassNames = (state: IRootState) =>
+  createSelector(
+    [Accessors.getCards],
+    (cards) => composeCardClassNames(cards)
   )(state);
 
 /**

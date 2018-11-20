@@ -1,15 +1,6 @@
 import * as React from 'react';
 
-// implementation props.
-interface AppFooterProps {}
-
-// redux props.
-interface AppFooterStateProps {}
-
-// component props.
-type Props = AppFooterProps & AppFooterStateProps;
-
-const AppFooter: React.SFC<Props> = props =>
+const AppFooter: React.SFC = () =>
   <section className="App-footer">
   </section>;
 

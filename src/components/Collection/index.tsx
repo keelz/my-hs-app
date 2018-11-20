@@ -8,16 +8,12 @@ import {
   CardLocale
 } from '../../common/models/Card';
 
-interface ICollectionProps {}
-
 export interface ICollectionStateProps {
   activeCardClassName: string;
   collection: ICollection;
 }
 
-type Props = ICollectionProps & ICollectionStateProps;
-
-const Collection: React.SFC<Props> = props =>
+const Collection: React.SFC<ICollectionStateProps> = props =>
   <div className="Cards">
     <div className="Cards-title">
       { props.activeCardClassName }: { props.collection.cards.length }
