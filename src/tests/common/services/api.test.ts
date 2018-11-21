@@ -2,7 +2,7 @@ import localApi from '../../../common/services/localApi';
 
 describe('api service', () => {
   it('composes a path with parameters correctly', () => {
-    const path = '/:testOne/:testTwo';
+    const path = '/{testOne}/{testTwo}';
     const pathCheck = '/valueOne/valueTwo';
     const test = localApi.pathWithParameters(path, { testOne: 'valueOne', testTwo: 'valueTwo' });
     expect(test).toBe(pathCheck);

@@ -5,11 +5,12 @@ import { ICollection } from '../../common/models/Collection';
 import {
   CardResolution,
   CardExt,
-  CardLocale
+  CardLocale,
+  CardClassName
 } from '../../common/models/Card';
 
 export interface ICollectionStateProps {
-  activeCardClassName: string;
+  activeCardClassName: CardClassName;
   collection: ICollection;
 }
 

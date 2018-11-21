@@ -38,5 +38,9 @@ Object {
     "mediaType": "infinity",
     "orientation": null,
   },
+  "Cards": Object {
+    "activeClassName": "DRUID",
+    "data": Array [],
+  },
 }
 `;

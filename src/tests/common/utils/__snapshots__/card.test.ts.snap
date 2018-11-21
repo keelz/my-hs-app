@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`card utilities composes card class names correctly 1`] = `
+Array [
+  "DRUID",
+  "HUNTER",
+  "MAGE",
+  "PALADIN",
+  "PRIEST",
+  "ROGUE",
+  "SHAMAN",
+  "WARLOCK",
+  "WARRIOR",
+  "NEUTRAL",
+]
+`;

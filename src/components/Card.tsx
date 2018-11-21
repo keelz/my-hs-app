@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cardSrcWithParameters } from '../common/utils/card';
+import { composeAssetSource } from '../common/services/hsJsonApi';
 import {
   CardExt,
   CardLocale,
@@ -17,7 +17,7 @@ const Card: React.SFC<ICardProps> = props =>
   <img
     width={props.resolution}
     style={{ marginBottom: -45 }}
-    src={cardSrcWithParameters(
+    src={composeAssetSource(
       props.id,
       props.locale,
       props.resolution,

@@ -3,7 +3,16 @@
 exports[`AppHeader snapshots renders correctly 1`] = `
 <header
   className="App-header"
+  style={
+    Object {
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
 >
-  <AppNavBar />
+  <NavBar
+    id="card-class-names-nav-bar"
+    targets={Array []}
+  />
 </header>
 `;

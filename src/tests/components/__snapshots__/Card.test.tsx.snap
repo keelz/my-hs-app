@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card snapshots renders without crashing 1`] = `
+<img
+  src="https://art.hearthstonejson.com/v1/render/latest/enUS/512x/test.png"
+  style={
+    Object {
+      "marginBottom": -45,
+    }
+  }
+  width={512}
+/>
+`;

@@ -1,7 +1,10 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 // Replace path placeholders with values.
-export const pathWithParameters = (withPath: string, parameters: { [name: string]: string }) => {
+export const pathWithParameters = (
+  withPath: string,
+  parameters: { [name: string]: string }
+) => {
   let path = withPath;
   Object.keys(parameters).forEach(k => path = path.replace(`{${k}}`, parameters[k]));
   return path;

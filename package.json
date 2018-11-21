@@ -54,9 +54,11 @@
   "jest": {
     "collectCoverageFrom": [
       "src/common/services/**/*.{ts,tsx}",
+      "src/common/utils/**/*.{ts,tsx}",
       "src/components/**/*.{ts,tsx}",
       "src/redux/middleware/**/*.ts",
-      "src/redux/reducers/**/*.ts"
+      "src/redux/reducers/**/*.ts",
+      "src/redux/selectors/**/*.ts"
     ]
   },
   "browserslist": [

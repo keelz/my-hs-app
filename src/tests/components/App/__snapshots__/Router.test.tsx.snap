@@ -7,9 +7,5 @@ exports[`AppRouter snapshots renders correctly 1`] = `
     exact={true}
     path="/"
   />
-  <Route
-    component={[Function]}
-    path="/test"
-  />
 </Switch>
 `;

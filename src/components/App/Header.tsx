@@ -1,5 +1,6 @@
 import * as React from 'react';
 import NavBar from '../NavBar';
+import { composeTargets } from '../../common/utils/navBar';
 
 // redux props.
 interface IAppHeaderStateProps {
@@ -11,15 +12,6 @@ const style = {
   display: 'flex',
   justifyContent: 'center',
 };
-
-const composeTargets = (
-  withCardClassNames: string[],
-  action: (...args: any[]
-) => any) => withCardClassNames.map(cn => ({
-  action: () => action(cn),
-  path: '/',
-  text: cn,
-}));
 
 const AppHeader: React.SFC<IAppHeaderStateProps> = props =>
   <header className="App-header" style={style}>

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards Reducer snapshots composes default state correctly 1`] = `
+Object {
+  "activeClassName": "DRUID",
+  "data": Array [],
+}
+`;
+
+exports[`Cards Reducer snapshots composes state correctly 1`] = `
+Object {
+  "activeClassName": "DRUID",
+  "data": Array [],
+}
+`;

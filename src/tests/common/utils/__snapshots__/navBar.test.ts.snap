@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`navBar utilities composes targets correctly 1`] = `
+Array [
+  Object {
+    "action": [Function],
+    "path": "/",
+    "text": "one",
+  },
+  Object {
+    "action": [Function],
+    "path": "/",
+    "text": "two",
+  },
+  Object {
+    "action": [Function],
+    "path": "/",
+    "text": "three",
+  },
+]
+`;

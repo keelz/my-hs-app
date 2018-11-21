@@ -2,7 +2,7 @@
 
 exports[`App snapshots renders App component correctly 1`] = `
 <BrowserRouter>
-  <AppHeader />
+  <Connect(AppHeader) />
   <AppBody />
   <AppFooter />
 </BrowserRouter>
