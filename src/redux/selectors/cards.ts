@@ -82,7 +82,9 @@ export const selectCardsForActiveClassName = (state: IRootState): ICard[] =>
       .filter(card => {
         const filter = filters[HSJSON.RESPONSE_PARAMS.COST];
         const response = !!filter
-          ? card.cost === parseInt(filter, 10)
+          ? parseInt(filter, 10) === 7
+            ? card.cost >= 7
+            : card.cost === parseInt(filter, 10)
           : true;
         return response;
       })
