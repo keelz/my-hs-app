@@ -62,7 +62,6 @@ const reducer = (
   switch (type) {
     case CARDS_DELETE_FILTERS:
       const deleteFilters = { ...state.filters };
-      console.log(deleteFilters);
       !!action.payload && Object
         .keys(action.payload.filters)
         .forEach(key => delete deleteFilters[key]);
