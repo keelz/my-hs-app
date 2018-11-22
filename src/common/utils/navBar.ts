@@ -1,9 +1,9 @@
 
-export const composeTargets = (
-  withCardClassNames: string[],
-  action: (...args: any[]) => any
-) => withCardClassNames.map(cn => ({
-  action: () => action(cn),
+export const composeTextTargets = (
+  withValues: string[],
+  action: (value: string) => any
+) => withValues.map(value => ({
+  action: () => action(value),
   path: '/',
-  text: cn,
+  text: value,
 }));

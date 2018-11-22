@@ -41,6 +41,7 @@ Object {
   "Cards": Object {
     "activeClassName": "DRUID",
     "data": Array [],
+    "filters": Object {},
   },
 }
 `;

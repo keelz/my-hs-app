@@ -11,6 +11,7 @@ exports[`Collection snapshots renders without crashing 1`] = `
     : 
     1756
   </div>
+  <Connect(ManaBar) />
   <div
     className="Cards-collection"
   >

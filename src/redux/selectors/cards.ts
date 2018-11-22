@@ -1,9 +1,18 @@
 import { createSelector } from 'reselect';
+import HSJSON from '../../common/constants/hsJson';
 import { IRootState } from '../Types';
 import { ICard } from '../../common/models/Card';
 import { composeCardClassNames } from '../../common/utils/card';
 
 export class Accessors {
+  /**
+   * get active card class name.
+   * @param state {IRootState}
+   */
+  public static getActiveCardClassName(state: IRootState): string {
+    return state.Cards.activeClassName;
+  }
+
   /**
    * get all cards.
    * @param state {IRootState}
@@ -13,11 +22,11 @@ export class Accessors {
   }
 
   /**
-   * get active card class name.
+   * get all Cards filters.
    * @param state {IRootState}
    */
-  public static getActiveCardClassName(state: IRootState): string {
-    return state.Cards.activeClassName;
+  public static getFilters(state: IRootState): { [key: string]: string } {
+    return state.Cards.filters;
   }
 }
 
@@ -58,19 +67,31 @@ export const selectCards = (state: IRootState): ICard[] =>
 export const selectCardsForActiveClassName = (state: IRootState): ICard[] =>
   createSelector(
     [
-      Accessors.getCards,
       Accessors.getActiveCardClassName,
+      Accessors.getCards,
+      Accessors.getFilters,
     ],
-    (cards: ICard[], activeClassName: string) =>
-      cards
-        // filter by active class name
-        .filter(c => c.cardClass === activeClassName)
-        // sort by cost
-        .sort((a, b) => a.cost - b.cost)
-        // sort by name
-        .sort((a, b) => a.cost === b.cost
-          ? a.name < b.name
-            ? -1
-            : 0
-          : 0)
+    (
+      activeClassName: string,
+      cards: ICard[],
+      filters: { [key: string]: string }
+    ) => cards
+      // filter by active class name
+      .filter(card => card.cardClass === activeClassName)
+      // filter by card cost
+      .filter(card => {
+        const filter = filters[HSJSON.RESPONSE_PARAMS.COST];
+        const response = !!filter
+          ? card.cost === parseInt(filter, 10)
+          : true;
+        return response;
+      })
+      // sort by cost
+      .sort((a, b) => a.cost - b.cost)
+      // sort by name
+      .sort((a, b) => a.cost === b.cost
+        ? a.name < b.name
+          ? -1
+          : 0
+        : 0)
   )(state);

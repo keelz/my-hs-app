@@ -9,19 +9,30 @@ import {
 export interface CardsState {
   activeClassName: string;
   data: ICard[];
+  filters: { [field: string]: string };
 }
 
 /** STATE FACTORY */
 export const defaultState = (): CardsState => ({
   activeClassName: CardClassName.DRUID,
   data: Array(0),
+  filters: {},
 });
 
 /** ACTIONS */
+export const CARDS_DELETE_FILTERS = 'CARDS_DELETE_FILTER';
 export const CARDS_SET_ACTIVE_CLASSNAME = 'CARDS_SET_ACTIVE_CLASSNAME';
 export const CARDS_SET_CARDS = 'CARDS_SET_CARDS';
+export const CARDS_SET_FILTER = 'CARDS_SET_FILTER';
 
 /** ACTION CREATORS */
+export const cardsDeleteFilterAction = (key: string, value: string) =>
+  (dispatch: Dispatch<any>) =>
+  dispatch({
+    type: CARDS_DELETE_FILTERS,
+    payload: { filters: { [key]: value } },
+  });
+
 export const cardsSetCardsAction = (data: ICard[]) =>
  (dispatch: Dispatch<IActionType<any>>) =>
  dispatch({
@@ -36,12 +47,29 @@ export const cardsSetActiveClassNameAction = (activeClassName: string) =>
    payload: { activeClassName },
  });
 
+export const cardsSetFilterAction = (key: string, value: string) =>
+ (dispatch: Dispatch<any>) =>
+ dispatch({
+   type: CARDS_SET_FILTER,
+   payload: { filters: { [key]: value } },
+ });
+
 /** REDUCER */
 const reducer = (
   state: CardsState = defaultState(),
   action: IActionType<CardsState>): CardsState => {
   const { type } = action;
   switch (type) {
+    case CARDS_DELETE_FILTERS:
+      const deleteFilters = { ...state.filters };
+      console.log(deleteFilters);
+      !!action.payload && Object
+        .keys(action.payload.filters)
+        .forEach(key => delete deleteFilters[key]);
+      return {
+        ...state,
+        filters: { ...deleteFilters },
+      };
     case CARDS_SET_ACTIVE_CLASSNAME: return {
       ...state,
       activeClassName: !!action.payload
@@ -54,6 +82,11 @@ const reducer = (
         ? action.payload.data
         : Array(0),
     };
+    case CARDS_SET_FILTER:
+      const filters = action.payload
+        ? { ...state.filters, ...action.payload.filters }
+        : { ...state.filters };
+      return { ...state, filters };
     default: return state;
   }
 };

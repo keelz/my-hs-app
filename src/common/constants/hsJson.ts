@@ -14,7 +14,9 @@ const PATH = {
   DELETE: {},
 };
 
-const RESPONSE_PARAMS = {};
+const RESPONSE_PARAMS = {
+  COST: 'cost',
+};
 
 const REQUEST_PARAMS = {
   EXT: 'EXT',

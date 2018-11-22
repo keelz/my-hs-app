@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card from '../Card';
 import './Collection.css';
 import { ICollection } from '../../common/models/Collection';
+import ManaBar from '../../redux/containers/Collection/ManaBar';
 import {
   CardResolution,
   CardExt,
@@ -19,6 +20,7 @@ const Collection: React.SFC<ICollectionStateProps> = props =>
     <div className="Cards-title">
       { props.activeCardClassName }: { props.collection.cards.length }
     </div>
+    <ManaBar />
     <div className="Cards-collection">
       { props.collection.cards.map(card =>
         <Card

@@ -4,6 +4,7 @@ exports[`Cards Reducer snapshots composes default state correctly 1`] = `
 Object {
   "activeClassName": "DRUID",
   "data": Array [],
+  "filters": Object {},
 }
 `;
 
@@ -11,5 +12,6 @@ exports[`Cards Reducer snapshots composes state correctly 1`] = `
 Object {
   "activeClassName": "DRUID",
   "data": Array [],
+  "filters": Object {},
 }
 `;

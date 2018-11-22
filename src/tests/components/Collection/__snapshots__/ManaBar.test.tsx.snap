@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection ManaBar snapshots composes mana gems correctly 1`] = `
+Array [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+]
+`;
+
+exports[`Collection ManaBar snapshots renders without crashing 1`] = `
+<div
+  className="Collection-mana-bar"
+>
+  <NavBar
+    id="collection-mana-bar"
+    targets={
+      Array [
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "0",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "1",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "2",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "3",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "4",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "5",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "6",
+        },
+        Object {
+          "action": [Function],
+          "path": "/",
+          "text": "7",
+        },
+      ]
+    }
+  />
+</div>
+`;

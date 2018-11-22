@@ -18,6 +18,21 @@ describe('Cards Reducer', () => {
   });
 
   describe('action creators', () => {
+    it(`dispatches ${Reducer.CARDS_DELETE_FILTERS} correctly`, () => {
+      const dispatch = jest.fn();
+      const {
+        CARDS_DELETE_FILTERS,
+        cardsDeleteFilterAction,
+      } = Reducer;
+      cardsDeleteFilterAction('test', 'test')(dispatch);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: CARDS_DELETE_FILTERS,
+        payload: {
+          filters: { test: 'test' },
+        },
+      });
+    });
+
     it(`dispatches ${Reducer.CARDS_SET_CARDS} correctly`, () => {
       const dispatch = jest.fn();
       const {
@@ -43,9 +58,49 @@ describe('Cards Reducer', () => {
         payload: { activeClassName: 'test' },
       });
     });
+
+    it(`dispatches ${Reducer.CARDS_SET_FILTER} correctly`, () => {
+      const dispatch = jest.fn();
+      const {
+        CARDS_SET_FILTER,
+        cardsSetFilterAction,
+      } = Reducer;
+      cardsSetFilterAction('test', 'test')(dispatch);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: CARDS_SET_FILTER,
+        payload: {
+          filters: { test: 'test' },
+        },
+      });
+    });
   });
 
   describe('reducer', () => {
+    it(`handles ${Reducer.CARDS_DELETE_FILTERS} correctly`, () => {
+      const {
+        defaultState,
+        CARDS_DELETE_FILTERS,
+      } = Reducer;
+      const action = {
+        type: CARDS_DELETE_FILTERS,
+        payload: {
+          ...defaultState(),
+          filters: {
+            test: 'test',
+          },
+        },
+      };
+      const activeState = {
+        ...defaultState(),
+        filters: { test: 'test', static: 'static' },
+      };
+      const result = Reducer.default(activeState, action);
+      expect(result).toEqual({
+        ...defaultState(),
+        filters: { static: 'static' },
+      });
+    });
+
     it(`handles ${Reducer.CARDS_SET_ACTIVE_CLASSNAME} correctly`, () => {
       const action = {
         type: Reducer.CARDS_SET_ACTIVE_CLASSNAME,
@@ -89,6 +144,37 @@ describe('Cards Reducer', () => {
       };
       const result = Reducer.default(undefined, action);
       expect(result).toEqual({ ...Reducer.defaultState() });
+    });
+
+    it(`handles ${Reducer.CARDS_SET_FILTER} correctly`, () => {
+      const {
+        CARDS_SET_FILTER,
+        defaultState,
+      } = Reducer;
+      const action = {
+        type: CARDS_SET_FILTER,
+        payload: {
+          ...defaultState(),
+          filters: { test: 'test' },
+        },
+      };
+      const result = Reducer.default(undefined, action);
+      expect(result).toEqual({
+        ...defaultState(),
+        filters: { test: 'test' },
+      });
+    });
+
+    it(`handles ${Reducer.CARDS_SET_FILTER} with null payload correctly`, () => {
+      const {
+        CARDS_SET_FILTER,
+        defaultState,
+      } = Reducer;
+      const action = {
+        type: CARDS_SET_FILTER,
+      };
+      const result = Reducer.default(undefined, action);
+      expect(result).toEqual({ ...defaultState() });
     });
   });
 });
