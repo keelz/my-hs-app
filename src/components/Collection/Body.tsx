@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Card from '../Card';
 import { ICollection } from '../../common/models/Collection';
 import { IComponentProps } from '../../common/models/App';
 import { composeClassname } from '../../common/utils';
+import Card from '../Card';
 import {
   CardResolution,
   CardExt,
