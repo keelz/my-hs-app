@@ -11,7 +11,8 @@ export const composeManaGems = (): number[] =>
   Array(8).fill(null).map((_, i) => i);
 
 export const composeLinkAction = (action: (field: string, value: string) => any) =>
-  (index: number) => action(HSJSON.RESPONSE_PARAMS.COST, index.toString());
+  (index: number) =>
+  action(HSJSON.RESPONSE_PARAMS.COST, index.toString());
 
 const ManaBar: React.SFC<IManaBarStateProps> = props =>
   <div className="Collection-mana-bar">
