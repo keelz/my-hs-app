@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection Header snapshots renders without crashing 1`] = `
+<div
+  className="Collection-header"
+>
+  <Connect(ManaBar) />
+</div>
+`;
