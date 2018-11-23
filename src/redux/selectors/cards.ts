@@ -64,7 +64,7 @@ export const selectCards = (state: IRootState): ICard[] =>
  * get cards for active class name.
  * @param state {IRootState}
  */
-export const selectCardsForActiveClassName = (state: IRootState): ICard[] =>
+export const selectCardsWithFilters = (state: IRootState): ICard[] =>
   createSelector(
     [
       Accessors.getActiveCardClassName,

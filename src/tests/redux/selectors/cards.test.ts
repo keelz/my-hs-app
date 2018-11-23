@@ -1,4 +1,5 @@
 import * as Selector from '../../../redux/selectors/cards';
+import HSJSON from '../../../common/constants/hsJson';
 import { IRootState } from '../../../redux/Types';
 import { defaultState as cardState } from '../../../redux/reducers/Cards';
 import { ICard } from '../../../common/models/Card';
@@ -7,7 +8,7 @@ import testData from '../../../common/mocks/collection';
 const composeState = () => ({
   Cards: {
     ...cardState(),
-    data: [...testData].slice(0, 50) as ICard[],
+    data: [...testData].slice(0, 200) as ICard[],
   },
 }) as IRootState;
 
@@ -31,7 +32,7 @@ describe('cards selector', () => {
       selectActiveCardClassName,
       selectCardClassNames,
       selectCards,
-      selectCardsForActiveClassName,
+      selectCardsWithFilters,
     } = Selector;
 
     it('selects active class name correctly', () => {
@@ -49,8 +50,17 @@ describe('cards selector', () => {
       expect(result).toMatchSnapshot();
     });
 
-    it('selects cards for active class name correctly', () => {
-      const result = selectCardsForActiveClassName(composeState());
+    it('selects cards with filters correctly', () => {
+      const state = composeState();
+      state.Cards.filters = { [HSJSON.RESPONSE_PARAMS.COST]: '2' };
+      const result = selectCardsWithFilters(state);
+      expect(result).toMatchSnapshot();
+    });
+
+    it('selects cards with greater than or equal to 7 cost correctly', () => {
+      const state = composeState();
+      state.Cards.filters = { [HSJSON.RESPONSE_PARAMS.COST]: '7' };
+      const result = selectCardsWithFilters(state);
       expect(result).toMatchSnapshot();
     });
   });

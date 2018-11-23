@@ -4,13 +4,13 @@ import Collection, { ICollectionStateProps } from '../../../components/Collectio
 import { CardClassName } from '../../../common/models/Card';
 import {
   selectActiveCardClassName,
-  selectCardsForActiveClassName
+  selectCardsWithFilters
 } from '../../selectors/cards';
 
 const mapStateToProps = (state: IRootState): ICollectionStateProps => ({
   activeCardClassName: selectActiveCardClassName(state) as CardClassName,
   collection: {
-    cards: selectCardsForActiveClassName(state),
+    cards: selectCardsWithFilters(state),
   },
 });
 
