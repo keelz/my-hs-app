@@ -1,25 +1,21 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
+import { IComponentProps } from '../common/models/App';
+import { composeClassname } from '../common/utils';
 
-export interface IManaGemProps {
-  className?: string;
+export interface IManaGemProps extends IComponentProps {
   cost: number;
   onClick?: () => void;
 }
 
-const composeClassnames = (className?: string) =>
-  classnames(
-    [
-      'btn',
-      'btn-primary',
-      'Mana-gem',
-    ],
-    className
-  );
+const defaultClassnames = [
+  'btn',
+  'btn-primary',
+  'Mana-gem',
+];
 
 const ManaGem: React.SFC<IManaGemProps> = props =>
   <button
-    className={composeClassnames(props.className)}
+    className={composeClassname(defaultClassnames)(props.className)}
     onClick={props.onClick}>
     { props.cost }
   </button>;

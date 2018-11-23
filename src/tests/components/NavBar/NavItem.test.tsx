@@ -1,18 +1,18 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import NavLink from '../../../components/NavBar/NavLink';
+import NavItem from '../../../components/NavBar/NavItem';
 
-describe('NavBar NavLink', () => {
+describe('NavBar NavItem', () => {
   describe('snapshots', () => {
     it('renders without crashing', () => {
-      const tree = enzyme.shallow(<NavLink />);
+      const tree = enzyme.shallow(<NavItem />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
 
     it('renders with children correctly', () => {
       const Component = () =>
-        <NavLink><div>test</div></NavLink>;
+        <NavItem><div>test</div></NavItem>;
       const tree = enzyme.shallow(<Component />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
@@ -21,7 +21,7 @@ describe('NavBar NavLink', () => {
   describe('integration', () => {
     it('renders with a render prop correctly', () => {
       const render = jest.fn();
-      enzyme.shallow(<NavLink render={render} />);
+      enzyme.shallow(<NavItem render={render} />);
       expect(render).toHaveBeenCalled();
     });
   });

@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { IComponentProps } from '../../common/models/App';
+import { composeClassname } from '../../common/utils';
 
-const AppFooter: React.SFC = () =>
-  <section className="App-footer">
+interface AppFooterProps extends IComponentProps {}
+
+const AppFooter: React.SFC<AppFooterProps> = props =>
+  <section className={composeClassname('App-footer')(props.className)}>
   </section>;
 
 export default AppFooter;

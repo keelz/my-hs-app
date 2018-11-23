@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar NavItem snapshots renders with children correctly 1`] = `
+<NavItem>
+  <div>
+    test
+  </div>
+</NavItem>
+`;
+
+exports[`NavBar NavItem snapshots renders without crashing 1`] = `
+<div
+  className="Nav-item"
+/>
+`;

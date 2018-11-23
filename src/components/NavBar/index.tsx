@@ -1,25 +1,25 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
-import { default as NavLinkComponent, NavLinkProps } from './NavLink';
+import { IComponentProps } from '../../common/models/App';
+import { composeClassname } from '../../common/utils';
+import { default as NavItemComponent, INavItemProps } from './NavItem';
 import './NavBar.css';
 
+/**
+ * USAGE:
+ * import { NavBar, NavItem }
+ * no default export.
+ */
+
 // implementation props
-interface INavBarProps {
+interface INavBarProps extends IComponentProps {
   className?: string | string[];
   id: string;
 }
 
-const composeClassnames = (className?: string | string[]) => classnames(
-  [
-    'Nav-bar',
-  ],
-  className
-);
-
 export const NavBar: React.SFC<INavBarProps> = props =>
-  <div id={props.id} className={composeClassnames(props.className)}>
+  <div id={props.id} className={composeClassname('Nav-bar')(props.className)}>
     { props.children }
   </div>;
 
-export const NavLink: React.SFC<NavLinkProps> = props =>
-  <NavLinkComponent {...props}>{props.children}</NavLinkComponent>;
+export const NavItem: React.SFC<INavItemProps> = props =>
+  <NavItemComponent {...props}>{props.children}</NavItemComponent>;

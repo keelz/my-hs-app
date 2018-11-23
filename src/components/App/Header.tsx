@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavBar, NavLink } from '../NavBar';
+import { NavBar, NavItem } from '../NavBar';
 
 // redux props.
 interface IAppHeaderStateProps {
@@ -11,7 +11,7 @@ const AppHeader: React.SFC<IAppHeaderStateProps> = props =>
   <header className="App-header">
     <NavBar id="card-class-names-nav-bar">
       { props.cardClassNames.map(cardClassName =>
-          <NavLink
+          <NavItem
             key={`app-header-nav-link-${cardClassName}`}
             render={(_) => {
               return (

@@ -29,6 +29,8 @@ body {
   animation: spin 2s linear infinite;
 }
 
+.App-card {}
+
 .Mana-gem {
   display: flex;
   justify-content: center;

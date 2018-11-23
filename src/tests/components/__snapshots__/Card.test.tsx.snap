@@ -2,7 +2,7 @@
 
 exports[`Card snapshots renders without crashing 1`] = `
 <img
-  className="Card"
+  className="App-card"
   src="https://art.hearthstonejson.com/v1/render/latest/enUS/512x/test.png"
 />
 `;

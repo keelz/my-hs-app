@@ -21,7 +21,7 @@ describe('AppHeader', () => {
       const props = { ...defaultProps };
       props.cardClassNames = ['one', 'two', 'three'];
       const tree = enzyme.mount(<AppHeader {...props} />);
-      const navLinks = tree.find('NavLink');
+      const navLinks = tree.find('NavItem');
       expect(navLinks).toHaveLength(3);
     });
 
@@ -29,7 +29,7 @@ describe('AppHeader', () => {
       const props = { ...defaultProps };
       props.cardClassNames = ['one'];
       const tree = enzyme.mount(<AppHeader {...props} />);
-      const navLink = tree.find('NavLink').first();
+      const navLink = tree.find('NavItem').first();
       const button = navLink.find('button');
       button.simulate('click');
       expect(props.setActiveCardClassName).toHaveBeenCalled();

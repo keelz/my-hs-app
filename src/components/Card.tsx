@@ -1,5 +1,6 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
+import { IComponentProps } from '../common/models/App';
+import { composeClassname } from '../common/utils';
 import { composeAssetSource } from '../common/services/hsJsonApi';
 import {
   CardExt,
@@ -7,25 +8,16 @@ import {
   CardResolution
 } from '../common/models/Card';
 
-interface ICardProps {
-  className?: string | string[];
+interface ICardProps extends IComponentProps {
   ext: CardExt;
   id: string;
   locale: CardLocale;
   resolution: CardResolution;
 }
 
-const composeClassnames = (className?: string | string[]) =>
-  classnames(
-    [
-      'Card',
-    ],
-    className
-  );
-
 const Card: React.SFC<ICardProps> = props =>
   <img
-    className={composeClassnames(props.className)}
+    className={composeClassname('App-card')(props.className)}
     src={composeAssetSource(
       props.id,
       props.locale,

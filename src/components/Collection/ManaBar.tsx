@@ -1,6 +1,6 @@
 import * as React from 'react';
 import HSJSON from '../../common/constants/hsJson';
-import { NavBar, NavLink } from '../NavBar';
+import { NavBar, NavItem } from '../NavBar';
 import ManaGem from '../ManaGem';
 
 export interface IManaBarStateProps {
@@ -17,7 +17,7 @@ export const composeLinkAction = (action: (field: string, value: string) => any)
 const ManaBar: React.SFC<IManaBarStateProps> = props =>
   <NavBar id="collection-mana-bar" className="Collection-mana-bar">
     { composeManaGems().map(gem =>
-      <NavLink
+      <NavItem
         key={`mana-bar-btn${gem}`}
         render={(_) => {
           return (

@@ -7,7 +7,7 @@ exports[`NavBar snapshots renders NavBar without crashing 1`] = `
 />
 `;
 
-exports[`NavBar snapshots renders NavLink without crashing 1`] = `<NavLink />`;
+exports[`NavBar snapshots renders NavLink without crashing 1`] = `<NavItem />`;
 
 exports[`NavBar snapshots renders correctly without text 1`] = `
 <div

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import { NavBar, NavLink } from '../../../components/NavBar';
+import { NavBar, NavItem } from '../../../components/NavBar';
 
 const composeProps = () => ({
   id: 'test',
@@ -19,7 +19,7 @@ describe('NavBar', () => {
     });
 
     it('renders NavLink without crashing', () => {
-      const tree = enzyme.shallow(<NavLink />);
+      const tree = enzyme.shallow(<NavItem />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
 
