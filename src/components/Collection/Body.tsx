@@ -15,6 +15,7 @@ const CollectionBody: React.SFC<ICollectionBodyProps> = props =>
   <div className="Collection-body">
     { props.collection.cards.map(card =>
       <Card
+        className="Collection-card"
         key={card.id}
         ext={CardExt.PNG}
         id={card.id}

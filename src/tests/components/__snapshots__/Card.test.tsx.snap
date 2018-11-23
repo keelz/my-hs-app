@@ -2,12 +2,7 @@
 
 exports[`Card snapshots renders without crashing 1`] = `
 <img
+  className="Card"
   src="https://art.hearthstonejson.com/v1/render/latest/enUS/512x/test.png"
-  style={
-    Object {
-      "marginBottom": -45,
-    }
-  }
-  width={512}
 />
 `;

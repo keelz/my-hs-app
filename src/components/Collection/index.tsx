@@ -2,8 +2,8 @@ import * as React from 'react';
 import './Collection.css';
 import { ICollection } from '../../common/models/Collection';
 import { CardClassName } from '../../common/models/Card';
-import ManaBar from '../../redux/containers/Collection/ManaBar';
 import CollectionBody from './Body';
+import CollectionHeader from './Header';
 
 export interface ICollectionStateProps {
   activeCardClassName: CardClassName;
@@ -12,7 +12,7 @@ export interface ICollectionStateProps {
 
 const Collection: React.SFC<ICollectionStateProps> = props =>
   <div className="Collection">
-    <ManaBar />
+    <CollectionHeader />
     <CollectionBody collection={props.collection} />
   </div>;
 

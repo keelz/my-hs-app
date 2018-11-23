@@ -1,16 +1,28 @@
 .Collection {}
 
-.Collection-title {
-  padding: .625rem;
-  margin-bottom: .625rem;
-}
-
 .Collection-body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: .625rem;
-  height: 42.5rem;
+  height: 41.5rem;
   overflow: scroll;
+}
+
+.Collection-card {
+  margin-top: -1.25rem;
+  margin-bottom: -1.875rem;
+}
+
+.Collection-header {
+  display: flex;
+  justify-content: center;
+}
+
+.Collection-mana-bar {
+  padding: .625rem;
+  background-color: rgb(235, 235, 235);
+  border-radius: .625rem;
+  width: 14.625rem;
 }

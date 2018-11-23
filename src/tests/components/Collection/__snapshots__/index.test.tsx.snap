@@ -4,7 +4,7 @@ exports[`Collection snapshots renders without crashing 1`] = `
 <div
   className="Collection"
 >
-  <Connect(ManaBar) />
+  <CollectionHeader />
   <CollectionBody
     collection={
       Object {

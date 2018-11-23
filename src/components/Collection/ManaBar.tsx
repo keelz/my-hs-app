@@ -15,20 +15,18 @@ export const composeLinkAction = (action: (field: string, value: string) => any)
   action(HSJSON.RESPONSE_PARAMS.COST, index.toString());
 
 const ManaBar: React.SFC<IManaBarStateProps> = props =>
-  <div className="Collection-mana-bar">
-    <NavBar id="collection-mana-bar">
-      { composeManaGems().map(gem =>
-          <NavLink
-            key={`mana-bar-btn${gem}`}
-            render={(_) => {
-              return (
-                <ManaGem
-                  cost={gem}
-                  onClick={() => composeLinkAction(props.setFilter)(gem)} />
-              );
-            }} />
-      )}
-    </NavBar>
-  </div>;
+  <NavBar id="collection-mana-bar" className="Collection-mana-bar">
+    { composeManaGems().map(gem =>
+      <NavLink
+        key={`mana-bar-btn${gem}`}
+        render={(_) => {
+          return (
+            <ManaGem
+              cost={gem}
+              onClick={() => composeLinkAction(props.setFilter)(gem)} />
+          );
+        }} />
+    )}
+  </NavBar>;
 
 export default ManaBar;

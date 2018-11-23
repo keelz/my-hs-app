@@ -14,44 +14,41 @@ Array [
 `;
 
 exports[`Collection ManaBar snapshots renders without crashing 1`] = `
-<div
+<Component
   className="Collection-mana-bar"
+  id="collection-mana-bar"
 >
   <Component
-    id="collection-mana-bar"
-  >
-    <Component
-      key="mana-bar-btn0"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn1"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn2"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn3"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn4"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn5"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn6"
-      render={[Function]}
-    />
-    <Component
-      key="mana-bar-btn7"
-      render={[Function]}
-    />
-  </Component>
-</div>
+    key="mana-bar-btn0"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn1"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn2"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn3"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn4"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn5"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn6"
+    render={[Function]}
+  />
+  <Component
+    key="mana-bar-btn7"
+    render={[Function]}
+  />
+</Component>
 `;
