@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 import { IRootState } from '../../Types';
 import { cardsSetActiveClassNameAction } from '../../reducers/Cards';
-import { selectCardClassNames } from '../../selectors/cards';
 import Header from '../../../components/App/Header';
+import {
+  selectCardClassNames,
+  selectActiveCardClassName
+} from '../../selectors/cards';
 
 const mapStateToProps = (state: IRootState) => ({
+  activeClassName: selectActiveCardClassName(state),
   cardClassNames: selectCardClassNames(state),
 });
 

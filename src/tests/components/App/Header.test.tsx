@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import AppHeader from '../../../components/App/Header';
+import AppHeader, { composeButtonClassname } from '../../../components/App/Header';
 
 const defaultProps = Object.freeze({
   cardClassNames: Array(0),
@@ -33,6 +33,15 @@ describe('AppHeader', () => {
       const button = navLink.find('button');
       button.simulate('click');
       expect(props.setActiveCardClassName).toHaveBeenCalled();
+    });
+  });
+
+  describe('helpers', () => {
+    it('composes button classnames correctly', () => {
+      let classnames = composeButtonClassname('test', 'test');
+      expect(classnames).toEqual(['btn btn-light active']);
+      classnames = composeButtonClassname('test', 'diff');
+      expect(classnames).toEqual(['btn btn-light']);
     });
   });
 });
