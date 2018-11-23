@@ -24,6 +24,22 @@ describe('Collection ManaBar', () => {
     });
   });
 
+  describe('integration', () => {
+    it('renders ManaGem components correctly', () => {
+      const tree = enzyme.mount(<ManaBar {...defaultProps} />);
+      const gems = tree.find('ManaGem');
+      expect(gems).toHaveLength(8);
+    });
+
+    it('handles mana gem click event correctly', () => {
+      const props = { ...defaultProps };
+      const tree = enzyme.mount(<ManaBar {...props} />);
+      const gem = tree.find('ManaGem').first();
+      gem.simulate('click');
+      expect(props.setFilter).toHaveBeenCalled();
+    });
+  });
+
   describe('helpers', () => {
     it('composes a link action correctly', () => {
       const testAction = jest.fn();

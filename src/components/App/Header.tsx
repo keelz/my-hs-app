@@ -12,6 +12,7 @@ const AppHeader: React.SFC<IAppHeaderStateProps> = props =>
     <NavBar id="card-class-names-nav-bar">
       { props.cardClassNames.map(cardClassName =>
           <NavLink
+            key={`app-header-nav-link-${cardClassName}`}
             render={(_) => {
               return (
                 <button
