@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import NavBar from '../../components/NavBar';
+import { NavBar } from '../../../components/NavBar';
 
 const composeProps = () => ({
   id: 'test',

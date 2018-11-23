@@ -16,12 +16,9 @@ export interface ICollectionStateProps {
 }
 
 const Collection: React.SFC<ICollectionStateProps> = props =>
-  <div className="Cards">
-    <div className="Cards-title">
-      { props.activeCardClassName }: { props.collection.cards.length }
-    </div>
+  <div className="Collection">
     <ManaBar />
-    <div className="Cards-collection">
+    <div className="Collection-body">
       { props.collection.cards.map(card =>
         <Card
           key={card.id}

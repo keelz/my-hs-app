@@ -12,8 +12,8 @@
 }
 
 .App-header {
-  height: 3rem;
-  padding: 1.25rem;
+  margin-top: .625rem;
+  margin-bottom: .625rem;
 }
 
 .App-title {

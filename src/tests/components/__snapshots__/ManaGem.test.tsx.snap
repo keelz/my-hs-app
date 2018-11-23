@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ManaGem snapshots renders without crashing 1`] = `
-<div
-  className="Mana-gem"
+<button
+  className="btn btn-primary Mana-gem"
 >
   2
-</div>
+</button>
 `;

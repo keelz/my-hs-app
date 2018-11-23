@@ -1,8 +1,11 @@
-.Cards {}
+.Collection {}
 
-.Cards-title {}
+.Collection-title {
+  padding: .625rem;
+  margin-bottom: .625rem;
+}
 
-.Cards-collection {
+.Collection-body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

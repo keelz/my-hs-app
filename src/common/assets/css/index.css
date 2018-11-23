@@ -29,8 +29,8 @@ body {
   animation: spin 2s linear infinite;
 }
 
-.Nav-bar .link {
-  margin-right: .625rem;
+.Mana-gem {
+  font-size: .625rem;
 }
 
 @keyframes spin {

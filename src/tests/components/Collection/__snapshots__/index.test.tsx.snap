@@ -2,18 +2,11 @@
 
 exports[`Collection snapshots renders without crashing 1`] = `
 <div
-  className="Cards"
+  className="Collection"
 >
-  <div
-    className="Cards-title"
-  >
-    DRUID
-    : 
-    1756
-  </div>
   <Connect(ManaBar) />
   <div
-    className="Cards-collection"
+    className="Collection-body"
   >
     <Card
       ext="png"

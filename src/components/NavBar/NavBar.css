@@ -1,0 +1,8 @@
+.Nav-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.Nav-link {
+  margin-right: .3125rem;
+}

@@ -28,8 +28,8 @@ describe('Collection ManaBar', () => {
     it('composes a link action correctly', () => {
       const testAction = jest.fn();
       const linkAction = composeLinkAction(testAction);
-      linkAction('test');
-      expect(testAction).toHaveBeenCalledWith(HSJSON.RESPONSE_PARAMS.COST, 'test');
+      linkAction(3);
+      expect(testAction).toHaveBeenCalledWith(HSJSON.RESPONSE_PARAMS.COST, '3');
     });
   });
 });
