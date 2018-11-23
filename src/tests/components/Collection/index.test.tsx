@@ -8,7 +8,7 @@ import cards from '../../../common/mocks/collection';
 const composeProps = () => ({
   activeCardClassName: CardClassName.DRUID,
   collection: {
-    cards: [...cards] as ICard[],
+    cards: [...cards].slice(0, 50) as ICard[],
   },
 });
 
