@@ -7,7 +7,6 @@ exports[`ManaGem snapshots renders without crashing 1`] = `
   <img
     alt="gem"
     className="Mana-gem-nav-img"
-    src="https://hsreplay.net/static/images/mana_crystal.png"
   />
   <div
     className="Mana-gem-nav-text"

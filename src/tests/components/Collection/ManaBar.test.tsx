@@ -3,7 +3,7 @@ import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import HSJSON from '../../../common/constants/hsJson';
 import ManaBar, {
-  composeLinkAction,
+  composeClickAction,
   composeManaGems
 } from '../../../components/Collection/ManaBar';
 
@@ -43,7 +43,7 @@ describe('Collection ManaBar', () => {
   describe('helpers', () => {
     it('composes a link action correctly', () => {
       const testAction = jest.fn();
-      const linkAction = composeLinkAction(testAction);
+      const linkAction = composeClickAction(testAction);
       linkAction(3);
       expect(testAction).toHaveBeenCalledWith(HSJSON.RESPONSE_PARAMS.COST, '3');
     });

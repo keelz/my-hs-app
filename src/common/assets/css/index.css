@@ -40,6 +40,10 @@ body {
   cursor: pointer;
 }
 
+.Mana-gem.active {
+  filter: saturate(1) opacity(1);
+}
+
 .Mana-gem-nav-img {
   height: 1.875rem;
 }

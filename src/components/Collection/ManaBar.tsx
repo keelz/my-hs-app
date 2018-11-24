@@ -8,6 +8,7 @@ import ManaGem from '../ManaGem';
 interface IManaBarProps extends IComponentProps {}
 
 export interface IManaBarStateProps {
+  activeGem?: number;
   setFilter: (field: string, value: string) => any;
 }
 
@@ -16,7 +17,7 @@ type Props = IManaBarProps & IManaBarStateProps;
 export const composeManaGems = (): number[] =>
   Array(8).fill(null).map((_, i) => i);
 
-export const composeLinkAction = (action: (field: string, value: string) => any) =>
+export const composeClickAction = (action: (field: string, value: string) => any) =>
   (index: number) =>
   action(HSJSON.RESPONSE_PARAMS.COST, index.toString());
 
@@ -30,8 +31,9 @@ const ManaBar: React.SFC<Props> = props =>
         render={(_) => {
           return (
             <ManaGem
+              className={props.activeGem === gem ? 'active' : ''}
               cost={gem}
-              onClick={() => composeLinkAction(props.setFilter)(gem)} />
+              onClick={() => composeClickAction(props.setFilter)(gem)} />
           );
         }} />
     )}
