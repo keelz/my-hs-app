@@ -1,42 +1,41 @@
-import middleware from '../../../redux/middleware/App';
-import {
-  APP_DID_LOAD,
-  APP_SET_LOADED
-} from '../../../redux/reducers/App';
-
-const compose = () => {
-  const store = {
-    dispatch: jest.fn(),
-    getState: jest.fn(),
-    subscribe: jest.fn(),
-  };
-
-  const next = jest.fn();
-
-  const action = (type: string, payload?: any) => ({
-    type,
-    payload,
-  });
-
-  return { action, next, store };
-};
+import { composeMiddlewaqre } from '../../../redux/middleware/App';
+import { composeMockStore, IMockStore } from '../../utils';
+import { APP_DID_LOAD } from '../../../redux/reducers/App';
+import { CARDS_SET_FILTER } from '../../../redux/reducers/Cards';
+import { IAppService } from '../../../common/services/app.service';
 
 describe('App middleware', () => {
-  it('handles unknown action correctly', () => {
-    const { action, next, store } = compose();
-    const actionType = action('UNKNOWN');
-    middleware(store)(next)(actionType);
-    expect(next).toHaveBeenCalledWith(actionType);
+  let mockService: IAppService;
+  let mockStore: IMockStore;
+
+  beforeEach(() => {
+    mockService = {
+      handleAppDidLoadAction: jest.fn(() => jest.fn(() => jest.fn())),
+      handleCardsSetFilterAction: jest.fn(() => jest.fn(() => jest.fn())),
+    };
+    mockStore = composeMockStore(composeMiddlewaqre(mockService));
   });
 
   it(`handles ${APP_DID_LOAD} correctly`, () => {
-    const { action, next, store } = compose();
-    const actionType = action(APP_DID_LOAD);
-    middleware(store)(next)(actionType);
-    expect(next).toHaveBeenCalledWith(actionType);
-    expect(store.dispatch).toHaveBeenCalledWith({
-      type: APP_SET_LOADED,
-      payload: { loaded: true },
+    const { action, invoke } = mockStore;
+    const actionType = action(APP_DID_LOAD)();
+    invoke(actionType);
+    expect(mockService.handleAppDidLoadAction).toHaveBeenCalled();
+  });
+
+  it(`handles ${CARDS_SET_FILTER} correctly`, () => {
+    const { action, invoke } = mockStore;
+    const actionType = action(CARDS_SET_FILTER)({
+      filters: { card: '1' },
     });
+    invoke(actionType);
+    expect(mockService.handleCardsSetFilterAction).toHaveBeenCalled();
+  });
+
+  it('handles unknown action correctly', () => {
+    const { action, invoke, next } = mockStore;
+    const actionType = action('UNKNOWN')();
+    invoke(actionType);
+    expect(next).toHaveBeenCalledWith(actionType);
   });
 });
