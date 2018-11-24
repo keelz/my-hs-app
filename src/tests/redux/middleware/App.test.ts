@@ -32,12 +32,11 @@ describe('App middleware', () => {
   it(`handles ${APP_DID_LOAD} correctly`, () => {
     const { action, next, store } = compose();
     const actionType = action(APP_DID_LOAD);
-    return middleware(store)(next)(actionType).then(() => {
-      expect(next).toHaveBeenCalledWith(actionType);
-      expect(store.dispatch).toHaveBeenCalledWith({
-        type: APP_SET_LOADED,
-        payload: { loaded: true },
-      });
+    middleware(store)(next)(actionType);
+    expect(next).toHaveBeenCalledWith(actionType);
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: APP_SET_LOADED,
+      payload: { loaded: true },
     });
   });
 });
