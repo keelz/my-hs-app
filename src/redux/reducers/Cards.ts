@@ -26,11 +26,11 @@ export const CARDS_SET_CARDS = 'CARDS_SET_CARDS';
 export const CARDS_SET_FILTER = 'CARDS_SET_FILTER';
 
 /** ACTION CREATORS */
-export const cardsDeleteFilterAction = (key: string, value: string) =>
+export const cardsDeleteFilterAction = (key: string) =>
   (dispatch: Dispatch<any>) =>
   dispatch({
     type: CARDS_DELETE_FILTERS,
-    payload: { filters: { [key]: value } },
+    payload: { filters: { [key]: undefined } },
   });
 
 export const cardsSetCardsAction = (data: ICard[]) =>

@@ -1,8 +1,8 @@
 import { MiddlewareAPI, Dispatch, Middleware } from 'redux';
 import hsJsonApi from '../../common/services/hsJsonApi';
-import HS_JSON from '../../common/constants/hsJson';
+import HSJSON from '../../common/constants/hsJson';
 import { IActionType, IRootState } from '../Types';
-import { cardsSetCardsAction } from '../reducers/Cards';
+import { cardsSetCardsAction, CARDS_SET_FILTER, cardsDeleteFilterAction } from '../reducers/Cards';
 import {
   appSetLoadedAction,
   APP_DID_LOAD,
@@ -31,7 +31,7 @@ async (action: IActionType<any>) => {
 
       // **OPTIONAL**
       // complete asynchronous tasks synchronously.
-      const response = await hsJsonApi.read(HS_JSON.PATH.READ.LATEST);
+      const response = await hsJsonApi.read(HSJSON.PATH.READ.LATEST);
 
       // **OPTIONAL**
       // dispatch side effects.
@@ -43,6 +43,25 @@ async (action: IActionType<any>) => {
       // correctly MUST return.
       // received.
       return;
+    case CARDS_SET_FILTER:
+      // capture state scope within anonymous function.
+      (() => {
+        const state = api.getState();
+        const currentFilters = state.Cards.filters;
+        const newFilters = action.payload.filters;
+        if (!!newFilters[HSJSON.RESPONSE_PARAMS.COST]
+          && !!currentFilters[HSJSON.RESPONSE_PARAMS.COST]
+          && newFilters[HSJSON.RESPONSE_PARAMS.COST]
+          === currentFilters[HSJSON.RESPONSE_PARAMS.COST]) {
+          cardsDeleteFilterAction(HSJSON.RESPONSE_PARAMS.COST)(api.dispatch);
+          return;
+        }
+        return next(action);
+      })();
+      return;
+      // const currentFilters = state.Cards.filters;
+      // const newFilters = action.payload.filters;
+      // console.log(currentFilters, newFilters);
 
     // **REQUIRED**
     // Default case block MUST call next argument with action argument and return.

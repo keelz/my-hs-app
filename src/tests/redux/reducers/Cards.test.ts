@@ -24,11 +24,11 @@ describe('Cards Reducer', () => {
         CARDS_DELETE_FILTERS,
         cardsDeleteFilterAction,
       } = Reducer;
-      cardsDeleteFilterAction('test', 'test')(dispatch);
+      cardsDeleteFilterAction('test')(dispatch);
       expect(dispatch).toHaveBeenCalledWith({
         type: CARDS_DELETE_FILTERS,
         payload: {
-          filters: { test: 'test' },
+          filters: { test: undefined },
         },
       });
     });
