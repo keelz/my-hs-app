@@ -1,18 +1,21 @@
 .Collection {}
 
 .Collection-body {
+  margin-top: .625rem;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: .625rem;
-  height: 41.5rem;
+  height: 34.375rem;
   overflow: scroll;
+  border: .0625rem solid black;
+  background-color: #e0e0e0;
+  border-radius: .3125rem;
+  box-shadow: 5px 10px 20px #888888;
 }
 
 .Collection-card {
-  margin-top: -1.25rem;
-  margin-bottom: -1.875rem;
+  height: 17.5rem;
+  padding: .3125rem;
 }
 
 .Collection-header {
