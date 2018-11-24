@@ -7,11 +7,11 @@ export interface INavItemProps extends IComponentProps {
 }
 
 const NavItem: React.SFC<INavItemProps> = props =>
-  <div className={composeClassname('Nav-item')(props.className)}>
+  <li className={composeClassname('Nav-item')(props.className)}>
     { props.render
         ? props.render(props.children)
         : props.children
     }
-  </div>;
+  </li>;
 
 export default NavItem;

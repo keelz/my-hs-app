@@ -18,7 +18,9 @@ interface INavBarProps extends IComponentProps {
 
 export const NavBar: React.SFC<INavBarProps> = props =>
   <div id={props.id} className={composeClassname('Nav-bar')(props.className)}>
-    { props.children }
+    <ul className="Nav-bar-list">
+      { props.children }
+    </ul>
   </div>;
 
 export const NavItem: React.SFC<INavItemProps> = props =>

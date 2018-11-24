@@ -9,7 +9,7 @@ exports[`NavBar NavItem snapshots renders with children correctly 1`] = `
 `;
 
 exports[`NavBar NavItem snapshots renders without crashing 1`] = `
-<div
+<li
   className="Nav-item"
 />
 `;

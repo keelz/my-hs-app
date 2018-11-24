@@ -4,7 +4,11 @@ exports[`NavBar snapshots renders NavBar without crashing 1`] = `
 <div
   className="Nav-bar"
   id="test"
-/>
+>
+  <ul
+    className="Nav-bar-list"
+  />
+</div>
 `;
 
 exports[`NavBar snapshots renders NavLink without crashing 1`] = `<NavItem />`;
@@ -13,5 +17,9 @@ exports[`NavBar snapshots renders correctly without text 1`] = `
 <div
   className="Nav-bar"
   id="test"
-/>
+>
+  <ul
+    className="Nav-bar-list"
+  />
+</div>
 `;

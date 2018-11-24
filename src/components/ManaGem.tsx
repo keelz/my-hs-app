@@ -1,23 +1,17 @@
 import * as React from 'react';
 import { IComponentProps } from '../common/models/App';
-import { composeClassname } from '../common/utils';
 
 export interface IManaGemProps extends IComponentProps {
   cost: number;
   onClick?: () => void;
 }
 
-const defaultClassnames = [
-  'btn',
-  'btn-primary',
-  'Mana-gem',
-];
-
 const ManaGem: React.SFC<IManaGemProps> = props =>
-  <button
-    className={composeClassname(defaultClassnames)(props.className)}
-    onClick={props.onClick}>
-    { props.cost }
-  </button>;
+  <div className="Mana-gem" onClick={props.onClick}>
+    <img
+      className="Mana-gem-nav-img"
+      src="https://hsreplay.net/static/images/mana_crystal.png" alt="gem" />
+    <div className="Mana-gem-nav-text">{props.cost}</div>
+  </div>;
 
 export default ManaGem;
