@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { IActionType } from '../Types';
 import { CARDS_SET_FILTER } from '../reducers/Cards';
 import { APP_DID_LOAD } from '../reducers/App';
-import { AppMiddlewareApi } from '../../common/models/App';
+import { AppMiddlewareApi } from '../../common/models/app.model';
 import {
   default as appService,
   IAppService,

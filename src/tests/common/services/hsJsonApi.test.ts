@@ -1,5 +1,5 @@
 import HSJSON from '../../../common/constants/hsJson';
-import { CardResolution } from '../../../common/models/Card';
+import { CardResolution } from '../../../common/models/cards.model';
 import {
   composeAssetSource,
 } from '../../../common/services/hsJson.service';

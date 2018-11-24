@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import {
   ICard,
   CardClassName
-} from '../../common/models/Card';
+} from '../../common/models/cards.model';
 
 /** STATE MODEL */
 export interface CardsState {

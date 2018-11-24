@@ -1,4 +1,4 @@
-import { composeTextTargets } from '../../../common/utils/navBar';
+import { composeTextTargets } from '../../../common/utils/navBar.util';
 
 const mockCardClassNames = ['one', 'two', 'three'];
 const mockAction = jest.fn();

@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { AppMiddlewareApi, MiddlewareAction } from '../models/App';
+import { AppMiddlewareApi, MiddlewareAction } from '../models/app.model';
 import HSJSON from '../constants/hsJson';
 import hsJsonApi from './hsJson.service';
 import { IActionType } from '../../redux/Types';

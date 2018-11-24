@@ -2,7 +2,7 @@ import * as Selector from '../../../redux/selectors/cards';
 import HSJSON from '../../../common/constants/hsJson';
 import { IRootState } from '../../../redux/Types';
 import { defaultState as cardState } from '../../../redux/reducers/Cards';
-import { ICard } from '../../../common/models/Card';
+import { ICard } from '../../../common/models/cards.model';
 import testData from '../../../common/mocks/collection';
 
 const composeState = () => ({

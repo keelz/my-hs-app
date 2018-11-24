@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { ICollection } from '../../common/models/Collection';
-import { IComponentProps } from '../../common/models/App';
+import { ICollection } from '../../common/models/collection.model';
+import { IComponentProps } from '../../common/models/app.model';
 import { composeClassname } from '../../common/utils';
 import Card from '../Card';
 import {
   CardResolution,
   CardExt,
   CardLocale,
-} from '../../common/models/Card';
+} from '../../common/models/cards.model';
 
 interface ICollectionBodyProps extends IComponentProps {
   collection: ICollection;

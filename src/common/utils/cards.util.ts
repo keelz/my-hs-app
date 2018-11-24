@@ -1,7 +1,7 @@
 import {
   ICard,
   CardClassName
-} from '../models/Card';
+} from '../models/cards.model';
 
 export const composeCardClassNames = (cards: ICard[]): string[] => {
   // reduce cards to string array and sort.

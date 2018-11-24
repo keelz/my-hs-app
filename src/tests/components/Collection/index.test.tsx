@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Collection from '../../../components/Collection';
-import { CardClassName, ICard } from '../../../common/models/Card';
+import { CardClassName, ICard } from '../../../common/models/cards.model';
 import cards from '../../../common/mocks/collection';
 
 const composeProps = () => ({

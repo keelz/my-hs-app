@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './Collection.css';
-import { ICollection } from '../../common/models/Collection';
-import { CardClassName } from '../../common/models/Card';
-import { IComponentProps } from '../../common/models/App';
+import { ICollection } from '../../common/models/collection.model';
+import { CardClassName } from '../../common/models/cards.model';
+import { IComponentProps } from '../../common/models/app.model';
 import CollectionBody from './Body';
 import CollectionHeader from './Header';
 

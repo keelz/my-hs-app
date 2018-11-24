@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IComponentProps } from '../../common/models/App';
+import { IComponentProps } from '../../common/models/app.model';
 import { composeClassname } from '../../common/utils';
 
 interface AppFooterProps extends IComponentProps {}
