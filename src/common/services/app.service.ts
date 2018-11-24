@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
+import { AxiosPromise } from 'axios';
 import { AppMiddlewareApi, MiddlewareAction } from '../models/app.model';
 import HSJSON from '../constants/hsJson';
-import hsJsonApi from './hsJson.service';
 import { IActionType } from '../../redux/Types';
 import { appSetLoadedAction } from '../../redux/reducers/App';
 import {
@@ -10,7 +10,7 @@ import {
 } from '../../redux/reducers/Cards';
 
 export interface IAppService {
-  handleAppDidLoadAction: MiddlewareAction;
+  handleAppDidLoadAction: (fetchAction: () => AxiosPromise<any>) => MiddlewareAction;
   handleCardsSetFilterAction: MiddlewareAction;
 }
 
@@ -21,11 +21,12 @@ export interface IAppService {
  * saturate state
  * @param api {AppMiddlewareApi}
  */
-export const handleAppDidLoadAction = (api: AppMiddlewareApi) =>
+export const handleAppDidLoadAction = (fetchAction: () => AxiosPromise) =>
+  (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   async (action: IActionType<any>) => {
     next(action);
-    const response = await hsJsonApi.read(HSJSON.PATH.READ.LATEST);
+    const response = await fetchAction();
     cardsSetCardsAction(response.data)(api.dispatch);
     appSetLoadedAction(true)(api.dispatch);
     return;

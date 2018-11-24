@@ -7,6 +7,10 @@ import {
   default as appService,
   IAppService,
 } from '../../common/services/app.service';
+import HSJSON from '../../common/constants/hsJson';
+import hsJsonApi from '../../common/services/hsJson.service';
+
+const fetchAction = () => hsJsonApi.read(HSJSON.PATH.READ.LATEST);
 
 export const composeMiddlewaqre = (appService: IAppService) =>
   (api: AppMiddlewareApi) =>
@@ -14,7 +18,7 @@ export const composeMiddlewaqre = (appService: IAppService) =>
   (action: IActionType<any>) => {
     switch (action.type) {
       case APP_DID_LOAD:
-        return appService.handleAppDidLoadAction(api)(next)(action);
+        return appService.handleAppDidLoadAction(fetchAction)(api)(next)(action);
       case CARDS_SET_FILTER:
         return appService.handleCardsSetFilterAction(api)(next)(action);
       default:

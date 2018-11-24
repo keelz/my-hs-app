@@ -10,7 +10,7 @@ describe('App middleware', () => {
 
   beforeEach(() => {
     mockService = {
-      handleAppDidLoadAction: jest.fn(() => jest.fn(() => jest.fn())),
+      handleAppDidLoadAction: jest.fn(() => jest.fn(() => jest.fn(() => jest.fn()))),
       handleCardsSetFilterAction: jest.fn(() => jest.fn(() => jest.fn())),
     };
     mockStore = composeMockStore(composeMiddlewaqre(mockService));
