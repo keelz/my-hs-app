@@ -14,6 +14,13 @@ export interface IAppService {
   handleCardsSetFilterAction: MiddlewareAction;
 }
 
+/**
+ * handle app loading event side effects.
+ * toggle loading animation
+ * fetch hsjson data
+ * saturate state
+ * @param api {AppMiddlewareApi}
+ */
 export const handleAppDidLoadAction = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   async (action: IActionType<any>) => {
@@ -24,6 +31,11 @@ export const handleAppDidLoadAction = (api: AppMiddlewareApi) =>
     return;
   };
 
+/**
+ * handle set card filters action side effects.
+ * remove the cost filter if new value is equal to persisted value.
+ * @param api {AppMiddlewareApi}
+ */
 export const handleCardsSetFilterAction = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => {
