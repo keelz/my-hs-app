@@ -1,10 +1,13 @@
 import { Dispatch } from 'redux';
 import { AppMiddlewareApi, MiddlewareAction } from '../models/App';
-import { IActionType } from '../../redux/Types';
-import { appSetLoadedAction } from '../../redux/reducers/App';
-import { cardsSetCardsAction, cardsDeleteFilterAction } from '../../redux/reducers/Cards';
 import HSJSON from '../constants/hsJson';
 import hsJsonApi from './hsJsonApi';
+import { IActionType } from '../../redux/Types';
+import { appSetLoadedAction } from '../../redux/reducers/App';
+import {
+  cardsSetCardsAction,
+  cardsDeleteFilterAction,
+} from '../../redux/reducers/Cards';
 
 export interface IAppService {
   handleAppDidLoadAction: MiddlewareAction;
