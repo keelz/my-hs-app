@@ -1,4 +1,4 @@
-import localApi from '../../../common/services/localApi';
+import localApi from '../../../common/services/localApi.service';
 
 describe('api service', () => {
   it('composes a path with parameters correctly', () => {

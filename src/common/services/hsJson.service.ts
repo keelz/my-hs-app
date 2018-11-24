@@ -1,5 +1,5 @@
 import HSJSON from '../constants/hsJson';
-import api from './api';
+import api from './api.service';
 
 const hsJsonApi = api(HSJSON.BASE_URI);
 

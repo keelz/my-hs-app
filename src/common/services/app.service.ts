@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { AppMiddlewareApi, MiddlewareAction } from '../models/App';
 import HSJSON from '../constants/hsJson';
-import hsJsonApi from './hsJsonApi';
+import hsJsonApi from './hsJson.service';
 import { IActionType } from '../../redux/Types';
 import { appSetLoadedAction } from '../../redux/reducers/App';
 import {

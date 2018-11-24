@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IComponentProps } from '../common/models/App';
 import { composeClassname } from '../common/utils';
-import { composeAssetSource } from '../common/services/hsJsonApi';
+import { composeAssetSource } from '../common/services/hsJson.service';
 import {
   CardExt,
   CardLocale,

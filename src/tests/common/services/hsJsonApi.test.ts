@@ -2,7 +2,7 @@ import HSJSON from '../../../common/constants/hsJson';
 import { CardResolution } from '../../../common/models/Card';
 import {
   composeAssetSource,
-} from '../../../common/services/hsJsonApi';
+} from '../../../common/services/hsJson.service';
 
 describe('hsJsonApi', () => {
   it('composes an asset source correctly', () => {
