@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App reducer composes default state correctly 1`] = `
+exports[`App reducer factories composes default state correctly 1`] = `
 Object {
   "loaded": false,
 }
