@@ -31,6 +31,16 @@ describe('Collection ManaBar', () => {
       expect(gems).toHaveLength(8);
     });
 
+    it('renders ManaGem component correctly with activeGem', () => {
+      const props = {
+        ...defaultProps,
+        activeGem: 3,
+      };
+      const tree = enzyme.mount(<ManaBar {...props} />);
+      const active = tree.find('.Mana-gem.active');
+      expect(active).toHaveLength(1);
+    });
+
     it('handles mana gem click event correctly', () => {
       const props = { ...defaultProps };
       const tree = enzyme.mount(<ManaBar {...props} />);
