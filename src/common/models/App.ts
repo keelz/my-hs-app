@@ -7,6 +7,6 @@ export interface IComponentProps {
 
 export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>;
 
-export type MiddlewareAction = (api: MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>) =>
+export type MiddlewareAction = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => void;
