@@ -2,17 +2,11 @@ import { Dispatch } from 'redux';
 import { IActionType } from '../Types';
 import { CARDS_SET_FILTER } from '../reducers/Cards';
 import { APP_DID_LOAD } from '../reducers/App';
+import { AppMiddlewareApi } from '../../common/models/App';
 import {
-  handleAppDidLoadAction,
-  handleCardsSetFilterAction,
-  AppMiddlewareApi,
-  MiddlewareAction,
+  default as appService,
+  IAppService,
 } from '../../common/services/app.service';
-
-interface IAppService {
-  handleAppDidLoadAction: MiddlewareAction;
-  handleCardsSetFilterAction: MiddlewareAction;
-}
 
 export const composeMiddlewaqre = (appService: IAppService) =>
   (api: AppMiddlewareApi) =>
@@ -28,9 +22,6 @@ export const composeMiddlewaqre = (appService: IAppService) =>
     }
   };
 
-const appMiddleware = composeMiddlewaqre({
-  handleAppDidLoadAction,
-  handleCardsSetFilterAction,
-});
+const appMiddleware = composeMiddlewaqre(appService);
 
 export default appMiddleware;

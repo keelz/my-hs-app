@@ -1,15 +1,15 @@
-import { MiddlewareAPI, Dispatch } from 'redux';
-import { IActionType, IRootState } from '../../redux/Types';
+import { Dispatch } from 'redux';
+import { AppMiddlewareApi, MiddlewareAction } from '../models/App';
+import { IActionType } from '../../redux/Types';
 import { appSetLoadedAction } from '../../redux/reducers/App';
 import { cardsSetCardsAction, cardsDeleteFilterAction } from '../../redux/reducers/Cards';
 import HSJSON from '../constants/hsJson';
 import hsJsonApi from './hsJsonApi';
 
-export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>;
-
-export type MiddlewareAction = (api: MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>) =>
-  (next: Dispatch<IActionType<any>>) =>
-  (action: IActionType<any>) => void;
+export interface IAppService {
+  handleAppDidLoadAction: MiddlewareAction;
+  handleCardsSetFilterAction: MiddlewareAction;
+}
 
 export const handleAppDidLoadAction = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
@@ -37,3 +37,10 @@ export const handleCardsSetFilterAction = (api: AppMiddlewareApi) =>
     next(action);
     return;
   };
+
+const service: IAppService = {
+  handleAppDidLoadAction,
+  handleCardsSetFilterAction,
+};
+
+export default service;
