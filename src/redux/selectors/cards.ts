@@ -76,6 +76,8 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
       cards: ICard[],
       filters: { [key: string]: string }
     ) => cards
+      // filter only cards that have a cost property.
+      .filter(card => undefined !== card.cost)
       // filter by active class name
       .filter(card => card.cardClass === activeClassName)
       // filter by card cost
