@@ -22,7 +22,7 @@ export interface ICollectionBodyStateProps {
 
 type Props = ICollectionBodyProps & ICollectionBodyStateProps;
 
-const composeCollection = (withCards: ICard[], pagination: IPagination): ICard[] =>
+export const composeCollection = (withCards: ICard[], pagination: IPagination): ICard[] =>
   withCards.slice(
     pagination.itemsPerPage * pagination.currentPage,
     (pagination.itemsPerPage * pagination.currentPage) + pagination.itemsPerPage

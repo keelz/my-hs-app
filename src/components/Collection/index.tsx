@@ -18,8 +18,8 @@ type Props = ICollectionProps & ICollectionStateProps;
 
 const CARDS_PER_PAGE = 10;
 
-export const composePagination = (collection: ICollection): IPagination => {
-  const total = collection.cards.length;
+export const composePagination = (withCollection: ICollection): IPagination => {
+  const total = withCollection.cards.length;
   const pages = Math.ceil(total / CARDS_PER_PAGE);
   const itemsPerPage = CARDS_PER_PAGE;
   return { itemsPerPage, pages, total, currentPage: 0 };

@@ -5,7 +5,7 @@ exports[`Collection snapshots renders without crashing 1`] = `
   className="Collection"
 >
   <CollectionHeader />
-  <CollectionBody
+  <Connect(CollectionBody)
     collection={
       Object {
         "cards": Array [

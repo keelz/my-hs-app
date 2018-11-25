@@ -42,6 +42,12 @@ Object {
     "activeClassName": "DRUID",
     "data": Array [],
     "filters": Object {},
+    "pagination": Object {
+      "currentPage": 0,
+      "itemsPerPage": 0,
+      "pages": 0,
+      "total": 0,
+    },
   },
 }
 `;

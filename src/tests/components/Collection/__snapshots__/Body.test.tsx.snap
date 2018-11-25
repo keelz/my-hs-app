@@ -6,9 +6,11 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
 >
   <BodyNavButton
     align={3}
+    onClick={[Function]}
   />
   <BodyNavButton
     align={1}
+    onClick={[Function]}
   />
 </div>
 `;
