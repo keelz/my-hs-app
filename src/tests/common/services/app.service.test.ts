@@ -1,6 +1,7 @@
 import { composeMockStore } from '../../utils';
 import middleware from '../../../redux/middleware/App';
 import {
+  fetchCardsAction,
   handleAppDidLoadAction,
   handleCardsSetFilterAction,
 } from '../../../common/services/app.service';
@@ -36,5 +37,10 @@ describe('app.service', () => {
     const actionType = action('TEST')({ filters: { cost: 3 } });
     handleCardsSetFilterAction(store)(next)(actionType);
     expect(next).toHaveBeenCalled();
+  });
+
+  it('composes a fetch cards promise correctly', () => {
+    const p = fetchCardsAction();
+    expect(p instanceof Promise).toBe(true);
   });
 });
