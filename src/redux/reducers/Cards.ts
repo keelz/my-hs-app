@@ -1,5 +1,6 @@
 import { IActionType } from '../Types';
 import { Dispatch } from 'redux';
+import { IPagination } from '../../common/models/app.model';
 import {
   ICard,
   CardClassName
@@ -10,6 +11,7 @@ export interface CardsState {
   activeClassName: string;
   data: ICard[];
   filters: { [field: string]: string };
+  pagination: IPagination;
 }
 
 /** STATE FACTORY */
@@ -17,6 +19,11 @@ export const defaultState = (): CardsState => ({
   activeClassName: CardClassName.DRUID,
   data: Array(0),
   filters: {},
+  pagination: {
+    total: 0,
+    pages: 0,
+    currentPage: 0,
+  },
 });
 
 /** ACTIONS */
@@ -24,6 +31,7 @@ export const CARDS_DELETE_FILTERS = 'CARDS_DELETE_FILTER';
 export const CARDS_SET_ACTIVE_CLASSNAME = 'CARDS_SET_ACTIVE_CLASSNAME';
 export const CARDS_SET_CARDS = 'CARDS_SET_CARDS';
 export const CARDS_SET_FILTER = 'CARDS_SET_FILTER';
+export const CARDS_SET_PAGINATION = 'CARDS_SET_PAGINATION';
 
 /** ACTION CREATORS */
 export const cardsDeleteFilterAction = (key: string) =>
@@ -52,6 +60,13 @@ export const cardsSetFilterAction = (key: string, value: string) =>
  dispatch({
    type: CARDS_SET_FILTER,
    payload: { filters: { [key]: value } },
+ });
+
+export const cardsSetPaginationAction = (pagination: IPagination) =>
+ (dispatch: Dispatch<any>) =>
+ dispatch({
+   type: CARDS_SET_PAGINATION,
+   payload: { pagination },
  });
 
 /** REDUCER */
@@ -86,6 +101,12 @@ const reducer = (
         ? { ...state.filters, ...action.payload.filters }
         : { ...state.filters };
       return { ...state, filters };
+    case CARDS_SET_PAGINATION: return {
+      ...state,
+      pagination: !!action.payload
+        ? action.payload.pagination
+        : state.pagination,
+    };
     default: return state;
   }
 };

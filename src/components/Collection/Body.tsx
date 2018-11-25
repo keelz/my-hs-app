@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { ICollection } from '../../common/models/collection.model';
 import { IComponentProps, BlockOrientation } from '../../common/models/app.model';
 import { composeClassname } from '../../common/utils';
+import { ICollection } from '../../common/models/collection.model';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
 import {

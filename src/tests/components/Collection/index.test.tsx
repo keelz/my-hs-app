@@ -10,6 +10,7 @@ const composeProps = () => ({
   collection: {
     cards: [...cards].slice(0, 50) as ICard[],
   },
+  setPagination: jest.fn(),
 });
 
 describe('Collection', () => {

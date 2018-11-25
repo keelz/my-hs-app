@@ -5,6 +5,12 @@ export interface IComponentProps {
   className?: string | string[];
 }
 
+export interface IPagination {
+  total: number;
+  pages: number;
+  currentPage: number;
+}
+
 export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>;
 
 export type MiddlewareAction = (api: AppMiddlewareApi) =>
