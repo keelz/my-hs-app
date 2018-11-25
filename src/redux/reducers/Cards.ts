@@ -20,9 +20,10 @@ export const defaultState = (): CardsState => ({
   data: Array(0),
   filters: {},
   pagination: {
-    total: 0,
-    pages: 0,
     currentPage: 0,
+    itemsPerPage: 0,
+    pages: 0,
+    total: 0,
   },
 });
 

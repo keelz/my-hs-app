@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ICollection } from '../../common/models/collection.model';
 import { CardClassName } from '../../common/models/cards.model';
 import { IComponentProps, IPagination } from '../../common/models/app.model';
-import CollectionBody from './Body';
+import CollectionBody from '../../redux/containers/Collection/Body';
 import CollectionHeader from './Header';
 import './Collection.css';
 
@@ -21,7 +21,8 @@ const CARDS_PER_PAGE = 10;
 export const composePagination = (collection: ICollection): IPagination => {
   const total = collection.cards.length;
   const pages = Math.ceil(total / CARDS_PER_PAGE);
-  return { total, pages, currentPage: 0 };
+  const itemsPerPage = CARDS_PER_PAGE;
+  return { itemsPerPage, pages, total, currentPage: 0 };
 };
 
 export const setPagination = (withCollection: ICollection) =>

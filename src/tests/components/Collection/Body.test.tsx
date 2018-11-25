@@ -8,6 +8,13 @@ const defaultProps = () => Object.freeze({
   collection: {
     cards: Array(0),
   },
+  pagination: {
+    currentPage: 0,
+    itemsPerPage: 0,
+    pages: 0,
+    total: 0,
+  },
+  setPagination: jest.fn(),
 });
 
 describe('Collection Body', () => {
