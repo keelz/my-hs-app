@@ -1,30 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collect BodyNavButton snapshots composes alignment classnames correctly for LEFT alignment 1`] = `"Collection-align-left"`;
+exports[`Collect BodyNavButton helpers composes alignment classnames correctly for LEFT alignment 1`] = `"Collection-align-left"`;
 
-exports[`Collect BodyNavButton snapshots composes alignment classnames correctly for RIGHT alignment 1`] = `"Collection-align-right"`;
+exports[`Collect BodyNavButton helpers composes alignment classnames correctly for RIGHT alignment 1`] = `"Collection-align-right"`;
 
-exports[`Collect BodyNavButton snapshots composes icon classname correctly for LEFT alignment 1`] = `"fas fa-angle-left"`;
+exports[`Collect BodyNavButton helpers composes icon classname correctly for LEFT alignment 1`] = `"fas fa-angle-left"`;
 
-exports[`Collect BodyNavButton snapshots composes icon classname correctly for RIGHT alignment 1`] = `"fas fa-angle-right"`;
+exports[`Collect BodyNavButton helpers composes icon classname correctly for RIGHT alignment 1`] = `"fas fa-angle-right"`;
 
-exports[`Collect BodyNavButton snapshots composes icon container classname correctly 1`] = `"Collection-body-nav-button-icon"`;
+exports[`Collect BodyNavButton helpers composes icon container classname correctly 1`] = `"Collection-body-nav-button-icon"`;
 
-exports[`Collect BodyNavButton snapshots renders with orientation right correctly 1`] = `
-<div
-  className="Collection-body-nav-button Collection-align-right"
->
-  <div
-    className="Collection-body-nav-button-icon"
-  >
-    <i
-      className="fas fa-angle-right"
-    />
-  </div>
-</div>
-`;
-
-exports[`Collect BodyNavButton snapshots renders without crashing 1`] = `
+exports[`Collect BodyNavButton snapshots renders with orientation LEFT correctly 1`] = `
 <div
   className="Collection-body-nav-button Collection-align-left"
 >
@@ -33,6 +19,20 @@ exports[`Collect BodyNavButton snapshots renders without crashing 1`] = `
   >
     <i
       className="fas fa-angle-left"
+    />
+  </div>
+</div>
+`;
+
+exports[`Collect BodyNavButton snapshots renders with orientation RIGHT correctly 1`] = `
+<div
+  className="Collection-body-nav-button Collection-align-right"
+>
+  <div
+    className="Collection-body-nav-button-icon"
+  >
+    <i
+      className="fas fa-angle-right"
     />
   </div>
 </div>

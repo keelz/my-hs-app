@@ -10,16 +10,29 @@ import BodyNavButton, {
 
 describe('Collect BodyNavButton', () => {
   describe('snapshots', () => {
-    it('renders without crashing', () => {
+    it('renders with orientation LEFT correctly', () => {
       const tree = enzyme.shallow(<BodyNavButton align={BlockOrientation.LEFT} />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
 
-    it('renders with orientation right correctly', () => {
+    it('renders with orientation RIGHT correctly', () => {
       const tree = enzyme.shallow(<BodyNavButton align={BlockOrientation.RIGHT} />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
+  });
 
+  describe('integration', () => {
+    it('handles onClick event correctly', () => {
+      const onClick = jest.fn();
+      const tree = enzyme.mount(<BodyNavButton
+        align={BlockOrientation.LEFT}
+        onClick={onClick} />);
+      tree.simulate('click');
+      expect(onClick).toHaveBeenCalled();
+    });
+  });
+
+  describe('helpers', () => {
     it('composes alignment classnames correctly for LEFT alignment', () => {
       const test = composeAlignmentClassname(BlockOrientation.LEFT);
       expect(test).toMatchSnapshot();
@@ -43,17 +56,6 @@ describe('Collect BodyNavButton', () => {
     it('composes icon classname correctly for RIGHT alignment', () => {
       const test = composeIconClassname(BlockOrientation.RIGHT);
       expect(test).toMatchSnapshot();
-    });
-  });
-
-  describe('integration', () => {
-    it('handles onClick event correctly', () => {
-      const onClick = jest.fn();
-      const tree = enzyme.mount(<BodyNavButton
-        align={BlockOrientation.LEFT}
-        onClick={onClick} />);
-      tree.simulate('click');
-      expect(onClick).toHaveBeenCalled();
     });
   });
 });
