@@ -3,5 +3,12 @@
 exports[`Collection Body snapshots renders without crashing 1`] = `
 <div
   className="Collection-body"
-/>
+>
+  <BodyNavButton
+    align={3}
+  />
+  <BodyNavButton
+    align={1}
+  />
+</div>
 `;

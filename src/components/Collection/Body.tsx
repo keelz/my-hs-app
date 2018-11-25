@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { ICollection } from '../../common/models/collection.model';
-import { IComponentProps } from '../../common/models/app.model';
+import { IComponentProps, BlockOrientation } from '../../common/models/app.model';
 import { composeClassname } from '../../common/utils';
+import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
 import {
   CardResolution,
@@ -15,6 +16,7 @@ interface ICollectionBodyProps extends IComponentProps {
 
 const CollectionBody: React.SFC<ICollectionBodyProps> = props =>
   <div className={composeClassname('Collection-body')(props.className)}>
+    <BodyNavButton align={BlockOrientation.LEFT} />
     { props.collection.cards.map(card =>
       <Card
         className="Collection-card"
@@ -24,6 +26,7 @@ const CollectionBody: React.SFC<ICollectionBodyProps> = props =>
         locale={CardLocale.EN}
         resolution={CardResolution.SMALL} />)
     }
+    <BodyNavButton align={BlockOrientation.RIGHT} />
   </div>;
 
 export default CollectionBody;

@@ -10,3 +10,10 @@ export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootSt
 export type MiddlewareAction = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => void;
+
+export enum BlockOrientation {
+  TOP,
+  RIGHT,
+  BOTTOM,
+  LEFT,
+}

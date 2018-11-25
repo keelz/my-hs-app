@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collect BodyNavButton snapshots renders with orientation right correctly 1`] = `
+<div
+  className="Collection-body-nav-button Collection-align-right"
+/>
+`;
+
+exports[`Collect BodyNavButton snapshots renders without crashing 1`] = `
+<div
+  className="Collection-body-nav-button Collection-align-left"
+/>
+`;

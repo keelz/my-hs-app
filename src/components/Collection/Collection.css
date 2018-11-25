@@ -1,6 +1,7 @@
 .Collection {}
 
 .Collection-body {
+  position: relative;
   margin-top: .625rem;
   display: flex;
   justify-content: center;
@@ -11,6 +12,26 @@
   background-color: #e0e0e0;
   border-radius: .3125rem;
   box-shadow: 5px 10px 20px #888888;
+}
+
+.Collection-body-nav-button {
+  position: absolute;
+  top: 0;
+  width: 3.75rem;
+  height: 100%;
+  background: transparent;
+}
+
+.Collection-body-nav-button:hover {
+  cursor: pointer;
+}
+
+.Collection-align-left {
+  left: 0;
+}
+
+.Collection-align-right {
+  right: 0;
 }
 
 .Collection-card {
