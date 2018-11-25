@@ -20,9 +20,19 @@
   width: 3.75rem;
   height: 100%;
   background: transparent;
+  font-size: 3rem;
 }
 
-.Collection-body-nav-button:hover {
+.Collection-body-nav-button-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  filter: opacity(.05);
+}
+
+.Collection-body-nav-button-icon.active {
+  filter: opacity(1);
   cursor: pointer;
 }
 

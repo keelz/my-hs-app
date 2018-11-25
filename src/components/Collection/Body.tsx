@@ -24,8 +24,8 @@ const CollectionBody: React.SFC<ICollectionBodyProps> = props =>
         ext={CardExt.PNG}
         id={card.id}
         locale={CardLocale.EN}
-        resolution={CardResolution.SMALL} />)
-    }
+        resolution={CardResolution.SMALL} />
+    )}
     <BodyNavButton align={BlockOrientation.RIGHT} />
   </div>;
 

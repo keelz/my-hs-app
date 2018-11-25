@@ -7,10 +7,18 @@ interface IBodyNavButtonProps extends IComponentProps {
   onClick?: () => void;
 }
 
-const composeAlignmentClassname = (align: BlockOrientation) =>
+export const composeAlignmentClassname = (align: BlockOrientation) =>
   align === BlockOrientation.LEFT
     ? 'Collection-align-left'
     : 'Collection-align-right';
+
+export const composeIconContainerClassname = () =>
+  'Collection-body-nav-button-icon';
+
+export const composeIconClassname = (align: BlockOrientation) =>
+  align === BlockOrientation.LEFT
+    ? 'fas fa-angle-left'
+    : 'fas fa-angle-right';
 
 const BodyNavButton: React.SFC<IBodyNavButtonProps> = props =>
   <div
@@ -19,6 +27,9 @@ const BodyNavButton: React.SFC<IBodyNavButtonProps> = props =>
       composeAlignmentClassname(props.align),
     ])(props.className)}
     onClick={props.onClick}>
+    <div className={composeIconContainerClassname()}>
+      <i className={composeIconClassname(props.align)} />
+    </div>
   </div>;
 
 export default BodyNavButton;
