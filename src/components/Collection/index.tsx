@@ -8,6 +8,9 @@ import './Collection.css';
 
 interface ICollectionProps extends IComponentProps {}
 
+/**
+ * MODEL
+ */
 export interface ICollectionStateProps {
   activeCardClassName: CardClassName;
   collection: ICollection;
@@ -17,6 +20,23 @@ export interface ICollectionStateProps {
 type Props = ICollectionProps & ICollectionStateProps;
 
 const CARDS_PER_PAGE = 10;
+
+/**
+ * HELPERS
+ */
+export const handleComponentShouldUpdate = (nextProps: Props, props: Props): boolean => {
+  const nextCollection = nextProps.collection;
+  const { collection } = props;
+  if (nextCollection.cards.length === collection.cards.length) {
+    if (nextCollection.cards[0] !== collection.cards[0]) {
+      setPagination(nextCollection)(props.setPagination);
+      return true;
+    }
+    return false;
+  }
+  setPagination(nextProps.collection)(props.setPagination);
+  return true;
+};
 
 export const composePagination = (withCollection: ICollection): IPagination => {
   const total = withCollection.cards.length;
@@ -31,23 +51,16 @@ export const setPagination = (withCollection: ICollection) =>
     set(pagination);
   };
 
+/**
+ * COMPONENT
+ */
 class Collection extends React.Component<Props> {
   componentDidMount() {
     setPagination(this.props.collection)(this.props.setPagination);
   }
 
   shouldComponentUpdate(nextProps: Props) {
-    const nextCollection = nextProps.collection;
-    const { collection } = this.props;
-    if (nextCollection.cards.length === collection.cards.length) {
-      if (nextCollection.cards[0] !== collection.cards[0]) {
-        setPagination(nextCollection)(this.props.setPagination);
-        return true;
-      }
-      return false;
-    }
-    setPagination(nextProps.collection)(this.props.setPagination);
-    return true;
+    return handleComponentShouldUpdate(nextProps, this.props);
   }
 
   render() {

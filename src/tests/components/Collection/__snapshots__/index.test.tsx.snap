@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Collection helpers composes a pagination object correctly 1`] = `
+Object {
+  "currentPage": 0,
+  "itemsPerPage": 10,
+  "pages": 1,
+  "total": 9,
+}
+`;
+
 exports[`Collection snapshots renders without crashing 1`] = `
 <div
   className="Collection"
@@ -944,25 +953,6 @@ Add a random minion to your opponent's hand.",
             "set": "TGT",
             "text": "<b>Inspire:</b> Give your Totems +2 Attack.",
             "type": "MINION",
-          },
-          Object {
-            "artist": "Peet Cooper",
-            "attack": 2,
-            "cardClass": "SHAMAN",
-            "collectible": true,
-            "cost": 4,
-            "dbfId": 2617,
-            "durability": 4,
-            "flavor": "You can only pick it up if you are worthy.",
-            "id": "AT_050",
-            "mechanics": Array [
-              "DEATHRATTLE",
-            ],
-            "name": "Charged Hammer",
-            "rarity": "EPIC",
-            "set": "TGT",
-            "text": "<b>Deathrattle:</b> Your Hero Power becomes 'Deal 2 damage.'",
-            "type": "WEAPON",
           },
         ],
       }
