@@ -7,7 +7,7 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 34.375rem;
-  overflow: scroll;
+  overflow: hidden;
   border: .0625rem solid black;
   background-color: #e0e0e0;
   border-radius: .3125rem;

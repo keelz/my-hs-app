@@ -9,10 +9,10 @@ const defaultProps = () => Object.freeze({
     cards: Array(0),
   },
   pagination: {
-    currentPage: 0,
-    itemsPerPage: 0,
-    pages: 0,
-    total: 0,
+    currentPage: 1,
+    itemsPerPage: 10,
+    pages: 1,
+    total: 10,
   },
   setPagination: jest.fn(),
 });
@@ -31,7 +31,7 @@ describe('Collection Body', () => {
       props.collection.cards = [...testCards].slice(0, 20);
       const tree = enzyme.mount(<CollectionBody {...props} />);
       const cards = tree.find('Card');
-      expect(cards).toHaveLength(20);
+      expect(cards).toHaveLength(10);
     });
   });
 });
