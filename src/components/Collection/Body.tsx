@@ -11,6 +11,9 @@ import {
   ICard,
 } from '../../common/models/cards.model';
 
+/**
+ * MODEL
+ */
 interface ICollectionBodyProps extends IComponentProps {
   collection: ICollection;
 }
@@ -22,12 +25,18 @@ export interface ICollectionBodyStateProps {
 
 type Props = ICollectionBodyProps & ICollectionBodyStateProps;
 
+/**
+ * HELPERS
+ */
 export const composeCollection = (withCards: ICard[], pagination: IPagination): ICard[] =>
   withCards.slice(
     pagination.itemsPerPage * pagination.currentPage,
     (pagination.itemsPerPage * pagination.currentPage) + pagination.itemsPerPage
   );
 
+/**
+ * COMPONENT
+ */
 const CollectionBody: React.SFC<Props> = props =>
   <div className={composeClassname('Collection-body')(props.className)}>
     <BodyNavButton

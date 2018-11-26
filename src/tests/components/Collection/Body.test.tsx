@@ -1,8 +1,11 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import CollectionBody from '../../../components/Collection/Body';
+import { ICard } from '../../../common/models/cards.model';
 import testCards from '../../../common/mocks/collection';
+import CollectionBody, {
+  composeCollection,
+} from '../../../components/Collection/Body';
 
 const defaultProps = () => Object.freeze({
   collection: {
@@ -32,6 +35,39 @@ describe('Collection Body', () => {
       const tree = enzyme.mount(<CollectionBody {...props} />);
       const cards = tree.find('Card');
       expect(cards).toHaveLength(10);
+    });
+
+    it('handles left nav button click event correctly', () => {
+      const props = { ...defaultProps() };
+      const tree = enzyme.mount(<CollectionBody {...props} />);
+      const left = tree.find('.Collection-align-left').first();
+      left.simulate('click');
+      expect(props.setPagination).toHaveBeenCalled();
+    });
+
+    it('handles right nav button click event correctly', () => {
+      const props = { ...defaultProps() };
+      const tree = enzyme.mount(<CollectionBody {...props} />);
+      const right = tree.find('.Collection-align-right').first();
+      right.simulate('click');
+      expect(props.setPagination).toHaveBeenCalled();
+    });
+  });
+
+  describe('helpers', () => {
+    it('composes collection correctly', () => {
+      const pagination = {
+        currentPage: 0,
+        itemsPerPage: 10,
+        pages: 5,
+        total: 50,
+      };
+      const result = composeCollection(
+        [...testCards].slice(0, 49) as ICard[],
+        pagination
+      );
+      expect(result).toHaveLength(10);
+      expect(result).toMatchSnapshot();
     });
   });
 });
