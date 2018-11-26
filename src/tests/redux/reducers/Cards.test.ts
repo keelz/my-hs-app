@@ -73,6 +73,25 @@ describe('Cards Reducer', () => {
         },
       });
     });
+
+    it(`dispatches ${Reducer.CARDS_SET_PAGINATION} correctly`, () => {
+      const dispatch = jest.fn();
+      const {
+        CARDS_SET_PAGINATION,
+        cardsSetPaginationAction,
+      } = Reducer;
+      const pagination = {
+        currentPage: 1,
+        itemsPerPage: 10,
+        pages: 1,
+        total: 10,
+      };
+      cardsSetPaginationAction(pagination)(dispatch);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: CARDS_SET_PAGINATION,
+        payload: { pagination },
+      });
+    });
   });
 
   describe('reducer', () => {
@@ -175,6 +194,28 @@ describe('Cards Reducer', () => {
       };
       const result = Reducer.default(undefined, action);
       expect(result).toEqual({ ...defaultState() });
+    });
+
+    it(`handles ${Reducer.CARDS_SET_PAGINATION} correctly`, () => {
+      const {
+        CARDS_SET_PAGINATION,
+        defaultState,
+      } = Reducer;
+      const pagination = {
+        currentPage: 1,
+        itemsPerPage: 10,
+        pages: 1,
+        total: 10,
+      };
+      const action = {
+        type: CARDS_SET_PAGINATION,
+        payload: { ...defaultState(), pagination },
+      };
+      const result = Reducer.default(undefined, action);
+      expect(result).toEqual({ ...defaultState(), pagination });
+      delete action.payload;
+      const resultTwo = Reducer.default(undefined, action);
+      expect(resultTwo).toEqual({ ...defaultState() });
     });
   });
 });
