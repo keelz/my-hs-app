@@ -14,7 +14,8 @@ export interface IPagination {
 
 export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>;
 
-export type MiddlewareAction = (api: AppMiddlewareApi) =>
+// todo: factor this to redux namespace.
+export type MiddlewareOperation = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => void;
 

@@ -1,6 +1,6 @@
 import { IBrowser } from 'redux-responsive';
 import { AppState } from './reducers/App';
-import { CardsState } from './reducers/Cards';
+import { ICardsState } from './reducers/Cards';
 
 export type IActionType<T> = {
   type: string;
@@ -10,5 +10,5 @@ export type IActionType<T> = {
 export interface IRootState {
   App: AppState;
   Browser: IBrowser;
-  Cards: CardsState;
+  Cards: ICardsState;
 }

@@ -7,7 +7,7 @@ import {
 } from '../../common/models/cards.model';
 
 /** STATE MODEL */
-export interface CardsState {
+export interface ICardsState {
   activeClassName: string;
   data: ICard[];
   filters: { [field: string]: string };
@@ -15,7 +15,7 @@ export interface CardsState {
 }
 
 /** STATE FACTORY */
-export const defaultState = (): CardsState => ({
+export const defaultState = (): ICardsState => ({
   activeClassName: CardClassName.DRUID,
   data: Array(0),
   filters: {},
@@ -72,8 +72,8 @@ export const cardsSetPaginationAction = (pagination: IPagination) =>
 
 /** REDUCER */
 const reducer = (
-  state: CardsState = defaultState(),
-  action: IActionType<CardsState>): CardsState => {
+  state: ICardsState = defaultState(),
+  action: IActionType<ICardsState>): ICardsState => {
   const { type } = action;
   switch (type) {
     case CARDS_DELETE_FILTERS:
