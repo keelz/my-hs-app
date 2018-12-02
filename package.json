@@ -5,6 +5,7 @@
   "scripts": {
     "build": "react-scripts-ts build",
     "copy": "cpx \"build/**/*.*\" ../server/build/ -v",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "coverage": "react-scripts-ts test --env=jsdom --coverage",
     "deploy": "npm-run-all build copy",
     "eject": "react-scripts-ts eject",
@@ -44,6 +45,7 @@
     "@types/react-router-redux": "^5.0.16",
     "@types/redux-debounced": "^0.2.19",
     "@types/sinon": "^5.0.7",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",

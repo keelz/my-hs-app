@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/keelz/my-hs-app/badge.svg?branch=dev)](https://coveralls.io/github/keelz/my-hs-app?branch=dev)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
