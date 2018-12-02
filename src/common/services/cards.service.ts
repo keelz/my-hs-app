@@ -19,7 +19,7 @@ const service: ICardsService = {
       // prevent paging backward.
       if (currentPage < 0) return;
       // prevent paging forward.
-      if (currentPage === pages) return;
+      if (currentPage >= pages) return;
       // pass through.
       return next(action);
     },

@@ -3,7 +3,7 @@ import { IActionType } from '../Types';
 import cardsService, { ICardsService } from '../../common/services/cards.service';
 import { CARDS_SET_PAGINATION } from '../reducers/Cards';
 
-const composeMiddleware = (service: ICardsService) =>
+export const composeMiddleware = (service: ICardsService) =>
   (api: MiddlewareAPI) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => {

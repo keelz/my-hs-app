@@ -25,6 +25,16 @@ describe('Collection', () => {
     });
   });
 
+  describe('integration', () => {
+    it('calls shouldComponentUpdate correctly', () => {
+      const wrapper = enzyme.shallow(<Collection {...composeProps()} />);
+      const instance = wrapper.instance();
+      const nextProps = { ...composeProps() };
+      const result = instance.shouldComponentUpdate!(nextProps, composeProps(), null);
+      expect(result).toBe(false);
+    });
+  });
+
   describe('helpers', () => {
     it('handles component should update correctly with same card collection', () => {
       const props = composeProps();
