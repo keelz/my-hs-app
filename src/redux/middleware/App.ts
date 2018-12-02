@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
-import { IActionType } from '../Types';
+import { AppMiddlewareApi, IActionType } from '../Types';
 import { APP_DID_LOAD } from '../reducers/App';
-import { AppMiddlewareApi } from '../../common/models/app.model';
 import service, { IAppService } from '../../common/services/app.service';
 
 export const composeMiddlewaqre = (appService: IAppService) =>

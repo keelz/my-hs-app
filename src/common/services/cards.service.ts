@@ -1,7 +1,6 @@
 import { MiddlewareAPI, Dispatch } from 'redux';
-import { IActionType } from '../../redux/Types';
+import { IActionType, MiddlewareOperation } from '../../redux/Types';
 import { ICardsState, cardsDeleteFilterAction } from '../../redux/reducers/Cards';
-import { MiddlewareOperation } from '../models/app.model';
 import HSJSON from '../constants/hsJson';
 
 export interface ICardsService {
@@ -10,6 +9,12 @@ export interface ICardsService {
 }
 
 const service: ICardsService = {
+  /**
+   * handle set pagination side effects.
+   * - prevent paging backward when appropriate.
+   * - prevent paging forward when appropriate.
+   * EXAMPLE OF: prevent action passthrough.
+   */
   handleSetPagination: (api: MiddlewareAPI) =>
     (next: Dispatch<IActionType<any>>) =>
     (action: IActionType<ICardsState>) => {
@@ -19,9 +24,9 @@ const service: ICardsService = {
       // deconstruct pagination properties from payload.
       const { currentPage, pages } = payload.pagination;
       // prevent paging backward.
-      if (currentPage < 0) return;
+      if (currentPage < 0) return; // prevent pass through
       // prevent paging forward.
-      if (currentPage >= pages) return;
+      if (currentPage >= pages) return; // prevent pass through
       // pass through.
       return next(action);
     },

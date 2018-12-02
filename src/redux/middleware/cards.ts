@@ -1,10 +1,10 @@
-import { MiddlewareAPI, Dispatch } from 'redux';
-import { IActionType } from '../Types';
+import { Dispatch } from 'redux';
+import { AppMiddlewareApi, IActionType } from '../Types';
 import cardsService, { ICardsService } from '../../common/services/cards.service';
 import { CARDS_SET_PAGINATION, CARDS_SET_FILTER } from '../reducers/Cards';
 
 export const composeMiddleware = (service: ICardsService) =>
-  (api: MiddlewareAPI) =>
+  (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => {
     switch (action.type) {
