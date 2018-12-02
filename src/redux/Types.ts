@@ -23,3 +23,6 @@ export type AsyncMiddlewareOperation = (api: AppMiddlewareApi) =>
 export type MiddlewareOperation = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => void;
+
+export type SafeMiddlewareOperation = (api: AppMiddlewareApi) =>
+  (action: IActionType<any>) => void;
