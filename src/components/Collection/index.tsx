@@ -60,6 +60,7 @@ class Collection extends React.Component<Props> {
   }
 
   shouldComponentUpdate(nextProps: Props) {
+    debugger;
     return handleComponentShouldUpdate(nextProps, this.props);
   }
 

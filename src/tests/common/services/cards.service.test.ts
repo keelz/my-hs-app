@@ -1,11 +1,9 @@
-import cardsService from '../../../common/services/cards.service';
+import { composeMockStore } from '../../utils';
+import middleware from '../../../redux/middleware/cards';
+import service from '../../../common/services/cards.service';
 import { CARDS_SET_PAGINATION } from '../../../redux/reducers/Cards';
 
-const mockReduxApi = {
-  dispatch: jest.fn(),
-  getState: jest.fn(),
-  subscribe: jest.fn(),
-};
+const mockStore = composeMockStore(middleware);
 
 describe('cards service', () => {
   let next = jest.fn();
@@ -14,8 +12,29 @@ describe('cards service', () => {
     next = jest.fn();
   });
 
+  it('performs handleCardsSetFilterAction correctly', () => {
+    const { action, next, store } = mockStore;
+    store.getState = jest.fn(() => ({
+      Cards: { filters: { cost: 3 } },
+    }));
+    const actionType = action('TEST')({ filters: { cost: 2 } });
+    service.handleSetFilter(store)(next)(actionType);
+    expect(next).toHaveBeenCalled();
+  });
+
+  it('performs handleCardsSetFilterAction correctly with matching values', () => {
+    const { action, next, store } = mockStore;
+    store.getState = jest.fn(() => ({
+      Cards: { filters: { cost: 3 } },
+    }));
+    const actionType = action('TEST')({ filters: { cost: 3 } });
+    service.handleSetFilter(store)(next)(actionType);
+    expect(next).toHaveBeenCalled();
+  });
+
   it('handles set pagination correctly', () => {
-    cardsService.handleSetPagination(mockReduxApi)(next)({
+    const { store } = mockStore;
+    service.handleSetPagination(store)(next)({
       type: 'TEST_ACTION',
     });
     expect(next).toHaveBeenCalledWith({
@@ -24,7 +43,8 @@ describe('cards service', () => {
   });
 
   it('handles set pagination with current page less than zero correctly', () => {
-    cardsService.handleSetPagination(mockReduxApi)(next)({
+    const { store } = mockStore;
+    service.handleSetPagination(store)(next)({
       type: CARDS_SET_PAGINATION,
       payload: {
         pagination: {
@@ -36,7 +56,8 @@ describe('cards service', () => {
   });
 
   it('handles set pagination with current page greater than or equall to pages correctly', () => {
-    cardsService.handleSetPagination(mockReduxApi)(next)({
+    const { store } = mockStore;
+    service.handleSetPagination(store)(next)({
       type: CARDS_SET_PAGINATION,
       payload: {
         pagination: {
@@ -49,7 +70,8 @@ describe('cards service', () => {
   });
 
   it('handles set pagination with current page within valid range correctly', () => {
-    cardsService.handleSetPagination(mockReduxApi)(next)({
+    const { store } = mockStore;
+    service.handleSetPagination(store)(next)({
       type: CARDS_SET_PAGINATION,
       payload: {
         pagination: {

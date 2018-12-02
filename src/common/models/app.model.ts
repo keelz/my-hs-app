@@ -19,6 +19,10 @@ export type MiddlewareOperation = (api: AppMiddlewareApi) =>
   (next: Dispatch<IActionType<any>>) =>
   (action: IActionType<any>) => void;
 
+export type AsyncMiddlewareOperation = (api: AppMiddlewareApi) =>
+  (next: Dispatch<IActionType<any>>) =>
+  (action: IActionType<any>) => Promise<any>;
+
 export enum BlockOrientation {
   TOP,
   RIGHT,
