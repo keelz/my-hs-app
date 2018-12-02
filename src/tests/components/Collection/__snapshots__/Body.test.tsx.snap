@@ -207,10 +207,12 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
   className="Collection-body"
 >
   <BodyNavButton
+    active={true}
     align={3}
     onClick={[Function]}
   />
   <BodyNavButton
+    active={false}
     align={1}
     onClick={[Function]}
   />

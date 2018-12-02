@@ -8,27 +8,32 @@ import BodyNavButton, {
   composeIconContainerClassname,
 } from '../../../components/Collection/BodyNavButton';
 
+const defaultProps = Object.freeze({
+  active: false,
+  align: BlockOrientation.LEFT,
+  onClick: jest.fn(),
+});
+
 describe('Collect BodyNavButton', () => {
   describe('snapshots', () => {
     it('renders with orientation LEFT correctly', () => {
-      const tree = enzyme.shallow(<BodyNavButton align={BlockOrientation.LEFT} />);
+      const tree = enzyme.shallow(<BodyNavButton {...defaultProps} />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
 
     it('renders with orientation RIGHT correctly', () => {
-      const tree = enzyme.shallow(<BodyNavButton align={BlockOrientation.RIGHT} />);
+      const props = { ...defaultProps };
+      props.align = BlockOrientation.RIGHT;
+      const tree = enzyme.shallow(<BodyNavButton {...props} />);
       expect(shallowToJson(tree)).toMatchSnapshot();
     });
   });
 
   describe('integration', () => {
     it('handles onClick event correctly', () => {
-      const onClick = jest.fn();
-      const tree = enzyme.mount(<BodyNavButton
-        align={BlockOrientation.LEFT}
-        onClick={onClick} />);
+      const tree = enzyme.mount(<BodyNavButton {...defaultProps} />);
       tree.simulate('click');
-      expect(onClick).toHaveBeenCalled();
+      expect(defaultProps.onClick).toHaveBeenCalled();
     });
   });
 
@@ -44,17 +49,18 @@ describe('Collect BodyNavButton', () => {
     });
 
     it('composes icon container classname correctly', () => {
-      const test = composeIconContainerClassname();
+      const test = composeIconContainerClassname(defaultProps);
       expect(test).toMatchSnapshot();
     });
 
     it('composes icon classname correctly for LEFT alignment', () => {
-      const test = composeIconClassname(BlockOrientation.LEFT);
+      const test = composeIconClassname(defaultProps);
       expect(test).toMatchSnapshot();
     });
 
     it('composes icon classname correctly for RIGHT alignment', () => {
-      const test = composeIconClassname(BlockOrientation.RIGHT);
+      const props = { ...defaultProps, align: BlockOrientation.RIGHT };
+      const test = composeIconClassname(props);
       expect(test).toMatchSnapshot();
     });
   });

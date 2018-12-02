@@ -13,6 +13,7 @@ exports[`Collect BodyNavButton helpers composes icon container classname correct
 exports[`Collect BodyNavButton snapshots renders with orientation LEFT correctly 1`] = `
 <div
   className="Collection-body-nav-button Collection-align-left"
+  onClick={[MockFunction]}
 >
   <div
     className="Collection-body-nav-button-icon"
@@ -27,6 +28,7 @@ exports[`Collect BodyNavButton snapshots renders with orientation LEFT correctly
 exports[`Collect BodyNavButton snapshots renders with orientation RIGHT correctly 1`] = `
 <div
   className="Collection-body-nav-button Collection-align-right"
+  onClick={[MockFunction]}
 >
   <div
     className="Collection-body-nav-button-icon"

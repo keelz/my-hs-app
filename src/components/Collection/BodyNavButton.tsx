@@ -3,7 +3,8 @@ import { IComponentProps, BlockOrientation } from '../../common/models/app.model
 import { composeClassname } from '../../common/utils';
 
 interface IBodyNavButtonProps extends IComponentProps {
-  align: BlockOrientation.LEFT | BlockOrientation.RIGHT;
+  active: boolean;
+  align: BlockOrientation;
   onClick?: () => void;
 }
 
@@ -12,11 +13,11 @@ export const composeAlignmentClassname = (align: BlockOrientation) =>
     ? 'Collection-align-left'
     : 'Collection-align-right';
 
-export const composeIconContainerClassname = () =>
-  'Collection-body-nav-button-icon';
+export const composeIconContainerClassname = (props: IBodyNavButtonProps) =>
+  `Collection-body-nav-button-icon${props.active ? ' active' : ''}`;
 
-export const composeIconClassname = (align: BlockOrientation) =>
-  align === BlockOrientation.LEFT
+export const composeIconClassname = (props: IBodyNavButtonProps) =>
+  props.align === BlockOrientation.LEFT
     ? 'fas fa-angle-left'
     : 'fas fa-angle-right';
 
@@ -27,8 +28,8 @@ const BodyNavButton: React.SFC<IBodyNavButtonProps> = props =>
       composeAlignmentClassname(props.align),
     ])(props.className)}
     onClick={props.onClick}>
-    <div className={composeIconContainerClassname()}>
-      <i className={composeIconClassname(props.align)} />
+    <div className={composeIconContainerClassname(props)}>
+      <i className={composeIconClassname(props)} />
     </div>
   </div>;
 

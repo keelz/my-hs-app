@@ -1,9 +1,13 @@
 import * as React from 'react';
-import { IComponentProps, BlockOrientation, IPagination } from '../../common/models/app.model';
 import { composeClassname } from '../../common/utils';
 import { ICollection } from '../../common/models/collection.model';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
+import {
+  IComponentProps,
+  BlockOrientation,
+  IPagination,
+} from '../../common/models/app.model';
 import {
   CardResolution,
   CardExt,
@@ -40,6 +44,7 @@ export const composeCollection = (withCards: ICard[], pagination: IPagination): 
 const CollectionBody: React.SFC<Props> = props =>
   <div className={composeClassname('Collection-body')(props.className)}>
     <BodyNavButton
+      active={props.pagination.currentPage > 0}
       align={BlockOrientation.LEFT}
       onClick={() => props.setPagination({
         ...props.pagination,
@@ -55,6 +60,7 @@ const CollectionBody: React.SFC<Props> = props =>
         resolution={CardResolution.SMALL} />
     )}
     <BodyNavButton
+      active={props.pagination.currentPage + 1 < props.pagination.pages}
       align={BlockOrientation.RIGHT}
       onClick={() => props.setPagination({
         ...props.pagination,
