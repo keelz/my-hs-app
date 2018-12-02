@@ -2,6 +2,7 @@ import { composeMockStore } from '../../utils';
 import middleware from '../../../redux/middleware/cards';
 import service from '../../../common/services/cards.service';
 import { CARDS_SET_PAGINATION } from '../../../redux/reducers/Cards';
+import cards from '../../../common/mocks/collection';
 
 const mockStore = composeMockStore(middleware);
 
@@ -15,7 +16,11 @@ describe('cards service', () => {
   it('performs handleCardsSetFilterAction correctly', () => {
     const { action, next, store } = mockStore;
     store.getState = jest.fn(() => ({
-      Cards: { filters: { cost: 3 } },
+      Cards: {
+        activeClassName: 'DRUID',
+        data: [...cards],
+        filters: { cost: 3 },
+      },
     }));
     const actionType = action('TEST')({ filters: { cost: 2 } });
     service.handleSetFilter(store)(next)(actionType);
@@ -25,7 +30,11 @@ describe('cards service', () => {
   it('performs handleCardsSetFilterAction correctly with matching values', () => {
     const { action, next, store } = mockStore;
     store.getState = jest.fn(() => ({
-      Cards: { filters: { cost: 3 } },
+      Cards: {
+        activeClassName: 'DRUID',
+        data: [...cards],
+        filters: { cost: 3 },
+      },
     }));
     const actionType = action('TEST')({ filters: { cost: 3 } });
     service.handleSetFilter(store)(next)(actionType);

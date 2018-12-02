@@ -1,7 +1,12 @@
 import { Dispatch } from 'redux';
-import { ICardsState, cardsDeleteFilterAction } from '../../redux/reducers/Cards';
+import APP from '../constants/app';
 import { selectCardsWithFilters } from '../../redux/selectors/cards';
 import HSJSON from '../constants/hsJson';
+import {
+  ICardsState,
+  cardsDeleteFilterAction,
+  cardsSetPaginationAction,
+} from '../../redux/reducers/Cards';
 import {
   IActionType,
   MiddlewareOperation,
@@ -17,6 +22,11 @@ export interface ICardsService {
 }
 
 const service: ICardsService = {
+  /**
+   * handle set active classname side effects.
+   * - if the class name doesn't change, do nothing.
+   * - if the class name changes, reset pagination.
+   */
   handleSetActiveClassname: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
     (action: IActionType<ICardsState>) => {
@@ -26,6 +36,7 @@ const service: ICardsService = {
       next(action);
       service.resetPagination(api)(action);
     },
+
   /**
    * handle set pagination side effects.
    * - prevent paging backward when appropriate.
@@ -73,11 +84,19 @@ const service: ICardsService = {
     },
 
   resetPagination: (api: AppMiddlewareApi) =>
-    (action: IActionType<any>) => {
+    (_: IActionType<any>) => {
       const state = api.getState();
       const collection = selectCardsWithFilters(state);
-      console.log(collection.length);
-      // todo: compose pagination and dispatch it to state.
+      const total = collection.length;
+      const itemsPerPage = APP.COLLECTION.CARDS_PER_PAGE;
+      const pages = Math.ceil(total / itemsPerPage);
+      const pagination = {
+        itemsPerPage,
+        pages,
+        total,
+        currentPage: 0,
+      };
+      cardsSetPaginationAction(pagination)(api.dispatch);
     },
 };
 

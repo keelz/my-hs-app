@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { IRootState } from '../../Types';
 import { CardClassName } from '../../../common/models/cards.model';
-import { cardsSetPaginationAction } from '../../reducers/Cards';
 import {
   selectActiveCardClassName,
   selectCardsWithFilters
@@ -15,10 +14,6 @@ const mapStateToProps = (state: IRootState) => ({
   },
 });
 
-const mapDispatchToProps = {
-  setPagination: cardsSetPaginationAction,
-};
-
-const ConnectedCollection = connect(mapStateToProps, mapDispatchToProps)(Collection);
+const ConnectedCollection = connect(mapStateToProps)(Collection);
 
 export default ConnectedCollection;
