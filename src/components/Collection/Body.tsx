@@ -42,7 +42,7 @@ export const composeCollection = (withCards: ICard[], pagination: IPagination): 
  * COMPONENT
  */
 const CollectionBody: React.SFC<Props> = props =>
-  <div className={composeClassname('Collection-body')(props.className)}>
+  <div className={composeClassname('Collection-body shadow-md')(props.className)}>
     <BodyNavButton
       active={props.pagination.currentPage > 0}
       align={BlockOrientation.LEFT}

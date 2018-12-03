@@ -204,7 +204,7 @@ random Beast.",
 
 exports[`Collection Body snapshots renders without crashing 1`] = `
 <div
-  className="Collection-body"
+  className="Collection-body shadow-md"
 >
   <BodyNavButton
     active={true}

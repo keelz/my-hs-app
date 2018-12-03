@@ -24,7 +24,7 @@ export const composeClickAction = (action: (field: string, value: string) => any
 const ManaBar: React.SFC<Props> = props =>
   <NavBar
     id="collection-mana-bar"
-    className={composeClassname('Collection-mana-bar')(props.className)}>
+    className={composeClassname('Collection-mana-bar shadow-md')(props.className)}>
     { composeManaGems().map(gem =>
       <NavItem
         key={`mana-bar-btn${gem}`}
