@@ -12,12 +12,14 @@ interface ICardProps extends IComponentProps {
   ext: CardExt;
   id: string;
   locale: CardLocale;
+  onClick?: () => void;
   resolution: CardResolution;
 }
 
 const Card: React.SFC<ICardProps> = props =>
   <img
     className={composeClassname('App-card')(props.className)}
+    onClick={props.onClick}
     src={composeAssetSource(
       props.id,
       props.locale,

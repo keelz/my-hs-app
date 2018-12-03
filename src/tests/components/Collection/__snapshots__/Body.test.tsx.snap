@@ -216,5 +216,10 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
     align={1}
     onClick={[Function]}
   />
+  <SimpleModal
+    onCloseCallback={[Function]}
+    open={false}
+    render={[Function]}
+  />
 </div>
 `;
