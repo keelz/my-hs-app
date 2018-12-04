@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collecttion/CardDetail snapshots renders without crashing 1`] = `
+<div
+  className="App-card-detail flex flex-row"
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "width": 340,
+      }
+    }
+  >
+    <img
+      src="https://art.hearthstonejson.com/v1/render/latest/enUS/512x/test-card-id.png"
+      style={
+        Object {
+          "marginTop": -60,
+        }
+      }
+    />
+  </div>
+  <div
+    className="bg-grey-darkest flex-grow rounded-lg shadow-outline text-white"
+    style={
+      Object {
+        "padding": 10,
+        "width": 300,
+      }
+    }
+  >
+    <h2>
+      test-card-name
+    </h2>
+    <p
+      className="mt-2 mb-2"
+    >
+      test-card-flavor
+    </p>
+  </div>
+</div>
+`;

@@ -16,8 +16,8 @@ import {
 
 export interface ICardsService {
   handleSetActiveClassname: MiddlewareOperation;
-  handleSetPagination: MiddlewareOperation;
   handleSetFilter: MiddlewareOperation;
+  handleSetPagination: MiddlewareOperation;
   resetPagination: SafeMiddlewareOperation;
 }
 
