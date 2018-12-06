@@ -12,14 +12,18 @@ export interface IMockStore {
   };
 }
 
+let mockState = {};
+
 export const composeMockStore = (withMiddleware: Middleware) => {
   const middleware = withMiddleware;
 
   const store = {
     dispatch: jest.fn(),
-    getState: jest.fn(),
+    getState: jest.fn(() => mockState),
     subscribe: jest.fn(),
   };
+
+  const setState = (state: Object) => mockState = { ...state };
 
   const next = jest.fn();
 
@@ -32,5 +36,5 @@ export const composeMockStore = (withMiddleware: Middleware) => {
   const invoke = (action: IActionType<any>) =>
     middleware(store)(next)(action);
 
-  return { action, invoke, next, store };
+  return { action, invoke, next, setState, store };
 };

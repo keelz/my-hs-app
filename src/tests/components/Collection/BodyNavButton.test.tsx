@@ -48,8 +48,19 @@ describe('Collect BodyNavButton', () => {
       expect(test).toMatchSnapshot();
     });
 
-    it('composes icon container classname correctly', () => {
-      const test = composeIconContainerClassname(defaultProps);
+    it('composes icon container classname correctly when not active', () => {
+      const test = composeIconContainerClassname({
+        ...defaultProps,
+        active: false,
+      });
+      expect(test).toMatchSnapshot();
+    });
+
+    it('composes icon container classname correctly when active', () => {
+      const test = composeIconContainerClassname({
+        ...defaultProps,
+        active: true,
+      });
       expect(test).toMatchSnapshot();
     });
 

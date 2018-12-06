@@ -83,6 +83,11 @@ const service: ICardsService = {
       return;
     },
 
+  /**
+   * safe middleware operation:
+   * reset collection pagination to initial state for current collection.
+   * @param api {AppMiddlewareApi}
+   */
   resetPagination: (api: AppMiddlewareApi) =>
     (_: IActionType<any>) => {
       const state = api.getState();

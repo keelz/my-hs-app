@@ -1,8 +1,9 @@
 import { composeMockStore } from '../../utils';
 import middleware from '../../../redux/middleware/cards';
 import service from '../../../common/services/cards.service';
-import { CARDS_SET_PAGINATION } from '../../../redux/reducers/Cards';
+import { CARDS_SET_PAGINATION, CARDS_SET_ACTIVE_CLASSNAME } from '../../../redux/reducers/Cards';
 import cards from '../../../common/mocks/collection';
+import { CardClassName } from '../../../common/models/cards.model';
 
 const mockStore = composeMockStore(middleware);
 
@@ -11,6 +12,35 @@ describe('cards service', () => {
 
   beforeEach(() => {
     next = jest.fn();
+  });
+
+  it('performs handleSetActiveClassname correctly', () => {
+    const { action, next, setState, store } = composeMockStore(middleware);
+    const { handleSetActiveClassname } = service;
+    setState({
+      Cards: {
+        activeClassName: CardClassName.DRUID,
+      },
+    });
+    const nextAction = action(CARDS_SET_ACTIVE_CLASSNAME)({
+      activeClassName: CardClassName.DRUID,
+    });
+    handleSetActiveClassname(store)(next)(nextAction);
+    expect(next).not.toHaveBeenCalled();
+    setState({
+      Cards: {
+        activeClassName: CardClassName.HUNTER,
+        data: [...cards].slice(0, 49),
+        filters: {},
+      },
+    });
+    handleSetActiveClassname(store)(next)(nextAction);
+    expect(next).toHaveBeenCalledWith({
+      type: CARDS_SET_ACTIVE_CLASSNAME,
+      payload: {
+        activeClassName: CardClassName.DRUID,
+      },
+    });
   });
 
   it('performs handleCardsSetFilterAction correctly', () => {

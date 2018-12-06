@@ -8,7 +8,9 @@ exports[`Collect BodyNavButton helpers composes icon classname correctly for LEF
 
 exports[`Collect BodyNavButton helpers composes icon classname correctly for RIGHT alignment 1`] = `"fas fa-angle-right"`;
 
-exports[`Collect BodyNavButton helpers composes icon container classname correctly 1`] = `"Collection-body-nav-button-icon"`;
+exports[`Collect BodyNavButton helpers composes icon container classname correctly when active 1`] = `"Collection-body-nav-button-icon active"`;
+
+exports[`Collect BodyNavButton helpers composes icon container classname correctly when not active 1`] = `"Collection-body-nav-button-icon"`;
 
 exports[`Collect BodyNavButton snapshots renders with orientation LEFT correctly 1`] = `
 <div

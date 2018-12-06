@@ -207,7 +207,7 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
   className="Collection-body shadow-md"
 >
   <BodyNavButton
-    active={true}
+    active={false}
     align={3}
     onClick={[Function]}
   />
