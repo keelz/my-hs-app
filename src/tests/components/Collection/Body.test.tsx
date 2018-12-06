@@ -12,10 +12,10 @@ const defaultProps = () => Object.freeze({
     cards: Array(0),
   },
   pagination: {
-    currentPage: 1,
+    currentPage: 0,
     itemsPerPage: 10,
     pages: 1,
-    total: 10,
+    total: 50,
   },
   setPagination: jest.fn(),
 });
@@ -51,6 +51,22 @@ describe('Collection Body', () => {
       const right = tree.find('.Collection-align-right').first();
       right.simulate('click');
       expect(props.setPagination).toHaveBeenCalled();
+    });
+
+    it('toggles modal open correctly', () => {
+      const props = {
+        ...defaultProps(),
+        collection: {
+          cards: [...testCards].slice(0, 49) as ICard[],
+        },
+      };
+      const wrapper = enzyme.mount(<CollectionBody {...props} />);
+      const card = wrapper.find('Card').first();
+      expect(card).toHaveLength(1);
+      const instance = wrapper.instance();
+      const spy = jest.spyOn(instance, 'setState');
+      card.simulate('click');
+      expect(spy).toHaveBeenCalledWith({ modalOpen: true, activeCard: { ...testCards[0] } });
     });
   });
 

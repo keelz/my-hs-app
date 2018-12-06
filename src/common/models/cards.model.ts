@@ -3,8 +3,10 @@
 export interface ICard {
   cardClass: CardClassName;
   cost: number;
+  flavor: string;
   id: string;
   name: string;
+  text: string;
 }
 
 export enum CardClassName {

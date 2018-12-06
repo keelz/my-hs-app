@@ -3,6 +3,8 @@ import { composeClassname } from '../../common/utils';
 import { ICollection } from '../../common/models/collection.model';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
+import CardDetail from './CardDetail';
+import Modal from '../Modal';
 import {
   IComponentProps,
   BlockOrientation,
@@ -29,6 +31,11 @@ export interface ICollectionBodyStateProps {
 
 type Props = ICollectionBodyProps & ICollectionBodyStateProps;
 
+interface ICollectionBodyState {
+  activeCard?: ICard;
+  modalOpen: boolean;
+}
+
 /**
  * HELPERS
  */
@@ -41,31 +48,50 @@ export const composeCollection = (withCards: ICard[], pagination: IPagination): 
 /**
  * COMPONENT
  */
-const CollectionBody: React.SFC<Props> = props =>
-  <div className={composeClassname('Collection-body')(props.className)}>
-    <BodyNavButton
-      active={props.pagination.currentPage > 0}
-      align={BlockOrientation.LEFT}
-      onClick={() => props.setPagination({
-        ...props.pagination,
-        currentPage: props.pagination.currentPage - 1,
-      })} />
-    { composeCollection(props.collection.cards, props.pagination).map(card =>
-      <Card
-        className="Collection-card"
-        key={card.id}
-        ext={CardExt.PNG}
-        id={card.id}
-        locale={CardLocale.EN}
-        resolution={CardResolution.SMALL} />
-    )}
-    <BodyNavButton
-      active={props.pagination.currentPage + 1 < props.pagination.pages}
-      align={BlockOrientation.RIGHT}
-      onClick={() => props.setPagination({
-        ...props.pagination,
-        currentPage: props.pagination.currentPage + 1,
-      })} />
-  </div>;
+class CollectionBody extends React.Component<Props, ICollectionBodyState> {
+  state = {
+    activeCard: undefined,
+    modalOpen: false,
+  };
+
+  handleToggleModal = (withCard: any) => () =>
+    this.setState({ modalOpen: !this.state.modalOpen, activeCard: withCard })
+
+  render() {
+    return (
+      <div className={composeClassname('Collection-body shadow-md')(this.props.className)}>
+        <BodyNavButton
+          active={this.props.pagination.currentPage > 0}
+          align={BlockOrientation.LEFT}
+          onClick={() => this.props.setPagination({
+            ...this.props.pagination,
+            currentPage: this.props.pagination.currentPage - 1,
+          })} />
+        { composeCollection(this.props.collection.cards, this.props.pagination).map(card =>
+          <Card
+            className="Collection-card"
+            key={card.id}
+            ext={CardExt.PNG}
+            id={card.id}
+            locale={CardLocale.EN}
+            onClick={this.handleToggleModal(card)}
+            resolution={CardResolution.SMALL} />
+        )}
+        <BodyNavButton
+          active={this.props.pagination.currentPage + 1 < this.props.pagination.pages}
+          align={BlockOrientation.RIGHT}
+          onClick={() => this.props.setPagination({
+            ...this.props.pagination,
+            currentPage: this.props.pagination.currentPage + 1,
+          })} />
+        <Modal
+          onCloseCallback={this.handleToggleModal(this.state.activeCard)}
+          open={this.state.modalOpen}
+          render={() => <CardDetail card={this.state.activeCard} />}
+          />
+      </div>
+    );
+  }
+}
 
 export default CollectionBody;

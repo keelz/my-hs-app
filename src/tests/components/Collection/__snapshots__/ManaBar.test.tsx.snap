@@ -15,7 +15,7 @@ Array [
 
 exports[`Collection ManaBar snapshots renders without crashing 1`] = `
 <Component
-  className="Collection-mana-bar"
+  className="Collection-mana-bar shadow-md"
   id="collection-mana-bar"
 >
   <Component

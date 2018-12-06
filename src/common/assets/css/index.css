@@ -31,6 +31,25 @@ body {
 
 .App-card {}
 
+.App-card:hover {
+  cursor: pointer;
+}
+
+.App-card img {
+  background: transparent;
+  position: relative;
+  height: 100%;
+}
+
+.App-card-detail {
+  width: 40rem;
+  height: 25rem;
+}
+
+.App-modal {}
+
+.App-modal-container {}
+
 .Mana-gem {
   filter: saturate(0) opacity(.6);
 }

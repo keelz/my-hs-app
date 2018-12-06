@@ -1,8 +1,17 @@
 import { composeMiddleware } from '../../../redux/middleware/cards';
-import { CARDS_SET_PAGINATION } from '../../../redux/reducers/Cards';
+import { CardClassName } from '../../../common/models/cards.model';
+import {
+  CARDS_SET_PAGINATION,
+  CARDS_SET_ACTIVE_CLASSNAME,
+  CARDS_SET_CARDS,
+  CARDS_SET_FILTER,
+} from '../../../redux/reducers/Cards';
 
 const mockCardsService = {
+  handleSetActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
+  handleSetFilter: jest.fn(() => jest.fn(() => jest.fn())),
   handleSetPagination: jest.fn(() => jest.fn(() => jest.fn())),
+  resetPagination: jest.fn(() => jest.fn()),
 };
 
 const mockStore = {
@@ -19,6 +28,39 @@ describe('cards middleware', () => {
     composeMiddleware(mockCardsService)(mockStore)(next)(action);
     expect(mockCardsService.handleSetPagination).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({ type: 'UNKNOWN' });
+  });
+
+  it(`handles ${CARDS_SET_ACTIVE_CLASSNAME} correctly`, () => {
+    const mw = composeMiddleware(mockCardsService);
+    const action = {
+      type: CARDS_SET_ACTIVE_CLASSNAME,
+      payload: {
+        activeClassName: CardClassName.HUNTER,
+      },
+    };
+    mw(mockStore)(next)(action);
+    expect(mockCardsService.handleSetActiveClassname).toHaveBeenCalled();
+  });
+
+  it(`handles ${CARDS_SET_CARDS} correctly`, () => {
+    const mw = composeMiddleware(mockCardsService);
+    const action = {
+      type: CARDS_SET_CARDS,
+      payload: { data: [] },
+    };
+    mw(mockStore)(next)(action);
+    expect(next).toHaveBeenCalledWith(action);
+    expect(mockCardsService.resetPagination).toHaveBeenCalled();
+  });
+
+  it(`handles ${CARDS_SET_FILTER} correctly`, () => {
+    const mw = composeMiddleware(mockCardsService);
+    const action = {
+      type: CARDS_SET_FILTER,
+      payload: {},
+    };
+    mw(mockStore)(next)(action);
+    expect(mockCardsService.handleSetFilter).toHaveBeenCalled();
   });
 
   it(`handles ${CARDS_SET_PAGINATION} correctly`, () => {

@@ -204,10 +204,10 @@ random Beast.",
 
 exports[`Collection Body snapshots renders without crashing 1`] = `
 <div
-  className="Collection-body"
+  className="Collection-body shadow-md"
 >
   <BodyNavButton
-    active={true}
+    active={false}
     align={3}
     onClick={[Function]}
   />
@@ -215,6 +215,11 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
     active={false}
     align={1}
     onClick={[Function]}
+  />
+  <SimpleModal
+    onCloseCallback={[Function]}
+    open={false}
+    render={[Function]}
   />
 </div>
 `;
