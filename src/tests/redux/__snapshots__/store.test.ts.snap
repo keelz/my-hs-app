@@ -49,5 +49,8 @@ Object {
       "total": 0,
     },
   },
+  "Collection": Object {
+    "modal": 1,
+  },
 }
 `;
