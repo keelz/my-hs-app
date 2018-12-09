@@ -218,7 +218,7 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
   />
   <SimpleModal
     onCloseCallback={[Function]}
-    open={false}
+    open={0}
     render={[Function]}
   />
 </div>

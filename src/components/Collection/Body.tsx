@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
 import { ICollection } from '../../common/models/collection.model';
+import { ModalState } from '../../redux/Types';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
 import CardDetail from './CardDetail';
@@ -25,16 +26,15 @@ interface ICollectionBodyProps extends IComponentProps {
 }
 
 export interface ICollectionBodyStateProps {
+  activeCard?: ICard;
+  modalState: ModalState;
   pagination: IPagination;
+  setActiveCard: (activeCard: ICard) => any;
+  setModalState: (modalState: ModalState) => any;
   setPagination: (pagination: IPagination) => any;
 }
 
 type Props = ICollectionBodyProps & ICollectionBodyStateProps;
-
-interface ICollectionBodyState {
-  activeCard?: ICard;
-  modalOpen: boolean;
-}
 
 /**
  * HELPERS
@@ -45,53 +45,55 @@ export const composeCollection = (withCards: ICard[], pagination: IPagination): 
     (pagination.itemsPerPage * pagination.currentPage) + pagination.itemsPerPage
   );
 
+export const composeToggleModal = (withProps: Props) => (withCard?: ICard) => () => {
+  withCard && withProps.setActiveCard(withCard);
+  const nextModalState = withProps.modalState === ModalState.OPEN
+    ? ModalState.CLOSED
+    : ModalState.OPEN;
+  withProps.setModalState(nextModalState);
+};
+
 /**
  * COMPONENT
  */
-class CollectionBody extends React.Component<Props, ICollectionBodyState> {
-  state = {
-    activeCard: undefined,
-    modalOpen: false,
-  };
-
-  handleToggleModal = (withCard: any) => () =>
-    this.setState({ modalOpen: !this.state.modalOpen, activeCard: withCard })
-
-  render() {
-    return (
-      <div className={composeClassname('Collection-body shadow-md')(this.props.className)}>
-        <BodyNavButton
-          active={this.props.pagination.currentPage > 0}
-          align={BlockOrientation.LEFT}
-          onClick={() => this.props.setPagination({
-            ...this.props.pagination,
-            currentPage: this.props.pagination.currentPage - 1,
-          })} />
-        { composeCollection(this.props.collection.cards, this.props.pagination).map(card =>
+const CollectionBody: React.SFC<Props> = props => {
+  const closeModal = composeToggleModal(props)();
+  return (
+    <div className={composeClassname('Collection-body shadow-md')(props.className)}>
+      <BodyNavButton
+        active={props.pagination.currentPage > 0}
+        align={BlockOrientation.LEFT}
+        onClick={() => props.setPagination({
+          ...props.pagination,
+          currentPage: props.pagination.currentPage - 1,
+        })} />
+      { composeCollection(props.collection.cards, props.pagination).map(card => {
+        const openModal = composeToggleModal(props)(card);
+        return (
           <Card
             className="Collection-card"
             key={card.id}
             ext={CardExt.PNG}
             id={card.id}
             locale={CardLocale.EN}
-            onClick={this.handleToggleModal(card)}
+            onClick={openModal}
             resolution={CardResolution.SMALL} />
-        )}
-        <BodyNavButton
-          active={this.props.pagination.currentPage + 1 < this.props.pagination.pages}
-          align={BlockOrientation.RIGHT}
-          onClick={() => this.props.setPagination({
-            ...this.props.pagination,
-            currentPage: this.props.pagination.currentPage + 1,
-          })} />
-        <Modal
-          onCloseCallback={this.handleToggleModal(this.state.activeCard)}
-          open={this.state.modalOpen}
-          render={() => <CardDetail card={this.state.activeCard} />}
-          />
-      </div>
-    );
-  }
-}
+        );
+      })}
+      <BodyNavButton
+        active={props.pagination.currentPage + 1 < props.pagination.pages}
+        align={BlockOrientation.RIGHT}
+        onClick={() => props.setPagination({
+          ...props.pagination,
+          currentPage: props.pagination.currentPage + 1,
+        })} />
+      <Modal
+        onCloseCallback={closeModal}
+        open={props.modalState}
+        render={() => <CardDetail card={props.activeCard} />}
+        />
+    </div>
+  );
+};
 
 export default CollectionBody;

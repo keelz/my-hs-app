@@ -30,5 +30,5 @@ export type SafeMiddlewareOperation = (api: AppMiddlewareApi) =>
   (action: IActionType<any>) => void;
 
 export enum ModalState {
-  OPEN, CLOSED,
+  CLOSED, OPEN,
 }

@@ -2,6 +2,7 @@
 
 exports[`Collection factories composes state with factory correctly 1`] = `
 Object {
-  "modal": 1,
+  "activeCard": undefined,
+  "modal": 0,
 }
 `;

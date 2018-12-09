@@ -50,7 +50,8 @@ Object {
     },
   },
   "Collection": Object {
-    "modal": 1,
+    "activeCard": undefined,
+    "modal": 0,
   },
 }
 `;
