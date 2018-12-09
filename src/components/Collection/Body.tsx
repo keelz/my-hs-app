@@ -36,11 +36,6 @@ export interface ICollectionBodyStateProps {
 
 type Props = ICollectionBodyProps & ICollectionBodyStateProps;
 
-interface ICollectionBodyState {
-  activeCard?: ICard;
-  modalOpen: boolean;
-}
-
 /**
  * HELPERS
  */
