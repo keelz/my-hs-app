@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collection Reducer composes state with factory correctly 1`] = `
+exports[`Collection factories composes state with factory correctly 1`] = `
 Object {
   "modal": 1,
 }
