@@ -4,19 +4,24 @@ import { shallowToJson } from 'enzyme-to-json';
 import { ICard } from '../../../common/models/cards.model';
 import testCards from '../../../common/mocks/collection';
 import CollectionBody, {
-  composeCollection,
+  composeCollection, composeToggleModal,
 } from '../../../components/Collection/Body';
+import { ModalState } from '../../../redux/Types';
 
 const defaultProps = () => Object.freeze({
+  activeCard: undefined,
   collection: {
     cards: Array(0),
   },
+  modalState: ModalState.CLOSED,
   pagination: {
     currentPage: 0,
     itemsPerPage: 10,
     pages: 1,
     total: 50,
   },
+  setActiveCard: jest.fn(),
+  setModalState: jest.fn(),
   setPagination: jest.fn(),
 });
 
@@ -63,10 +68,8 @@ describe('Collection Body', () => {
       const wrapper = enzyme.mount(<CollectionBody {...props} />);
       const card = wrapper.find('Card').first();
       expect(card).toHaveLength(1);
-      const instance = wrapper.instance();
-      const spy = jest.spyOn(instance, 'setState');
       card.simulate('click');
-      expect(spy).toHaveBeenCalledWith({ modalOpen: true, activeCard: { ...testCards[0] } });
+      expect(props.setActiveCard).toHaveBeenCalledWith(props.collection.cards[0]);
     });
   });
 
@@ -84,6 +87,22 @@ describe('Collection Body', () => {
       );
       expect(result).toHaveLength(10);
       expect(result).toMatchSnapshot();
+    });
+
+    it('composes toggle modal correctly', () => {
+      const props = {
+        ...defaultProps(),
+        setActiveCard: jest.fn(),
+        setModalState: jest.fn(),
+      };
+      // test toggle from closed
+      composeToggleModal(props)(testCards[0] as ICard)();
+      props.modalState = ModalState.OPEN;
+      // test toggle from open
+      composeToggleModal(props)(testCards[0] as ICard)();
+      expect(props.setActiveCard).toHaveBeenCalledWith(testCards[0]);
+      expect(props.setModalState).toHaveBeenCalledWith(ModalState.OPEN);
+      expect(props.setModalState).toHaveBeenCalledWith(ModalState.CLOSED);
     });
   });
 });

@@ -49,5 +49,9 @@ Object {
       "total": 0,
     },
   },
+  "Collection": Object {
+    "activeCard": undefined,
+    "modal": 0,
+  },
 }
 `;

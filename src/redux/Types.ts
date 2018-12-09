@@ -2,6 +2,7 @@ import { MiddlewareAPI, Dispatch } from 'redux';
 import { IBrowser } from 'redux-responsive';
 import { AppState } from './reducers/App';
 import { ICardsState } from './reducers/Cards';
+import { ICollectionState } from './reducers/Collection';
 
 export interface IActionType<T> {
   type: string;
@@ -12,6 +13,7 @@ export interface IRootState {
   App: AppState;
   Browser: IBrowser;
   Cards: ICardsState;
+  Collection: ICollectionState;
 }
 
 export type AppMiddlewareApi = MiddlewareAPI<Dispatch<IActionType<any>>, IRootState>;
@@ -26,3 +28,7 @@ export type MiddlewareOperation = (api: AppMiddlewareApi) =>
 
 export type SafeMiddlewareOperation = (api: AppMiddlewareApi) =>
   (action: IActionType<any>) => void;
+
+export enum ModalState {
+  CLOSED, OPEN,
+}
