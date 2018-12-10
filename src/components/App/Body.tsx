@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AppRouter from './Router';
 import { composeClassname } from '../../common/utils';
-import { IComponentProps } from '../../common/models/app.model';
+import { IComponentProps } from '../../common/models/App.model';
 
 interface AppBodyProps extends IComponentProps {}
 

@@ -3,7 +3,7 @@ import HSJSON from '../../../common/constants/hsJson';
 import { IRootState } from '../../../redux/Types';
 import { defaultState as cardsStateFactory } from '../../../redux/reducers/Cards';
 import { defaultState as collectionStateFactory } from '../../../redux/reducers/Collection';
-import { ICard } from '../../../common/models/cards.model';
+import { ICard } from '../../../common/models/Cards.model';
 import testData from '../../../common/mocks/collection';
 
 const composeState = () => ({

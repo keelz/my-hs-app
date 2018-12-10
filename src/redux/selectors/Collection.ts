@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import HSJSON from '../../common/constants/hsJson';
 import { IRootState } from '../Types';
-import { ICard } from '../../common/models/cards.model';
+import { ICard } from '../../common/models/Cards.model';
 import { composeCardClassNames } from '../../common/utils/cards.util';
 
 export class Accessors {

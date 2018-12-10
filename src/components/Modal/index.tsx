@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 import Modal from '@material-ui/core/Modal';
-import { IComponentProps } from '../../common/models/app.model';
+import { IComponentProps } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
 import { ModalState } from '../../redux/Types';
 

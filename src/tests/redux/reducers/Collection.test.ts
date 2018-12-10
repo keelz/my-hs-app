@@ -1,5 +1,5 @@
 import { ModalState } from '../../../redux/Types';
-import { CardClassName, ICard } from '../../../common/models/cards.model';
+import { CardClassName, ICard, CardSet, CardType } from '../../../common/models/Cards.model';
 import reducer, {
   defaultState,
   collectionDeleteFilterAction,
@@ -18,13 +18,18 @@ import reducer, {
 
 const testData = require('../../../common/mocks/collection');
 
-const testCard = {
+const testCard: ICard = {
+  artist: 'test-artist',
   cardClass: CardClassName.DRUID,
+  collectible: true,
   cost: 4,
+  dbfId: 123,
   flavor: 'test',
   id: 'test',
   name: 'test',
+  set: CardSet.BOOMSDAY,
   text: 'test',
+  type: CardType.MINION,
 };
 
 describe('Collection', () => {

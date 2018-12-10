@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IComponentProps } from '../../common/models/app.model';
+import { IComponentProps } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
 import { default as NavItemComponent, INavItemProps } from './NavItem';
 import './NavBar.css';

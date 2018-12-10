@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IComponentProps, BlockOrientation } from '../../common/models/app.model';
+import { IComponentProps, BlockOrientation } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
 
 interface IBodyNavButtonProps extends IComponentProps {

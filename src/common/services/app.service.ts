@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { AxiosPromise } from 'axios';
 import { AppMiddlewareApi, AsyncMiddlewareOperation, IActionType } from '../../redux/Types';
-import { ICard } from '../models/cards.model';
+import { ICard } from '../models/Cards.model';
 import { appSetLoadedAction } from '../../redux/reducers/App';
 import { cardsSetCardsAction } from '../../redux/reducers/Cards';
 import HSJSON from '../constants/hsJson';
