@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { IRootState } from '../../Types';
-import { CardClassName } from '../../../common/models/cards.model';
+import { CardClassName } from '../../../common/models/Cards.model';
 import {
   selectActiveCardClassName,
   selectCardsWithFilters

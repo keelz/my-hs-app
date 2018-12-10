@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
-import { ICollection } from '../../common/models/collection.model';
+import { ICollection } from '../../common/models/Collection.model';
 import { ModalState } from '../../redux/Types';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
@@ -10,13 +10,13 @@ import {
   IComponentProps,
   BlockOrientation,
   IPagination,
-} from '../../common/models/app.model';
+} from '../../common/models/App.model';
 import {
   CardResolution,
   CardExt,
   CardLocale,
   ICard,
-} from '../../common/models/cards.model';
+} from '../../common/models/Cards.model';
 
 /**
  * MODEL

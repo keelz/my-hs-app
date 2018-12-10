@@ -1,4 +1,4 @@
-import { ICard } from './cards.model';
+import { ICard } from './Cards.model';
 
 export interface ICollection {
   cards: ICard[];

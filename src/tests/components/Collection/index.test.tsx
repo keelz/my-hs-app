@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import { CardClassName, ICard } from '../../../common/models/cards.model';
+import { CardClassName, ICard } from '../../../common/models/Cards.model';
 import cards from '../../../common/mocks/collection';
 import Collection from '../../../components/Collection';
 

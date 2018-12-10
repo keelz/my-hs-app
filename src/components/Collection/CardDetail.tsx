@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
-import { IComponentProps } from '../../common/models/app.model';
+import { IComponentProps } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
-import { ICard, CardLocale, CardResolution, CardExt } from '../../common/models/cards.model';
+import { ICard, CardLocale, CardResolution, CardExt } from '../../common/models/Cards.model';
 import { composeAssetSource } from '../../common/services/hsJson.service';
 
 interface ICardDetailProps extends IComponentProps {

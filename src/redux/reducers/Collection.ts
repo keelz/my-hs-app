@@ -1,10 +1,10 @@
 import { IActionType, ModalState } from '../Types';
 import { Dispatch } from 'redux';
-import { IPagination } from '../../common/models/app.model';
+import { IPagination } from '../../common/models/App.model';
 import {
   ICard,
   CardClassName
-} from '../../common/models/cards.model';
+} from '../../common/models/Cards.model';
 
 /** STATE MODEL */
 export interface ICollectionState {

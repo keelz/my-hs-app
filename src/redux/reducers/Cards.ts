@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 import { IActionType } from '../Types';
-import { ICard } from '../../common/models/cards.model';
+import { ICard } from '../../common/models/Cards.model';
 
 /** MODEL */
 export interface ICardsState {

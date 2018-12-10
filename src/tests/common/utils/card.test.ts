@@ -1,6 +1,6 @@
 import { composeCardClassNames } from '../../../common/utils/cards.util';
 import mockCollection from '../../../common/mocks/collection';
-import { ICard } from '../../../common/models/cards.model';
+import { ICard } from '../../../common/models/Cards.model';
 
 describe('card utilities', () => {
   it('composes card class names correctly', () => {

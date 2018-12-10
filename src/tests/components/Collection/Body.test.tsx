@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import { ICard } from '../../../common/models/cards.model';
+import { ICard } from '../../../common/models/Cards.model';
 import testCards from '../../../common/mocks/collection';
 import CollectionBody, {
   composeCollection, composeToggleModal,

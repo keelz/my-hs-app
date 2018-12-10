@@ -2,7 +2,7 @@ import { composeMockStore } from '../../utils';
 import middleware from '../../../redux/middleware/Collection';
 import service from '../../../common/services/collection.service';
 import cards from '../../../common/mocks/collection';
-import { CardClassName } from '../../../common/models/cards.model';
+import { CardClassName } from '../../../common/models/Cards.model';
 import {
   COLLECTION_SET_PAGINATION,
   COLLECTION_SET_ACTIVE_CLASSNAME,

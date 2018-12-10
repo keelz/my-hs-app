@@ -1,6 +1,6 @@
 import * as Reducer from '../../../redux/reducers/Cards';
 import mockData from '../../../common/mocks/collection';
-import { ICard } from '../../../common/models/cards.model';
+import { ICard } from '../../../common/models/Cards.model';
 
 describe('Cards Reducer', () => {
   describe('snapshots', () => {

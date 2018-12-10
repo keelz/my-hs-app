@@ -1,5 +1,5 @@
 import { ModalState } from '../../../redux/Types';
-import { CardClassName, ICard } from '../../../common/models/cards.model';
+import { CardClassName, ICard } from '../../../common/models/Cards.model';
 import reducer, {
   defaultState,
   collectionDeleteFilterAction,

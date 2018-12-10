@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import CardDetail from '../../../components/Collection/CardDetail';
-import { CardClassName } from '../../../common/models/cards.model';
+import { CardClassName } from '../../../common/models/Cards.model';
 
 const defaultProps = Object.freeze({
   card: {

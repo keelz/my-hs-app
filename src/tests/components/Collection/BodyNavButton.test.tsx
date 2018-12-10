@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import { BlockOrientation } from '../../../common/models/app.model';
+import { BlockOrientation } from '../../../common/models/App.model';
 import BodyNavButton, {
   composeAlignmentClassname,
   composeIconClassname,

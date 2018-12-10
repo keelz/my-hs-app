@@ -1,5 +1,5 @@
 import { composeMiddleware } from '../../../redux/middleware/Collection';
-import { CardClassName } from '../../../common/models/cards.model';
+import { CardClassName } from '../../../common/models/Cards.model';
 import {
   COLLECTION_SET_PAGINATION,
   COLLECTION_SET_ACTIVE_CLASSNAME,
