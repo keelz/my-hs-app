@@ -4,7 +4,7 @@ import { CardClassName } from '../../../common/models/cards.model';
 import {
   selectActiveCardClassName,
   selectCardsWithFilters
-} from '../../selectors/cards';
+} from '../../selectors/Collection';
 import Collection from '../../../components/Collection';
 
 const mapStateToProps = (state: IRootState) => ({

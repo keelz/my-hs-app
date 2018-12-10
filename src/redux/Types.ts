@@ -1,8 +1,8 @@
 import { MiddlewareAPI, Dispatch } from 'redux';
 import { IBrowser } from 'redux-responsive';
 import { AppState } from './reducers/App';
-import { ICardsState } from './reducers/Cards';
 import { ICollectionState } from './reducers/Collection';
+import { ICardsState } from './reducers/Cards';
 
 export interface IActionType<T> {
   type: string;

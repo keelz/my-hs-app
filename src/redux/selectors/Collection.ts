@@ -10,7 +10,7 @@ export class Accessors {
    * @param state {IRootState}
    */
   public static getActiveCardClassName(state: IRootState): string {
-    return state.Cards.activeClassName;
+    return state.Collection.activeClassName;
   }
 
   /**
@@ -26,7 +26,7 @@ export class Accessors {
    * @param state {IRootState}
    */
   public static getFilters(state: IRootState): { [key: string]: string } {
-    return state.Cards.filters;
+    return state.Collection.filters;
   }
 }
 

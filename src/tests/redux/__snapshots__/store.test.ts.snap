@@ -39,19 +39,19 @@ Object {
     "orientation": null,
   },
   "Cards": Object {
-    "activeClassName": "DRUID",
     "data": Array [],
+  },
+  "Collection": Object {
+    "activeCard": undefined,
+    "activeClassName": "DRUID",
     "filters": Object {},
+    "modal": 0,
     "pagination": Object {
       "currentPage": 0,
       "itemsPerPage": 0,
       "pages": 0,
       "total": 0,
     },
-  },
-  "Collection": Object {
-    "activeCard": undefined,
-    "modal": 0,
   },
 }
 `;
