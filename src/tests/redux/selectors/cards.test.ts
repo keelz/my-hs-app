@@ -1,14 +1,18 @@
 import * as Selector from '../../../redux/selectors/cards';
 import HSJSON from '../../../common/constants/hsJson';
 import { IRootState } from '../../../redux/Types';
-import { defaultState } from '../../../redux/reducers/Cards';
+import { defaultState as cardsStateFactory } from '../../../redux/reducers/Cards';
+import { defaultState as collectionStateFactory } from '../../../redux/reducers/Collection';
 import { ICard } from '../../../common/models/cards.model';
 import testData from '../../../common/mocks/collection';
 
 const composeState = () => ({
   Cards: {
-    ...defaultState(),
+    ...cardsStateFactory(),
     data: [...testData].slice(0, 200) as ICard[],
+  },
+  Collection: {
+    ...collectionStateFactory(),
   },
 }) as IRootState;
 

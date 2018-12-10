@@ -2,28 +2,12 @@
 
 exports[`Cards Reducer snapshots composes default state correctly 1`] = `
 Object {
-  "activeClassName": "DRUID",
   "data": Array [],
-  "filters": Object {},
-  "pagination": Object {
-    "currentPage": 0,
-    "itemsPerPage": 0,
-    "pages": 0,
-    "total": 0,
-  },
 }
 `;
 
 exports[`Cards Reducer snapshots composes state correctly 1`] = `
 Object {
-  "activeClassName": "DRUID",
   "data": Array [],
-  "filters": Object {},
-  "pagination": Object {
-    "currentPage": 0,
-    "itemsPerPage": 0,
-    "pages": 0,
-    "total": 0,
-  },
 }
 `;

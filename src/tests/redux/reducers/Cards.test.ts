@@ -48,13 +48,5 @@ describe('Cards Reducer', () => {
         data: [...testData],
       });
     });
-
-    it(`handles ${Reducer.CARDS_SET_CARDS} with null payload correctly`, () => {
-      const action = {
-        type: Reducer.CARDS_SET_CARDS,
-      };
-      const result = Reducer.default(undefined, action);
-      expect(result).toEqual({ ...Reducer.defaultState() });
-    });
   });
 });

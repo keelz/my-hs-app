@@ -21,7 +21,7 @@ describe('cards service', () => {
     const { action, next, setState, store } = composeMockStore(middleware);
     const { handleSetActiveClassname } = service;
     setState({
-      Cards: {
+      Collection: {
         activeClassName: CardClassName.DRUID,
       },
     });
@@ -32,8 +32,10 @@ describe('cards service', () => {
     expect(next).not.toHaveBeenCalled();
     setState({
       Cards: {
-        activeClassName: CardClassName.HUNTER,
         data: [...cards].slice(0, 49),
+      },
+      Collection: {
+        activeClassName: CardClassName.HUNTER,
         filters: {},
       },
     });
@@ -50,8 +52,10 @@ describe('cards service', () => {
     const { action, next, store } = mockStore;
     store.getState = jest.fn(() => ({
       Cards: {
-        activeClassName: 'DRUID',
         data: [...cards],
+      },
+      Collection: {
+        activeClassName: 'DRUID',
         filters: { cost: 3 },
       },
     }));
@@ -64,8 +68,10 @@ describe('cards service', () => {
     const { action, next, store } = mockStore;
     store.getState = jest.fn(() => ({
       Cards: {
-        activeClassName: 'DRUID',
         data: [...cards],
+      },
+      Collection: {
+        activeClassName: 'DRUID',
         filters: { cost: 3 },
       },
     }));

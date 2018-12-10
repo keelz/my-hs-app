@@ -1,6 +1,9 @@
+import { ModalState } from '../../../redux/Types';
+import { CardClassName, ICard } from '../../../common/models/cards.model';
 import reducer, {
   defaultState,
   collectionDeleteFilterAction,
+  collectionSetActiveCardAction,
   collectionSetActiveClassNameAction,
   collectionSetFilterAction,
   collectionSetModalAction,
@@ -12,8 +15,8 @@ import reducer, {
   COLLECTION_SET_MODAL,
   COLLECTION_SET_PAGINATION,
 } from '../../../redux/reducers/Collection';
-import { ModalState } from '../../../redux/Types';
-import { CardClassName } from '../../../common/models/cards.model';
+
+const testData = require('../../../common/mocks/collection');
 
 const testCard = {
   cardClass: CardClassName.DRUID,
@@ -50,6 +53,15 @@ describe('Collection', () => {
         payload: {
           filters: { test: undefined },
         },
+      });
+    });
+
+    it(`dispatches ${COLLECTION_SET_ACTIVE_CARD} correctly`, () => {
+      const dispatch = jest.fn();
+      collectionSetActiveCardAction(testData[0] as ICard)(dispatch);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: COLLECTION_SET_ACTIVE_CARD,
+        payload: { activeCard: testData[0] },
       });
     });
 
