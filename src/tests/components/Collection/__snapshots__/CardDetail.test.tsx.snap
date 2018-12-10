@@ -42,7 +42,7 @@ exports[`Collecttion/CardDetail snapshots renders without crashing 1`] = `
       className="mt-2 mb-2"
     >
       Set: 
-      Booms Day
+      Boomsday Project
     </p>
     <p
       className="mt-2 mb-2"

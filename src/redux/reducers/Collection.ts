@@ -19,7 +19,9 @@ export interface ICollectionState {
 export const defaultState = (): ICollectionState => ({
   activeCard: undefined,
   activeClassName: CardClassName.DRUID,
-  filters: {},
+  filters: {
+    PLAY_STYLE: 'STANDARD',
+  },
   modal: ModalState.CLOSED,
   pagination: {
     currentPage: 0,
