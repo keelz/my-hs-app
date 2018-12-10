@@ -89,6 +89,7 @@ export const standardSet = [
   'GILNEAS',
   'ICECROWN',
   'LOOTAPALOOZA',
+  'TROLL',
   'UNGORO',
 ];
 
