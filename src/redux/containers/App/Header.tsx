@@ -5,7 +5,7 @@ import Header from '../../../components/App/Header';
 import {
   selectCardClassNames,
   selectActiveCardClassName
-} from '../../selectors/cards';
+} from '../../selectors/Collection';
 
 const mapStateToProps = (state: IRootState) => ({
   activeClassName: selectActiveCardClassName(state),

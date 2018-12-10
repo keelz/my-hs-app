@@ -1,6 +1,6 @@
 import { composeMockStore } from '../../utils';
-import middleware from '../../../redux/middleware/cards';
-import service from '../../../common/services/cards.service';
+import middleware from '../../../redux/middleware/Collection';
+import service from '../../../common/services/collection.service';
 import cards from '../../../common/mocks/collection';
 import { CardClassName } from '../../../common/models/cards.model';
 import {

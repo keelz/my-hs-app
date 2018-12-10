@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import APP from '../constants/app';
-import { selectCardsWithFilters } from '../../redux/selectors/cards';
+import { selectCardsWithFilters } from '../../redux/selectors/Collection';
 import HSJSON from '../constants/hsJson';
 import {
   ICollectionState,
@@ -14,14 +14,14 @@ import {
   SafeMiddlewareOperation,
 } from '../../redux/Types';
 
-export interface ICardsService {
+export interface ICollectionService {
   handleSetActiveClassname: MiddlewareOperation;
   handleSetFilter: MiddlewareOperation;
   handleSetPagination: MiddlewareOperation;
   resetPagination: SafeMiddlewareOperation;
 }
 
-const service: ICardsService = {
+const service: ICollectionService = {
   /**
    * handle set active classname side effects.
    * - if the class name doesn't change, do nothing.

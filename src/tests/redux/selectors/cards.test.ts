@@ -1,4 +1,4 @@
-import * as Selector from '../../../redux/selectors/cards';
+import * as Selector from '../../../redux/selectors/Collection';
 import HSJSON from '../../../common/constants/hsJson';
 import { IRootState } from '../../../redux/Types';
 import { defaultState as cardsStateFactory } from '../../../redux/reducers/Cards';

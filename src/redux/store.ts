@@ -5,7 +5,8 @@ import { responsiveStoreEnhancer } from 'redux-responsive';
 import createDebounce from 'redux-debounced';
 import thunk from 'redux-thunk';
 import appMiddleware from './middleware/App';
-import cardsMiddleware from './middleware/cards';
+import cardsMiddleware from './middleware/Cards';
+import collectionMiddleware from './middleware/Collection';
 import rootReducer from './reducers';
 
 /**
@@ -45,6 +46,7 @@ libEnhancers.push(responsiveStoreEnhancer);
 const customEnhancers = [
   appMiddleware,
   cardsMiddleware,
+  collectionMiddleware,
 ].map(mw => applyMiddleware(mw));
 
 // compose enhancers with composeFunc
