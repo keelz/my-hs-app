@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import HSJSON from '../../common/constants/hsJson';
 import { IRootState } from '../Types';
-import { ICard } from '../../common/models/Cards.model';
+import { ICard, standardSet } from '../../common/models/Cards.model';
 import { composeCardClassNames } from '../../common/utils/cards.util';
 
 export class Accessors {
@@ -90,6 +90,11 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
           : true;
         return response;
       })
+      // filter by play style
+      .filter(card => !!filters['PLAY_STYLE']
+        && filters['PLAY_STYLE'] === 'STANDARD'
+          ? standardSet.indexOf(card.set) > -1
+          : true)
       // sort by cost
       .sort((a, b) => a.cost - b.cost)
       // sort by name

@@ -189,13 +189,19 @@ describe('Collection', () => {
         type: COLLECTION_SET_FILTER,
         payload: {
           ...defaultState(),
-          filters: { test: 'test' },
+          filters: {
+            ...defaultState().filters,
+            test: 'test',
+          },
         },
       };
       const result = reducer(undefined, action);
       expect(result).toEqual({
         ...defaultState(),
-        filters: { test: 'test' },
+        filters: {
+          ...defaultState().filters,
+          test: 'test',
+        },
       });
     });
 

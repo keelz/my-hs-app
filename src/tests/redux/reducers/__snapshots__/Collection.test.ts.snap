@@ -4,7 +4,9 @@ exports[`Collection factories composes state with factory correctly 1`] = `
 Object {
   "activeCard": undefined,
   "activeClassName": "DRUID",
-  "filters": Object {},
+  "filters": Object {
+    "PLAY_STYLE": "STANDARD",
+  },
   "modal": 0,
   "pagination": Object {
     "currentPage": 0,

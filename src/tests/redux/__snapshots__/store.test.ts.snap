@@ -44,7 +44,9 @@ Object {
   "Collection": Object {
     "activeCard": undefined,
     "activeClassName": "DRUID",
-    "filters": Object {},
+    "filters": Object {
+      "PLAY_STYLE": "STANDARD",
+    },
     "modal": 0,
     "pagination": Object {
       "currentPage": 0,
