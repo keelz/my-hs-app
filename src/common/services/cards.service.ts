@@ -3,10 +3,10 @@ import APP from '../constants/app';
 import { selectCardsWithFilters } from '../../redux/selectors/cards';
 import HSJSON from '../constants/hsJson';
 import {
-  ICardsState,
-  cardsDeleteFilterAction,
-  cardsSetPaginationAction,
-} from '../../redux/reducers/Cards';
+  ICollectionState,
+  collectionDeleteFilterAction,
+  collectionSetPaginationAction,
+} from '../../redux/reducers/Collection';
 import {
   IActionType,
   MiddlewareOperation,
@@ -29,9 +29,9 @@ const service: ICardsService = {
    */
   handleSetActiveClassname: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
-    (action: IActionType<ICardsState>) => {
+    (action: IActionType<ICollectionState>) => {
       const { activeClassName } = action.payload!;
-      const currentClassname = api.getState().Cards.activeClassName;
+      const currentClassname = api.getState().Collection.activeClassName;
       if (activeClassName === currentClassname) return;
       next(action);
       service.resetPagination(api)(action);
@@ -45,7 +45,7 @@ const service: ICardsService = {
    */
   handleSetPagination: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
-    (action: IActionType<ICardsState>) => {
+    (action: IActionType<ICollectionState>) => {
       const { payload } = action;
       // pass through if payload is undefined.
       if (undefined === payload) return next(action);
@@ -68,13 +68,13 @@ const service: ICardsService = {
     (next: Dispatch<IActionType<any>>) =>
     (action: IActionType<any>) => {
       const state = api.getState();
-      const currentFilters = state.Cards.filters;
+      const currentFilters = state.Collection.filters;
       const newFilters = action.payload.filters;
       if (!!newFilters[HSJSON.RESPONSE_PARAMS.COST]
         && !!currentFilters[HSJSON.RESPONSE_PARAMS.COST]
         && newFilters[HSJSON.RESPONSE_PARAMS.COST]
         === currentFilters[HSJSON.RESPONSE_PARAMS.COST]) {
-        cardsDeleteFilterAction(HSJSON.RESPONSE_PARAMS.COST)(api.dispatch);
+        collectionDeleteFilterAction(HSJSON.RESPONSE_PARAMS.COST)(api.dispatch);
         service.resetPagination(api)(action);
         return;
       }
@@ -101,7 +101,7 @@ const service: ICardsService = {
         total,
         currentPage: 0,
       };
-      cardsSetPaginationAction(pagination)(api.dispatch);
+      collectionSetPaginationAction(pagination)(api.dispatch);
     },
 };
 

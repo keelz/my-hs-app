@@ -1,11 +1,11 @@
 import { composeMiddleware } from '../../../redux/middleware/cards';
 import { CardClassName } from '../../../common/models/cards.model';
+import { CARDS_SET_CARDS } from '../../../redux/reducers/Cards';
 import {
-  CARDS_SET_PAGINATION,
-  CARDS_SET_ACTIVE_CLASSNAME,
-  CARDS_SET_CARDS,
-  CARDS_SET_FILTER,
-} from '../../../redux/reducers/Cards';
+  COLLECTION_SET_PAGINATION,
+  COLLECTION_SET_ACTIVE_CLASSNAME,
+  COLLECTION_SET_FILTER,
+} from '../../../redux/reducers/Collection';
 
 const mockCardsService = {
   handleSetActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
@@ -30,10 +30,10 @@ describe('cards middleware', () => {
     expect(next).toHaveBeenCalledWith({ type: 'UNKNOWN' });
   });
 
-  it(`handles ${CARDS_SET_ACTIVE_CLASSNAME} correctly`, () => {
+  it(`handles ${COLLECTION_SET_ACTIVE_CLASSNAME} correctly`, () => {
     const mw = composeMiddleware(mockCardsService);
     const action = {
-      type: CARDS_SET_ACTIVE_CLASSNAME,
+      type: COLLECTION_SET_ACTIVE_CLASSNAME,
       payload: {
         activeClassName: CardClassName.HUNTER,
       },
@@ -53,20 +53,20 @@ describe('cards middleware', () => {
     expect(mockCardsService.resetPagination).toHaveBeenCalled();
   });
 
-  it(`handles ${CARDS_SET_FILTER} correctly`, () => {
+  it(`handles ${COLLECTION_SET_FILTER} correctly`, () => {
     const mw = composeMiddleware(mockCardsService);
     const action = {
-      type: CARDS_SET_FILTER,
+      type: COLLECTION_SET_FILTER,
       payload: {},
     };
     mw(mockStore)(next)(action);
     expect(mockCardsService.handleSetFilter).toHaveBeenCalled();
   });
 
-  it(`handles ${CARDS_SET_PAGINATION} correctly`, () => {
+  it(`handles ${COLLECTION_SET_PAGINATION} correctly`, () => {
     const mw = composeMiddleware(mockCardsService);
     const action = {
-      type: CARDS_SET_PAGINATION,
+      type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
           currentPage: 0,

@@ -1,9 +1,12 @@
 import { composeMockStore } from '../../utils';
 import middleware from '../../../redux/middleware/cards';
 import service from '../../../common/services/cards.service';
-import { CARDS_SET_PAGINATION, CARDS_SET_ACTIVE_CLASSNAME } from '../../../redux/reducers/Cards';
 import cards from '../../../common/mocks/collection';
 import { CardClassName } from '../../../common/models/cards.model';
+import {
+  COLLECTION_SET_PAGINATION,
+  COLLECTION_SET_ACTIVE_CLASSNAME,
+} from '../../../redux/reducers/Collection';
 
 const mockStore = composeMockStore(middleware);
 
@@ -22,7 +25,7 @@ describe('cards service', () => {
         activeClassName: CardClassName.DRUID,
       },
     });
-    const nextAction = action(CARDS_SET_ACTIVE_CLASSNAME)({
+    const nextAction = action(COLLECTION_SET_ACTIVE_CLASSNAME)({
       activeClassName: CardClassName.DRUID,
     });
     handleSetActiveClassname(store)(next)(nextAction);
@@ -36,7 +39,7 @@ describe('cards service', () => {
     });
     handleSetActiveClassname(store)(next)(nextAction);
     expect(next).toHaveBeenCalledWith({
-      type: CARDS_SET_ACTIVE_CLASSNAME,
+      type: COLLECTION_SET_ACTIVE_CLASSNAME,
       payload: {
         activeClassName: CardClassName.DRUID,
       },
@@ -84,7 +87,7 @@ describe('cards service', () => {
   it('handles set pagination with current page less than zero correctly', () => {
     const { store } = mockStore;
     service.handleSetPagination(store)(next)({
-      type: CARDS_SET_PAGINATION,
+      type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
           currentPage: -1,
@@ -97,7 +100,7 @@ describe('cards service', () => {
   it('handles set pagination with current page greater than or equall to pages correctly', () => {
     const { store } = mockStore;
     service.handleSetPagination(store)(next)({
-      type: CARDS_SET_PAGINATION,
+      type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
           currentPage: 4,
@@ -111,7 +114,7 @@ describe('cards service', () => {
   it('handles set pagination with current page within valid range correctly', () => {
     const { store } = mockStore;
     service.handleSetPagination(store)(next)({
-      type: CARDS_SET_PAGINATION,
+      type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
           currentPage: 3,
@@ -120,7 +123,7 @@ describe('cards service', () => {
       },
     });
     expect(next).toHaveBeenCalledWith({
-      type: CARDS_SET_PAGINATION,
+      type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
           currentPage: 3,
