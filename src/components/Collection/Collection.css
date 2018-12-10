@@ -61,3 +61,15 @@
   border-radius: .3125rem;
   width: 18.75rem;
 }
+
+.Collection-play-style {
+  margin-left: .625rem
+}
+
+.Collection-play-style img {
+  height: 2.8125rem;
+}
+
+.Collection img:hover {
+  cursor: pointer;
+}
