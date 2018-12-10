@@ -38,6 +38,30 @@ exports[`Collecttion/CardDetail snapshots renders without crashing 1`] = `
     >
       test-card-flavor
     </p>
+    <p
+      className="mt-2 mb-2"
+    >
+      Set: 
+      Booms Day
+    </p>
+    <p
+      className="mt-2 mb-2"
+    >
+      Type: 
+      MINION
+    </p>
+    <p
+      className="mt-2 mb-2"
+    >
+      Race: 
+      Blood Elf
+    </p>
+    <p
+      className="mt-2 mb-2"
+    >
+      Rarity: 
+      EPIC
+    </p>
   </div>
 </div>
 `;
