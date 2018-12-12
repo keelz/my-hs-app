@@ -15,7 +15,9 @@ interface IPlayStyleStateProps {
 type Props = IPlayStyleProps & IPlayStyleStateProps;
 
 const PlayStyle: React.SFC<Props> = props =>
-  <div className={composeClassname('Collection-play-style')(props.className)}>
+  <div className={composeClassname([
+    'Collection-play-style',
+  ])(props.className)}>
     { props.filters['PLAY_STYLE'] === 'WILD'
       ? <img
         src={wildIcon}

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection/ClassBar snapshots renders without crashing 1`] = `
+<Component
+  className=""
+  id="card-class-name-nav-bar"
+>
+  <NavItem
+    key="card-class-nav-link-DRUID"
+    render={[Function]}
+  />
+  <NavItem
+    key="card-class-nav-link-HUNTER"
+    render={[Function]}
+  />
+  <NavItem
+    key="card-class-nav-link-MAGE"
+    render={[Function]}
+  />
+</Component>
+`;

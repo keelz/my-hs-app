@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection/Footer snapshots renders without crashing 1`] = `
+<div
+  className="Collection-footer flex"
+>
+  <Connect(PlayStyle) />
+  <Connect(ManaBar) />
+</div>
+`;

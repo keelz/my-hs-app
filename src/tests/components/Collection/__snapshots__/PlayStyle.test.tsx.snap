@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection/PlayStyle snapshots renders without crashing 1`] = `
+<div
+  className="Collection-play-style"
+>
+  <img
+    alt="standard-ico"
+    onClick={[Function]}
+    src="100px-standard_icon_large.png"
+    title="Filter Wild Cards"
+  />
+</div>
+`;
