@@ -1,17 +1,22 @@
-import { IActionType, ModalState } from '../Types';
 import { Dispatch } from 'redux';
 import { IPagination } from '../../common/models/App.model';
 import {
+  CardClassName,
   ICard,
-  CardClassName
 } from '../../common/models/Cards.model';
+import {
+  CollectionFilters,
+  IActionType,
+  MODAL_STATE,
+  PLAY_STYLE,
+} from '../Types';
 
 /** STATE MODEL */
 export interface ICollectionState {
   activeCard?: ICard;
   activeClassName: string;
-  filters: { [field: string]: string };
-  modal: ModalState;
+  filters: CollectionFilters;
+  modal: MODAL_STATE;
   pagination: IPagination;
 }
 
@@ -20,9 +25,9 @@ export const defaultState = (): ICollectionState => ({
   activeCard: undefined,
   activeClassName: CardClassName.DRUID,
   filters: {
-    PLAY_STYLE: 'STANDARD',
+    PLAY_STYLE: PLAY_STYLE.STANDARD,
   },
-  modal: ModalState.CLOSED,
+  modal: MODAL_STATE.CLOSED,
   pagination: {
     currentPage: 0,
     itemsPerPage: 0,
@@ -68,7 +73,7 @@ export const collectionSetFilterAction = (key: string, value: string) =>
    payload: { filters: { [key]: value } },
  });
 
-export const collectionSetModalAction = (modal: ModalState) =>
+export const collectionSetModalAction = (modal: MODAL_STATE) =>
  (dispatch: Dispatch<IActionType<any>>) =>
  dispatch({
    type: COLLECTION_SET_MODAL,

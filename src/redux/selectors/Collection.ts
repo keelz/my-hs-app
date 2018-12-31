@@ -1,8 +1,11 @@
 import { createSelector } from 'reselect';
+import APP from '../../common/constants/app';
 import HSJSON from '../../common/constants/hsJson';
-import { IRootState } from '../Types';
+import { IRootState, PLAY_STYLE, CollectionFilters } from '../Types';
 import { ICard, standardSet } from '../../common/models/Cards.model';
 import { composeCardClassNames } from '../../common/utils/cards.util';
+
+const { FILTERS } = APP.COLLECTION;
 
 export class Accessors {
   /**
@@ -25,7 +28,7 @@ export class Accessors {
    * get all Cards filters.
    * @param state {IRootState}
    */
-  public static getFilters(state: IRootState): { [key: string]: string } {
+  public static getFilters(state: IRootState): CollectionFilters {
     return state.Collection.filters;
   }
 }
@@ -91,8 +94,8 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
         return response;
       })
       // filter by play style
-      .filter(card => !!filters['PLAY_STYLE']
-        && filters['PLAY_STYLE'] === 'STANDARD'
+      .filter(card => !!filters[FILTERS.PLAY_STYLE]
+        && filters[FILTERS.PLAY_STYLE] === PLAY_STYLE.STANDARD
           ? standardSet.indexOf(card.set) > -1
           : true)
       // sort by cost

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
 import { ICollection } from '../../common/models/Collection.model';
-import { ModalState } from '../../redux/Types';
+import { MODAL_STATE } from '../../redux/Types';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
 import CardDetail from './CardDetail';
@@ -27,10 +27,10 @@ interface ICollectionBodyProps extends IComponentProps {
 
 export interface ICollectionBodyStateProps {
   activeCard?: ICard;
-  modalState: ModalState;
+  modalState: MODAL_STATE;
   pagination: IPagination;
   setActiveCard: (activeCard: ICard) => any;
-  setModalState: (modalState: ModalState) => any;
+  setModalState: (modalState: MODAL_STATE) => any;
   setPagination: (pagination: IPagination) => any;
 }
 
@@ -47,9 +47,9 @@ export const composeCollection = (withCards: ICard[], pagination: IPagination): 
 
 export const composeToggleModal = (withProps: Props) => (withCard?: ICard) => () => {
   withCard && withProps.setActiveCard(withCard);
-  const nextModalState = withProps.modalState === ModalState.OPEN
-    ? ModalState.CLOSED
-    : ModalState.OPEN;
+  const nextModalState = withProps.modalState === MODAL_STATE.OPEN
+    ? MODAL_STATE.CLOSED
+    : MODAL_STATE.OPEN;
   withProps.setModalState(nextModalState);
 };
 

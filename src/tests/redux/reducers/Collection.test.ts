@@ -1,4 +1,4 @@
-import { ModalState } from '../../../redux/Types';
+import { MODAL_STATE } from '../../../redux/Types';
 import { CardClassName, ICard, CardSet, CardType } from '../../../common/models/Cards.model';
 import reducer, {
   defaultState,
@@ -41,15 +41,6 @@ describe('Collection', () => {
   });
 
   describe('action creators', () => {
-    it(`dispatches ${COLLECTION_SET_MODAL} correctly`, () => {
-      const dispatch = jest.fn();
-      collectionSetModalAction(ModalState.OPEN)(dispatch);
-      expect(dispatch).toHaveBeenCalledWith({
-        type: COLLECTION_SET_MODAL,
-        payload: { modal: ModalState.OPEN },
-      });
-    });
-
     it(`dispatches ${COLLECTION_DELETE_FILTERS} correctly`, () => {
       const dispatch = jest.fn();
       collectionDeleteFilterAction('test')(dispatch);
@@ -87,6 +78,15 @@ describe('Collection', () => {
         payload: {
           filters: { test: 'test' },
         },
+      });
+    });
+
+    it(`dispatches ${COLLECTION_SET_MODAL} correctly`, () => {
+      const dispatch = jest.fn();
+      collectionSetModalAction(MODAL_STATE.OPEN)(dispatch);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: COLLECTION_SET_MODAL,
+        payload: { modal: MODAL_STATE.OPEN },
       });
     });
 
@@ -174,13 +174,13 @@ describe('Collection', () => {
         type: COLLECTION_SET_MODAL,
         payload: {
           ...defaultState(),
-          modal: ModalState.OPEN,
+          modal: MODAL_STATE.OPEN,
         },
       };
       const state = reducer(defaultState(), action);
       expect(state).toEqual({
         ...defaultState(),
-        modal: ModalState.OPEN,
+        modal: MODAL_STATE.OPEN,
       });
     });
 

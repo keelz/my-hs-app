@@ -3,10 +3,10 @@ import * as classnames from 'classnames';
 import Modal from '@material-ui/core/Modal';
 import { IComponentProps } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
-import { ModalState } from '../../redux/Types';
+import { MODAL_STATE } from '../../redux/Types';
 
 interface ISimpleModalProps extends IComponentProps {
-  open: ModalState;
+  open: MODAL_STATE;
   onCloseCallback?: () => void;
   render?: () => JSX.Element;
 }
@@ -16,7 +16,7 @@ const SimpleModal: React.SFC<ISimpleModalProps> = props =>
     aria-labelledby="simple-modal-title"
     aria-describedby="simple-modal-description"
     className="flex items-center justify-center"
-    open={props.open === ModalState.OPEN}
+    open={props.open === MODAL_STATE.OPEN}
     onClose={props.onCloseCallback}>
     <div
       className={composeClassname(classnames([

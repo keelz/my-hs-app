@@ -29,6 +29,13 @@ export type MiddlewareOperation = (api: AppMiddlewareApi) =>
 export type SafeMiddlewareOperation = (api: AppMiddlewareApi) =>
   (action: IActionType<any>) => void;
 
-export enum ModalState {
-  CLOSED, OPEN,
+export type CollectionFilters = {
+  [field: string]: string
+};
+
+export enum MODAL_STATE { CLOSED, OPEN }
+
+export enum PLAY_STYLE {
+  STANDARD = 'STANDARD',
+  WILD = 'WILD',
 }
