@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
-import { renderToJson, mountToJson } from 'enzyme-to-json';
+import { renderToJson } from 'enzyme-to-json';
 import ClassBar from '../../../components/Collection/ClassBar';
 
 const defaultProps = Object.freeze({
