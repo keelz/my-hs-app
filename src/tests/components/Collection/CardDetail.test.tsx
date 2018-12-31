@@ -1,8 +1,14 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
+import { renderToJson } from 'enzyme-to-json';
 import CardDetail from '../../../components/Collection/CardDetail';
-import { CardClassName, CardSet, CardType, Race, Rarity } from '../../../common/models/Cards.model';
+import {
+  CardClassName,
+  CardSet,
+  CardType,
+  Race,
+  Rarity,
+} from '../../../common/models/Cards.model';
 
 const defaultProps = Object.freeze({
   card: {
@@ -25,8 +31,8 @@ const defaultProps = Object.freeze({
 describe('Collecttion/CardDetail', () => {
   describe('snapshots', () => {
     it('renders without crashing', () => {
-      const tree = enzyme.shallow(<CardDetail {...defaultProps} />);
-      expect(shallowToJson(tree)).toMatchSnapshot();
+      const tree = enzyme.render(<CardDetail {...defaultProps} />);
+      expect(renderToJson(tree)).toMatchSnapshot();
     });
   });
 });
