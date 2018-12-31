@@ -1,21 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Collection/ClassBar snapshots renders without crashing 1`] = `
-<Component
-  className=""
+<div
+  class="Nav-bar"
   id="card-class-name-nav-bar"
 >
-  <NavItem
-    key="card-class-nav-link-DRUID"
-    render={[Function]}
-  />
-  <NavItem
-    key="card-class-nav-link-HUNTER"
-    render={[Function]}
-  />
-  <NavItem
-    key="card-class-nav-link-MAGE"
-    render={[Function]}
-  />
-</Component>
+  <ul
+    class="Nav-bar-list"
+  >
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light active"
+      >
+        DRUID
+      </button>
+    </li>
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light"
+      >
+        HUNTER
+      </button>
+    </li>
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light"
+      >
+        MAGE
+      </button>
+    </li>
+  </ul>
+</div>
 `;
