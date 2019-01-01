@@ -9,7 +9,7 @@ interface IManaBarProps extends IComponentProps {}
 
 export interface IManaBarStateProps {
   activeGem?: number;
-  setFilter: (field: string, value: string) => any;
+  setFilter: (field: string, value: string | string[]) => any;
 }
 
 type Props = IManaBarProps & IManaBarStateProps;

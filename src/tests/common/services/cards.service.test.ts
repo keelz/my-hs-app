@@ -19,7 +19,7 @@ describe('cards service', () => {
 
   it('performs handleSetActiveClassname correctly', () => {
     const { action, next, setState, store } = composeMockStore(middleware);
-    const { handleSetActiveClassname } = service;
+    const { setActiveClassname } = service;
     setState({
       Collection: {
         activeClassName: CardClassName.DRUID,
@@ -28,7 +28,7 @@ describe('cards service', () => {
     const nextAction = action(COLLECTION_SET_ACTIVE_CLASSNAME)({
       activeClassName: CardClassName.DRUID,
     });
-    handleSetActiveClassname(store)(next)(nextAction);
+    setActiveClassname(store)(next)(nextAction);
     expect(next).not.toHaveBeenCalled();
     setState({
       Cards: {
@@ -39,7 +39,7 @@ describe('cards service', () => {
         filters: {},
       },
     });
-    handleSetActiveClassname(store)(next)(nextAction);
+    setActiveClassname(store)(next)(nextAction);
     expect(next).toHaveBeenCalledWith({
       type: COLLECTION_SET_ACTIVE_CLASSNAME,
       payload: {
@@ -60,7 +60,7 @@ describe('cards service', () => {
       },
     }));
     const actionType = action('TEST')({ filters: { cost: 2 } });
-    service.handleSetFilter(store)(next)(actionType);
+    service.setFilter(store)(next)(actionType);
     expect(next).toHaveBeenCalled();
   });
 
@@ -76,13 +76,13 @@ describe('cards service', () => {
       },
     }));
     const actionType = action('TEST')({ filters: { cost: 3 } });
-    service.handleSetFilter(store)(next)(actionType);
+    service.setFilter(store)(next)(actionType);
     expect(next).toHaveBeenCalled();
   });
 
   it('handles set pagination correctly', () => {
     const { store } = mockStore;
-    service.handleSetPagination(store)(next)({
+    service.setPagination(store)(next)({
       type: 'TEST_ACTION',
     });
     expect(next).toHaveBeenCalledWith({
@@ -92,7 +92,7 @@ describe('cards service', () => {
 
   it('handles set pagination with current page less than zero correctly', () => {
     const { store } = mockStore;
-    service.handleSetPagination(store)(next)({
+    service.setPagination(store)(next)({
       type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
@@ -105,7 +105,7 @@ describe('cards service', () => {
 
   it('handles set pagination with current page greater than or equall to pages correctly', () => {
     const { store } = mockStore;
-    service.handleSetPagination(store)(next)({
+    service.setPagination(store)(next)({
       type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {
@@ -119,7 +119,7 @@ describe('cards service', () => {
 
   it('handles set pagination with current page within valid range correctly', () => {
     const { store } = mockStore;
-    service.handleSetPagination(store)(next)({
+    service.setPagination(store)(next)({
       type: COLLECTION_SET_PAGINATION,
       payload: {
         pagination: {

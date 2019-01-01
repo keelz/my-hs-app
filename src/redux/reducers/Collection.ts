@@ -66,7 +66,7 @@ export const collectionSetActiveClassNameAction = (activeClassName: string) =>
    payload: { activeClassName },
  });
 
-export const collectionSetFilterAction = (key: string, value: string) =>
+export const collectionSetFilterAction = (key: string, value: string | string[]) =>
  (dispatch: Dispatch<any>) =>
  dispatch({
    type: COLLECTION_SET_FILTER,

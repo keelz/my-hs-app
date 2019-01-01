@@ -64,6 +64,10 @@
   margin-top: 1.25rem;
 }
 
+.Collection-footer > * {
+  margin-right: .625rem;
+}
+
 .Collection-header {
   display: flex;
 }

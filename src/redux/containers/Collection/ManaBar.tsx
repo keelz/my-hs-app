@@ -5,7 +5,7 @@ import { IRootState } from '../../Types';
 import { collectionSetFilterAction } from '../../reducers/Collection';
 
 const mapStateToProps = (state: IRootState) => ({
-  activeGem: parseInt(state.Collection.filters[HSJSON.RESPONSE_PARAMS.COST], 10),
+  activeGem: parseInt(state.Collection.filters[HSJSON.RESPONSE_PARAMS.COST] as string, 10),
 });
 
 const mapDispatchToProps = {

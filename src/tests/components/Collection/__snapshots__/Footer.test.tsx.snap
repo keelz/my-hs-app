@@ -4,7 +4,8 @@ exports[`Collection/Footer snapshots renders without crashing 1`] = `
 <div
   className="Collection-footer flex"
 >
-  <Connect(PlayStyle) />
+  <Connect(SetSelector) />
   <Connect(ManaBar) />
+  <Connect(PlayStyle) />
 </div>
 `;

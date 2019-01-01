@@ -4,7 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import { ICard } from '../../../common/models/Cards.model';
 import testCards from '../../../common/mocks/collection';
 import CollectionBody, {
-  composeToggleModal,
+  toggleModal,
 } from '../../../components/Collection/Body';
 import { MODAL_STATE } from '../../../redux/Types';
 
@@ -81,10 +81,10 @@ describe('Collection Body', () => {
         setModalState: jest.fn(),
       };
       // test toggle from closed
-      composeToggleModal(props)(testCards[0] as ICard)();
+      toggleModal(props)(testCards[0] as ICard)();
       props.modalState = MODAL_STATE.OPEN;
       // test toggle from open
-      composeToggleModal(props)(testCards[0] as ICard)();
+      toggleModal(props)(testCards[0] as ICard)();
       expect(props.setActiveCard).toHaveBeenCalledWith(testCards[0]);
       expect(props.setModalState).toHaveBeenCalledWith(MODAL_STATE.OPEN);
       expect(props.setModalState).toHaveBeenCalledWith(MODAL_STATE.CLOSED);

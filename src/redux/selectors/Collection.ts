@@ -53,6 +53,19 @@ export const selectActiveCardClassName = (state: IRootState): string =>
   )(state);
 
 /**
+ * select active card sets, sorted
+ * @param state {IRootState}
+ */
+export const selectActiveSets = (state: IRootState): string[] =>
+  createSelector([Accessors.getCards], (cards) => cards.reduce(
+    (a, card) => {
+      if (a.indexOf(card.set) >= 0) return a;
+      return [...a, card.set];
+    },
+    Array(0)
+  ).sort())(state);
+
+/**
  * get all unique card class names.
  * @param state {IRootState}
  */
