@@ -3994,6 +3994,15 @@ for each spell in your hand.",
 ]
 `;
 
+exports[`cards selector accessors returns pagination object correctly 1`] = `
+Object {
+  "currentPage": 0,
+  "itemsPerPage": 10,
+  "pages": 1,
+  "total": 10,
+}
+`;
+
 exports[`cards selector selectors selects card class names correctly 1`] = `
 Array [
   "DRUID",
@@ -8067,6 +8076,65 @@ Array [
     "set": "TGT",
     "text": "Your minions cost (1).",
     "type": "MINION",
+  },
+]
+`;
+
+exports[`cards selector selectors selects paginated cards correctly 1`] = `
+Array [
+  Object {
+    "artist": "J. Paick & K. Turovec",
+    "cardClass": "DRUID",
+    "collectible": true,
+    "cost": 1,
+    "dbfId": 47887,
+    "flavor": "Step 1: Grow giant evil strawberry.
+Step 2: ????
+Step 3: Rule Azeroth!",
+    "id": "BOT_054",
+    "name": "Biology Project",
+    "rarity": "COMMON",
+    "set": "BOOMSDAY",
+    "text": "Each player gains 2 Mana Crystals.",
+    "type": "SPELL",
+  },
+  Object {
+    "artist": "Matt Dixon",
+    "attack": 2,
+    "cardClass": "DRUID",
+    "collectible": true,
+    "cost": 2,
+    "dbfId": 49621,
+    "flavor": "He's teaching his little buddy to talk, but all it says is, \\"I am Gloop.\\"",
+    "health": 3,
+    "id": "BOT_419",
+    "mechanics": Array [
+      "BATTLECRY",
+    ],
+    "name": "Dendrologist",
+    "rarity": "RARE",
+    "referencedTags": Array [
+      "DISCOVER",
+    ],
+    "set": "BOOMSDAY",
+    "text": "<b>Battlecry:</b> If you control a Treant, <b>Discover</b> a spell.",
+    "type": "MINION",
+  },
+  Object {
+    "artist": "Jason Kang",
+    "cardClass": "DRUID",
+    "collectible": true,
+    "cost": 4,
+    "dbfId": 48524,
+    "flavor": "It's not juicy at all. IT'S JUST MESSING WITH YOUR HEAD.",
+    "id": "BOT_404",
+    "name": "Juicy Psychmelon",
+    "rarity": "EPIC",
+    "set": "BOOMSDAY",
+    "text": "Draw a 7, 8, 9, and
+10-Cost minion
+ from your deck.",
+    "type": "SPELL",
   },
 ]
 `;

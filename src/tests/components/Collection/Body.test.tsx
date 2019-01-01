@@ -4,15 +4,13 @@ import { shallowToJson } from 'enzyme-to-json';
 import { ICard } from '../../../common/models/Cards.model';
 import testCards from '../../../common/mocks/collection';
 import CollectionBody, {
-  composeCollection, composeToggleModal,
+  composeToggleModal,
 } from '../../../components/Collection/Body';
 import { MODAL_STATE } from '../../../redux/Types';
 
 const defaultProps = () => Object.freeze({
   activeCard: undefined,
-  collection: {
-    cards: Array(0),
-  },
+  cards: Array(0),
   modalState: MODAL_STATE.CLOSED,
   pagination: {
     currentPage: 0,
@@ -28,18 +26,22 @@ const defaultProps = () => Object.freeze({
 describe('Collection Body', () => {
   describe('snapshots', () => {
     it('renders without crashing', () => {
-      const tree = enzyme.shallow(<CollectionBody {...defaultProps()} />);
-      expect(shallowToJson(tree)).toMatchSnapshot();
+      const props = {
+        ...defaultProps(),
+        cards: [...testCards].slice(0, 20) as ICard[],
+      };
+      const wrapper = enzyme.shallow(<CollectionBody {...props} />);
+      expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
   });
 
   describe('integration', () => {
     it('renders Card components correctly', () => {
       const props = { ...defaultProps() };
-      props.collection.cards = [...testCards].slice(0, 20);
+      props.cards = [...testCards].slice(0, 20);
       const tree = enzyme.mount(<CollectionBody {...props} />);
       const cards = tree.find('Card');
-      expect(cards).toHaveLength(10);
+      expect(cards).toHaveLength(20);
     });
 
     it('handles left nav button click event correctly', () => {
@@ -61,34 +63,17 @@ describe('Collection Body', () => {
     it('toggles modal open correctly', () => {
       const props = {
         ...defaultProps(),
-        collection: {
-          cards: [...testCards].slice(0, 49) as ICard[],
-        },
+        cards: [...testCards].slice(0, 49) as ICard[],
       };
       const wrapper = enzyme.mount(<CollectionBody {...props} />);
       const card = wrapper.find('Card').first();
       expect(card).toHaveLength(1);
       card.simulate('click');
-      expect(props.setActiveCard).toHaveBeenCalledWith(props.collection.cards[0]);
+      expect(props.setActiveCard).toHaveBeenCalledWith(props.cards[0]);
     });
   });
 
   describe('helpers', () => {
-    it('composes collection correctly', () => {
-      const pagination = {
-        currentPage: 0,
-        itemsPerPage: 10,
-        pages: 5,
-        total: 50,
-      };
-      const result = composeCollection(
-        [...testCards].slice(0, 49) as ICard[],
-        pagination
-      );
-      expect(result).toHaveLength(10);
-      expect(result).toMatchSnapshot();
-    });
-
     it('composes toggle modal correctly', () => {
       const props = {
         ...defaultProps(),

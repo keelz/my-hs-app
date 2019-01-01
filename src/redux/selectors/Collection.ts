@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import APP from '../../common/constants/app';
 import HSJSON from '../../common/constants/hsJson';
+import { IPagination } from '../../common/models/App.model';
 import { IRootState, PLAY_STYLE, CollectionFilters } from '../Types';
 import { ICard, standardSet } from '../../common/models/Cards.model';
 import { composeCardClassNames } from '../../common/utils/cards.util';
@@ -30,6 +31,14 @@ export class Accessors {
    */
   public static getFilters(state: IRootState): CollectionFilters {
     return state.Collection.filters;
+  }
+
+  /**
+   * get collection pagination object.
+   * @param state {IRootState}
+   */
+  public static getPagination(state: IRootState): IPagination {
+    return state.Collection.pagination;
   }
 }
 
@@ -106,4 +115,17 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
           ? -1
           : 0
         : 0)
+  )(state);
+
+/**
+ * select filtered and sorted cards sliced with pagination values.
+ * @param state {IRootState}
+ */
+export const selectPaginatedCards = (state: IRootState): ICard[] =>
+  createSelector(
+    [Accessors.getPagination],
+    (pagination) => selectCardsWithFilters(state).slice(
+      pagination.itemsPerPage * pagination.currentPage,
+      (pagination.itemsPerPage * pagination.currentPage) + pagination.itemsPerPage
+    )
   )(state);
