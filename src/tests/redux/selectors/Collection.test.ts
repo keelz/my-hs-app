@@ -16,6 +16,12 @@ const composeState = () => ({
   },
   Collection: {
     ...collectionStateFactory(),
+    pagination: {
+      currentPage: 0,
+      itemsPerPage: 10,
+      pages: 1,
+      total: 10,
+    },
   },
 }) as IRootState;
 
@@ -32,6 +38,11 @@ describe('cards selector', () => {
       const activeClassName = Accessors.getActiveCardClassName(composeState());
       expect(activeClassName).toBe('DRUID');
     });
+
+    it('returns pagination object correctly', () => {
+      const pagination = Accessors.getPagination(composeState());
+      expect(pagination).toMatchSnapshot();
+    });
   });
 
   describe('selectors', () => {
@@ -40,6 +51,7 @@ describe('cards selector', () => {
       selectCardClassNames,
       selectCards,
       selectCardsWithFilters,
+      selectPaginatedCards,
     } = Selector;
 
     it('selects active class name correctly', () => {
@@ -71,6 +83,12 @@ describe('cards selector', () => {
       const state = composeState();
       state.Collection.filters = { [HSJSON.RESPONSE_PARAMS.COST]: '7' };
       const result = selectCardsWithFilters(state);
+      expect(result).toMatchSnapshot();
+    });
+
+    it('selects paginated cards correctly', () => {
+      const state = composeState();
+      const result = selectPaginatedCards(state);
       expect(result).toMatchSnapshot();
     });
   });

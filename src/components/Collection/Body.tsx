@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
-import { ICollection } from '../../common/models/Collection.model';
 import { MODAL_STATE } from '../../redux/Types';
 import BodyNavButton from './BodyNavButton';
 import Card from '../Card';
@@ -21,12 +20,11 @@ import {
 /**
  * MODEL
  */
-interface ICollectionBodyProps extends IComponentProps {
-  collection: ICollection;
-}
+interface ICollectionBodyProps extends IComponentProps {}
 
 export interface ICollectionBodyStateProps {
   activeCard?: ICard;
+  cards: ICard[];
   modalState: MODAL_STATE;
   pagination: IPagination;
   setActiveCard: (activeCard: ICard) => any;
@@ -39,12 +37,6 @@ type Props = ICollectionBodyProps & ICollectionBodyStateProps;
 /**
  * HELPERS
  */
-export const composeCollection = (withCards: ICard[], pagination: IPagination): ICard[] =>
-  withCards.slice(
-    pagination.itemsPerPage * pagination.currentPage,
-    (pagination.itemsPerPage * pagination.currentPage) + pagination.itemsPerPage
-  );
-
 export const composeToggleModal = (withProps: Props) => (withCard?: ICard) => () => {
   withCard && withProps.setActiveCard(withCard);
   const nextModalState = withProps.modalState === MODAL_STATE.OPEN
@@ -67,7 +59,7 @@ const CollectionBody: React.SFC<Props> = props => {
           ...props.pagination,
           currentPage: props.pagination.currentPage - 1,
         })} />
-      { composeCollection(props.collection.cards, props.pagination).map(card => {
+      { props.cards.map(card => {
         const openModal = composeToggleModal(props)(card);
         return (
           <Card

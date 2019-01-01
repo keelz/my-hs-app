@@ -1,31 +1,17 @@
 import * as React from 'react';
-import { ICollection } from '../../common/models/Collection.model';
-import { CardClassName } from '../../common/models/Cards.model';
 import { IComponentProps } from '../../common/models/App.model';
 import CollectionBody from '../../redux/containers/Collection/Body';
 import CollectionFooter from './Footer';
 import CollectionHeader from './Header';
 import './Collection.css';
+import { composeClassname } from '../../common/utils';
 
 interface ICollectionProps extends IComponentProps {}
 
-/**
- * MODEL
- */
-export interface ICollectionStateProps {
-  activeCardClassName: CardClassName;
-  collection: ICollection;
-}
-
-type Props = ICollectionProps & ICollectionStateProps;
-
-/**
- * COMPONENT
- */
-const Collection: React.SFC<Props> = props =>
-  <div className="Collection">
+const Collection: React.SFC<ICollectionProps> = props =>
+  <div className={composeClassname('Collection')(props.className)}>
     <CollectionHeader />
-    <CollectionBody collection={props.collection} />
+    <CollectionBody />
     <CollectionFooter />
   </div>;
 

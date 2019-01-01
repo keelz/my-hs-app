@@ -6,9 +6,11 @@ import {
   collectionSetModalAction,
   collectionSetPaginationAction,
 } from '../../reducers/Collection';
+import { selectPaginatedCards } from '../../selectors/Collection';
 
 const mapStateToProps = (state: IRootState) => ({
   activeCard: state.Collection.activeCard,
+  cards: selectPaginatedCards(state),
   modalState: state.Collection.modal,
   pagination: state.Collection.pagination,
 });

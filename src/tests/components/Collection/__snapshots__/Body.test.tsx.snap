@@ -1,207 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collection Body helpers composes collection correctly 1`] = `
-Array [
-  Object {
-    "artist": "Nutthapon Petchthai",
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 5,
-    "dbfId": 2539,
-    "flavor": "It's on the rack next to ice lance, acid lance, and English muffin lance.",
-    "id": "AT_001",
-    "name": "Flame Lance",
-    "playRequirements": Object {
-      "REQ_MINION_TARGET": 0,
-      "REQ_TARGET_TO_PLAY": 0,
-    },
-    "rarity": "COMMON",
-    "set": "TGT",
-    "text": "Deal $8 damage to a minion.",
-    "type": "SPELL",
-  },
-  Object {
-    "artist": "Tooth",
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 3,
-    "dbfId": 2541,
-    "flavor": "Burning man, brah.",
-    "id": "AT_002",
-    "mechanics": Array [
-      "SECRET",
-    ],
-    "name": "Effigy",
-    "rarity": "RARE",
-    "set": "TGT",
-    "text": "<b>Secret:</b> When a friendly minion dies, summon a random minion with the same Cost.",
-    "type": "SPELL",
-  },
-  Object {
-    "artist": "Arthur Bozonnet",
-    "attack": 3,
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 2,
-    "dbfId": 2545,
-    "flavor": "And he can't get up.",
-    "health": 2,
-    "id": "AT_003",
-    "mechanics": Array [
-      "HEROPOWER_DAMAGE",
-    ],
-    "name": "Fallen Hero",
-    "rarity": "RARE",
-    "set": "TGT",
-    "text": "Your Hero Power deals 1 extra damage.",
-    "type": "MINION",
-  },
-  Object {
-    "artist": "Gabor Szikszai",
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 1,
-    "dbfId": 2572,
-    "flavor": "Now with 100% more blast!",
-    "id": "AT_004",
-    "mechanics": Array [
-      "RECEIVES_DOUBLE_SPELLDAMAGE_BONUS",
-    ],
-    "name": "Arcane Blast",
-    "playRequirements": Object {
-      "REQ_MINION_TARGET": 0,
-      "REQ_TARGET_TO_PLAY": 0,
-    },
-    "rarity": "EPIC",
-    "referencedTags": Array [
-      "SPELLPOWER",
-    ],
-    "set": "TGT",
-    "text": "Deal $2 damage to a minion. This spell gets double bonus from <b>Spell Damage</b>.",
-    "type": "SPELL",
-  },
-  Object {
-    "artist": "Mike Sass",
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 3,
-    "dbfId": 2542,
-    "flavor": "It's always Huffer.",
-    "id": "AT_005",
-    "name": "Polymorph: Boar",
-    "playRequirements": Object {
-      "REQ_MINION_TARGET": 0,
-      "REQ_TARGET_TO_PLAY": 0,
-    },
-    "rarity": "RARE",
-    "referencedTags": Array [
-      "CHARGE",
-    ],
-    "set": "TGT",
-    "text": "Transform a minion into a 4/2 Boar with <b>Charge</b>.",
-    "type": "SPELL",
-  },
-  Object {
-    "artist": "Dan Scott",
-    "attack": 3,
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 4,
-    "dbfId": 2549,
-    "flavor": "Is he aspiring or inspiring?  Make up your mind!",
-    "health": 5,
-    "id": "AT_006",
-    "mechanics": Array [
-      "INSPIRE",
-    ],
-    "name": "Dalaran Aspirant",
-    "rarity": "COMMON",
-    "referencedTags": Array [
-      "SPELLPOWER",
-    ],
-    "set": "TGT",
-    "text": "<b>Inspire:</b> Gain <b>Spell Damage +1</b>.",
-    "type": "MINION",
-  },
-  Object {
-    "artist": "Andrew Hou",
-    "attack": 3,
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 3,
-    "dbfId": 2571,
-    "flavor": "Does he sling spells, or do his spells linger about.  Who can say?",
-    "health": 4,
-    "id": "AT_007",
-    "mechanics": Array [
-      "BATTLECRY",
-    ],
-    "name": "Spellslinger",
-    "rarity": "COMMON",
-    "set": "TGT",
-    "text": "<b>Battlecry:</b> Add a random spell to each player's hand.",
-    "type": "MINION",
-  },
-  Object {
-    "artist": "Christopher Moeller",
-    "attack": 6,
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 6,
-    "dbfId": 2544,
-    "flavor": "The Grand Tournament has a \\"No dragons allowed\\" policy, but it's rarely enforced.",
-    "health": 6,
-    "id": "AT_008",
-    "name": "Coldarra Drake",
-    "race": "DRAGON",
-    "rarity": "EPIC",
-    "set": "TGT",
-    "text": "You can use your Hero Power any number of times.",
-    "type": "MINION",
-  },
-  Object {
-    "artist": "Zoltan & Gabor",
-    "attack": 7,
-    "cardClass": "MAGE",
-    "collectible": true,
-    "cost": 8,
-    "dbfId": 2546,
-    "elite": true,
-    "flavor": "A masterless shamurai.",
-    "health": 7,
-    "id": "AT_009",
-    "mechanics": Array [
-      "DEATHRATTLE",
-    ],
-    "name": "Rhonin",
-    "rarity": "LEGENDARY",
-    "set": "TGT",
-    "text": "<b>Deathrattle:</b> Add 3 copies of Arcane Missiles to your hand.",
-    "type": "MINION",
-  },
-  Object {
-    "artist": "Brandon Kitkouski",
-    "attack": 3,
-    "cardClass": "HUNTER",
-    "collectible": true,
-    "cost": 5,
-    "dbfId": 2552,
-    "flavor": "Not getting trampled is really the trick here.",
-    "health": 3,
-    "id": "AT_010",
-    "mechanics": Array [
-      "BATTLECRY",
-    ],
-    "name": "Ram Wrangler",
-    "rarity": "RARE",
-    "set": "TGT",
-    "text": "<b>Battlecry:</b> If you have a Beast, summon a
-random Beast.",
-    "type": "MINION",
-  },
-]
-`;
-
 exports[`Collection Body snapshots renders without crashing 1`] = `
 <div
   className="Collection-body shadow-md"
@@ -210,6 +8,186 @@ exports[`Collection Body snapshots renders without crashing 1`] = `
     active={false}
     align={3}
     onClick={[Function]}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_001"
+    key="AT_001"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_002"
+    key="AT_002"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_003"
+    key="AT_003"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_004"
+    key="AT_004"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_005"
+    key="AT_005"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_006"
+    key="AT_006"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_007"
+    key="AT_007"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_008"
+    key="AT_008"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_009"
+    key="AT_009"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_010"
+    key="AT_010"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_011"
+    key="AT_011"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_012"
+    key="AT_012"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_013"
+    key="AT_013"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_014"
+    key="AT_014"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_015"
+    key="AT_015"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_016"
+    key="AT_016"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_017"
+    key="AT_017"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_018"
+    key="AT_018"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_019"
+    key="AT_019"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
+  />
+  <Card
+    className="Collection-card"
+    ext="png"
+    id="AT_020"
+    key="AT_020"
+    locale="enUS"
+    onClick={[Function]}
+    resolution={256}
   />
   <BodyNavButton
     active={false}
