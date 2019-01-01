@@ -57,9 +57,19 @@ export const selectActiveCardClassName = (state: IRootState): string =>
  * @param state {IRootState}
  */
 export const selectActiveSets = (state: IRootState): string[] =>
-  createSelector([Accessors.getCards], (cards) => cards.reduce(
+  createSelector(
+    [
+      Accessors.getCards,
+      Accessors.getFilters,
+    ],
+    (
+      cards,
+      filters
+    ) => cards.reduce(
     (a, card) => {
       if (a.indexOf(card.set) >= 0) return a;
+      const isStandard = filters[APP.COLLECTION.FILTERS.PLAY_STYLE] === PLAY_STYLE.STANDARD;
+      if (isStandard && standardSet.indexOf(card.set) < 0) return a;
       return [...a, card.set];
     },
     Array(0)

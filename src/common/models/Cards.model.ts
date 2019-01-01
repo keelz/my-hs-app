@@ -82,6 +82,28 @@ export enum CardSet {
   INVALID = 'INVALID',
 }
 
+export const cardSetETL = {
+  BOOMSDAY: 'The Boomsday Project',
+  BRM: 'Blackrock Mountain',
+  CORE: 'Core Set',
+  EXPERT1: 'Expert',
+  GANGS: 'Mean Streets of Gadgetzan',
+  GILNEAS: 'The Witchwood',
+  GVG: 'Goblins Vs Gnomes',
+  HERO_SKINS: 'Hero Skins',
+  HOF: 'Hall of Fame',
+  ICECROWN: 'Knights of the Frozen Throne',
+  KARA: 'Karazhan',
+  KARA_RESERVE: 'KARA_RESERVE',
+  LOE: 'League of Explorers',
+  LOOTAPALOOZA: 'Kobolds & Catacombs',
+  NAXX: 'Curse of Naxxramas',
+  OG: 'Whispers of the Old Gods',
+  TGT: 'the Grand Tournament',
+  TROLL: 'Rastakhan\'s Rumble',
+  UNGORO: 'Journey to Un\'Goro',
+};
+
 export const standardSet = [
   'BOOMSDAY',
   'CORE',
@@ -95,7 +117,7 @@ export const standardSet = [
 
 export enum CardType {
   INVALID = 'INVALID',
-	GAME = 'GAME',
+  GAME = 'GAME',
 	PLAYER = 'PLAYER',
 	HERO = 'HERO',
 	MINION = 'MINION',

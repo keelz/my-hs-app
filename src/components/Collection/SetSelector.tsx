@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
 import { IComponentProps } from '../../common/models/App.model';
+import { cardSetETL } from '../../common/models/Cards.model';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
@@ -37,7 +38,7 @@ class SetSelector extends React.Component<Props, State> {
         }}
         className={composeClassname('Collection-set-selector')(this.props.className)}>
         <MenuItem value="NONE">Show All Cards</MenuItem>
-        { this.props.sets.map(set => <MenuItem value={set}>{set}</MenuItem>) }
+        { this.props.sets.map(set => <MenuItem value={set}>{cardSetETL[set]}</MenuItem>) }
       </Select>
     );
   }

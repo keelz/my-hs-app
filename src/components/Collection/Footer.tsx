@@ -17,9 +17,9 @@ const CollectionFooter: React.SFC<Props> = props =>
       'Collection-footer',
       'flex',
     ])(props.className)}>
-    <SetSelector />
-    <ManaBar />
     <PlayStyle />
+    <ManaBar />
+    <SetSelector />
   </div>;
 
 export default CollectionFooter;
