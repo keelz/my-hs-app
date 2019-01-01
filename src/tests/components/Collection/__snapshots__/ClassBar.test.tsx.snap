@@ -2,7 +2,7 @@
 
 exports[`Collection/ClassBar snapshots renders without crashing 1`] = `
 <div
-  class="Nav-bar"
+  class="Nav-bar Collection-classbar"
   id="card-class-name-nav-bar"
 >
   <ul

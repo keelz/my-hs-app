@@ -56,13 +56,16 @@
   padding: .3125rem;
 }
 
+.Collection-classbar {
+  flex-grow: 1;
+}
+
 .Collection-footer {
   margin-top: 1.25rem;
 }
 
 .Collection-header {
   display: flex;
-  justify-content: flex-start;
 }
 
 .Collection-mana-bar {

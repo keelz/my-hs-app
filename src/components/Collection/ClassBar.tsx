@@ -24,7 +24,7 @@ export const composeButtonClassname = (
 
 const ClassBar: React.SFC<Props> = props =>
   <NavBar
-    className={composeClassname('')(props.className)}
+    className={composeClassname('Collection-classbar')(props.className)}
     id="card-class-name-nav-bar">
     { props.cardClassNames.map(cardClassName =>
         <NavItem
