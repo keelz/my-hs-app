@@ -4,7 +4,6 @@ exports[`Collection Header snapshots renders without crashing 1`] = `
 <div
   className="Collection-header"
 >
-  <Connect(ManaBar) />
-  <Connect(PlayStyle) />
+  <Connect(ClassBar) />
 </div>
 `;

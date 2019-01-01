@@ -2,65 +2,47 @@
 
 exports[`Collecttion/CardDetail snapshots renders without crashing 1`] = `
 <div
-  className="App-card-detail flex flex-row"
+  class="App-card-detail flex flex-row"
 >
   <div
-    style={
-      Object {
-        "backgroundColor": "transparent",
-        "width": 340,
-      }
-    }
+    style="width:340px;background-color:transparent"
   >
     <img
       src="https://art.hearthstonejson.com/v1/render/latest/enUS/512x/test-card-id.png"
-      style={
-        Object {
-          "marginTop": -60,
-        }
-      }
+      style="margin-top:-60px"
     />
   </div>
   <div
-    className="bg-grey-darkest flex-grow rounded-lg shadow-outline text-white"
-    style={
-      Object {
-        "padding": 10,
-        "width": 300,
-      }
-    }
+    class="bg-grey-darkest flex-grow rounded-lg shadow-outline text-white"
+    style="padding:10px;width:300px"
   >
     <h2>
       test-card-name
     </h2>
     <p
-      className="mt-2 mb-2"
+      class="mt-2 mb-2"
     >
       test-card-flavor
     </p>
     <p
-      className="mt-2 mb-2"
+      class="mt-2 mb-2"
     >
-      Set: 
-      Boomsday Project
+      Set: Boomsday Project
     </p>
     <p
-      className="mt-2 mb-2"
+      class="mt-2 mb-2"
     >
-      Type: 
-      MINION
+      Type: MINION
     </p>
     <p
-      className="mt-2 mb-2"
+      class="mt-2 mb-2"
     >
-      Race: 
-      Blood Elf
+      Race: Blood Elf
     </p>
     <p
-      className="mt-2 mb-2"
+      class="mt-2 mb-2"
     >
-      Rarity: 
-      EPIC
+      Rarity: EPIC
     </p>
   </div>
 </div>

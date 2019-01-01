@@ -1,16 +1,12 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import AppHeader from '../../../components/App/Header';
+import CollectionFooter from '../../../components/Collection/Footer';
 
-const defaultProps = Object.freeze({
-  className: 'test-classname',
-});
-
-describe('App/Header', () => {
+describe('Collection/Footer', () => {
   describe('snapshots', () => {
     it('renders without crashing', () => {
-      const wrapper = enzyme.shallow(<AppHeader {...defaultProps} />);
+      const wrapper = enzyme.shallow(<CollectionFooter />);
       expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
   });

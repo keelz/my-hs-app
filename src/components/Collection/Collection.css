@@ -1,4 +1,18 @@
-.Collection {}
+.Collection {
+  margin-top: 1.25rem;
+}
+
+.Collection img:hover {
+  cursor: pointer;
+}
+
+.Collection-align-left {
+  left: 0;
+}
+
+.Collection-align-right {
+  right: 0;
+}
 
 .Collection-body {
   position: relative;
@@ -37,22 +51,21 @@
   cursor: pointer;
 }
 
-.Collection-align-left {
-  left: 0;
-}
-
-.Collection-align-right {
-  right: 0;
-}
-
 .Collection-card {
   height: 17.1875rem;
   padding: .3125rem;
 }
 
+.Collection-classbar {
+  flex-grow: 1;
+}
+
+.Collection-footer {
+  margin-top: 1.25rem;
+}
+
 .Collection-header {
   display: flex;
-  justify-content: center;
 }
 
 .Collection-mana-bar {
@@ -63,13 +76,9 @@
 }
 
 .Collection-play-style {
-  margin-left: .625rem
+  margin-right: .625rem
 }
 
 .Collection-play-style img {
   height: 2.8125rem;
-}
-
-.Collection img:hover {
-  cursor: pointer;
 }

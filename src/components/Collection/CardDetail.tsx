@@ -11,8 +11,6 @@ import {
   CardSet,
   ICard,
   CardType,
-  Race,
-  Rarity,
 } from '../../common/models/Cards.model';
 
 interface ICardDetailProps extends IComponentProps {
@@ -24,12 +22,6 @@ const composeCardSetName = (cardSet: CardSet): String =>
 
 const composeCardTypeName = (cardType: CardType): String =>
   HSJSON.RESPONSE_ENUM.CARD_TYPE[cardType];
-
-const composeCardRaceName = (race?: Race): String =>
-  !!race ? HSJSON.RESPONSE_ENUM.RACE[race] : '';
-
-const composeCardRarityName = (rarity?: Rarity): String =>
-  !!rarity ? HSJSON.RESPONSE_ENUM.RARITY[rarity] : '';
 
 const CardDetail: React.SFC<ICardDetailProps> = props =>
   <div className={composeClassname([
@@ -56,10 +48,10 @@ const CardDetail: React.SFC<ICardDetailProps> = props =>
       <p className="mt-2 mb-2">Set: {composeCardSetName(props.card!.set)}</p>
       <p className="mt-2 mb-2">Type: {composeCardTypeName(props.card!.type)}</p>
       { props.card && props.card.race &&
-        <p className="mt-2 mb-2">Race: {composeCardRaceName(props.card!.race)}</p>
+        <p className="mt-2 mb-2">Race: {HSJSON.RESPONSE_ENUM.RACE[props.card.race]}</p>
       }
       { props.card && props.card.rarity &&
-        <p className="mt-2 mb-2">Rarity: {composeCardRarityName(props.card.rarity)}</p>
+        <p className="mt-2 mb-2">Rarity: {HSJSON.RESPONSE_ENUM.RARITY[props.card.rarity]}</p>
       }
     </div>
   </div>;

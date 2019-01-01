@@ -6,14 +6,14 @@ import testCards from '../../../common/mocks/collection';
 import CollectionBody, {
   composeCollection, composeToggleModal,
 } from '../../../components/Collection/Body';
-import { ModalState } from '../../../redux/Types';
+import { MODAL_STATE } from '../../../redux/Types';
 
 const defaultProps = () => Object.freeze({
   activeCard: undefined,
   collection: {
     cards: Array(0),
   },
-  modalState: ModalState.CLOSED,
+  modalState: MODAL_STATE.CLOSED,
   pagination: {
     currentPage: 0,
     itemsPerPage: 10,
@@ -97,12 +97,12 @@ describe('Collection Body', () => {
       };
       // test toggle from closed
       composeToggleModal(props)(testCards[0] as ICard)();
-      props.modalState = ModalState.OPEN;
+      props.modalState = MODAL_STATE.OPEN;
       // test toggle from open
       composeToggleModal(props)(testCards[0] as ICard)();
       expect(props.setActiveCard).toHaveBeenCalledWith(testCards[0]);
-      expect(props.setModalState).toHaveBeenCalledWith(ModalState.OPEN);
-      expect(props.setModalState).toHaveBeenCalledWith(ModalState.CLOSED);
+      expect(props.setModalState).toHaveBeenCalledWith(MODAL_STATE.OPEN);
+      expect(props.setModalState).toHaveBeenCalledWith(MODAL_STATE.CLOSED);
     });
   });
 });

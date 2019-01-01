@@ -1,41 +1,11 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
-import { NavBar, NavItem } from '../NavBar';
+import { IComponentProps } from '../../common/models/App.model';
+import { composeClassname } from '../../common/utils';
 
-// redux props.
-interface IAppHeaderStateProps {
-  activeClassName?: string;
-  cardClassNames: string[];
-  setActiveCardClassName: (cardClassName: string) => any;
-}
+interface IAppHeaderProps extends IComponentProps {}
 
-export const composeButtonClassname = (
-  className: string,
-  activeClassName?: string
-) => !!activeClassName && activeClassName === className
-  ? ['btn btn-light active']
-  : ['btn btn-light'];
-
-const AppHeader: React.SFC<IAppHeaderStateProps> = props =>
-  <header className="App-header">
-    <NavBar id="card-class-names-nav-bar">
-      { props.cardClassNames.map(cardClassName =>
-          <NavItem
-            key={`app-header-nav-link-${cardClassName}`}
-            render={(_) => {
-              return (
-                <button
-                  className={classnames(composeButtonClassname(
-                    cardClassName,
-                    props.activeClassName
-                  ))}
-                  onClick={() => props.setActiveCardClassName(cardClassName)}>
-                  {cardClassName}
-                </button>
-              );
-            }} />
-      )}
-    </NavBar>
-  </header>;
+const AppHeader: React.SFC<IAppHeaderProps> = props =>
+  <section className={composeClassname('App-header')(props.className)}>
+  </section>;
 
 export default AppHeader;

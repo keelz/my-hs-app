@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection/ClassBar snapshots renders without crashing 1`] = `
+<div
+  class="Nav-bar Collection-classbar"
+  id="card-class-name-nav-bar"
+>
+  <ul
+    class="Nav-bar-list"
+  >
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light active"
+      >
+        DRUID
+      </button>
+    </li>
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light"
+      >
+        HUNTER
+      </button>
+    </li>
+    <li
+      class="Nav-item"
+    >
+      <button
+        class="btn btn-light"
+      >
+        MAGE
+      </button>
+    </li>
+  </ul>
+</div>
+`;

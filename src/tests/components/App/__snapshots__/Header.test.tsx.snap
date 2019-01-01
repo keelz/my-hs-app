@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppHeader snapshots renders correctly 1`] = `
-<header
-  className="App-header"
->
-  <Component
-    id="card-class-names-nav-bar"
-  />
-</header>
+exports[`App/Header snapshots renders without crashing 1`] = `
+<section
+  className="App-header test-classname"
+/>
 `;

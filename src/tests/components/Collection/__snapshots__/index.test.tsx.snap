@@ -949,5 +949,6 @@ Add a random minion to your opponent's hand.",
       }
     }
   />
+  <CollectionFooter />
 </div>
 `;

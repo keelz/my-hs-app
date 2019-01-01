@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
 import { IRootState } from '../../Types';
 import { collectionSetActiveClassNameAction } from '../../reducers/Collection';
-import Header from '../../../components/App/Header';
-import {
-  selectCardClassNames,
-  selectActiveCardClassName
-} from '../../selectors/Collection';
+import { selectCardClassNames } from '../../selectors/Collection';
+import ClassBar from '../../../components/Collection/ClassBar';
 
 const mapStateToProps = (state: IRootState) => ({
-  activeClassName: selectActiveCardClassName(state),
+  activeClassName: state.Collection.activeClassName,
   cardClassNames: selectCardClassNames(state),
 });
 
@@ -16,6 +13,6 @@ const mapDispatchToProps = {
   setActiveCardClassName: collectionSetActiveClassNameAction,
 };
 
-const ConnectedHeader = connect(mapStateToProps, mapDispatchToProps)(Header);
+const ConnectedClassBar = connect(mapStateToProps, mapDispatchToProps)(ClassBar);
 
-export default ConnectedHeader;
+export default ConnectedClassBar;
