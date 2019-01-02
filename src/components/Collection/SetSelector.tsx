@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { composeClassname } from '../../common/utils';
 import { IComponentProps } from '../../common/models/App.model';
-import { cardSetETL } from '../../common/models/Cards.model';
+import { CardSet, cardSetETL } from '../../common/models/Cards.model';
 import APP from '../../common/constants/app';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
@@ -15,14 +15,10 @@ interface ISetSelectorStateProps {
 
 type Props = ISetSelectorProps & ISetSelectorStateProps;
 
-type State = {
-  set: string;
-};
+type State = { set: string };
 
 class SetSelector extends React.Component<Props, State> {
-  state = {
-    set: 'NONE',
-  };
+  state = { set: CardSet.NONE };
 
   handleSetChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const set = event.target.value;
@@ -40,13 +36,13 @@ class SetSelector extends React.Component<Props, State> {
           id: 'select-set',
         }}
         className={composeClassname('Collection-set-selector')(this.props.className)}>
-        <MenuItem value="NONE">Show All Cards</MenuItem>
+        <MenuItem value={CardSet.NONE}>Show All Cards</MenuItem>
         { this.props.sets.map(set =>
-            <MenuItem
-              key={`set-selector-${set}`}
-              value={set}>
-              {cardSetETL[set]}
-            </MenuItem>
+          <MenuItem
+            key={`set-selector-${set}`}
+            value={set}>
+            {cardSetETL[set]}
+          </MenuItem>
         )}
       </Select>
     );
