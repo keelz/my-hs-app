@@ -62,7 +62,7 @@ const service: ICollectionService = {
    * 2. mutate payload
    *    2.a. if set filter already exists then mutate based on add porperty
    *    2.b. otherwise mutate to a single element string array
-   * 3. call next
+   * 3. call next and reset pagination
    */
   handleSetCardSetFilter: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
@@ -103,8 +103,9 @@ const service: ICollectionService = {
         // 2.b otherwise mutate to a single element string array
         action.payload.filters[FILTERS.SET] = [setValue];
       }
-      // 3. call next
+      // 3. call next and reset pagination
       next(action);
+      service.resetPagination(api)(action);
     },
 
   /**

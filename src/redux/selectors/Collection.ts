@@ -108,7 +108,7 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
     (
       activeClassName: string,
       cards: ICard[],
-      filters: { [key: string]: string }
+      filters: CollectionFilters
     ) => cards
       // filter only cards that have a cost property.
       .filter(card => undefined !== card.cost)
@@ -118,9 +118,9 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
       .filter(card => {
         const filter = filters[FILTERS.COST];
         const response = !!filter
-          ? parseInt(filter, 10) === 7
+          ? parseInt(filter as string, 10) === 7
             ? card.cost >= 7
-            : card.cost === parseInt(filter, 10)
+            : card.cost === parseInt(filter as string, 10)
           : true;
         return response;
       })
@@ -129,6 +129,18 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
         && filters[FILTERS.PLAY_STYLE] === PLAY_STYLE.STANDARD
           ? standardSet.indexOf(card.set) > -1
           : true)
+      // filter by card set
+      .filter(card => {
+        const setFilters = filters[FILTERS.SET] as string[];
+        return !!setFilters
+          ? setFilters.reduce(
+            (a, b) => {
+              if (a) return a;
+              return card.set === b;
+            },
+            false
+          ) : true;
+      })
       // sort by cost
       .sort((a, b) => a.cost - b.cost)
       // sort by name
