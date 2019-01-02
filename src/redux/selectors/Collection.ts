@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import APP from '../../common/constants/app';
-import HSJSON from '../../common/constants/hsJson';
 import { IPagination } from '../../common/models/App.model';
 import { IRootState, PLAY_STYLE, CollectionFilters } from '../Types';
 import { ICard, standardSet } from '../../common/models/Cards.model';
@@ -117,7 +116,7 @@ export const selectCardsWithFilters = (state: IRootState): ICard[] =>
       .filter(card => card.cardClass === activeClassName)
       // filter by card cost
       .filter(card => {
-        const filter = filters[HSJSON.RESPONSE_PARAMS.COST];
+        const filter = filters[FILTERS.COST];
         const response = !!filter
           ? parseInt(filter, 10) === 7
             ? card.cost >= 7

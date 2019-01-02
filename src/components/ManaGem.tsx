@@ -4,7 +4,6 @@ import { composeClassname } from '../common/utils';
 import manaCrystal from '../common/assets/img/mana_crystal.png';
 
 export interface IManaGemProps extends IComponentProps {
-  active?: boolean;
   cost: number;
   onClick?: () => void;
 }

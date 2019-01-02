@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
-import HSJSON from '../../../common/constants/hsJson';
+import APP from '../../../common/constants/app';
 import ManaBar from '../../../components/Collection/ManaBar';
 import { IRootState } from '../../Types';
 import { collectionSetFilterAction } from '../../reducers/Collection';
 
+const { FILTERS } = APP.COLLECTION;
+
 const mapStateToProps = (state: IRootState) => ({
-  activeGem: parseInt(state.Collection.filters[HSJSON.RESPONSE_PARAMS.COST] as string, 10),
+  activeGem: parseInt(state.Collection.filters[FILTERS.COST] as string, 10),
 });
 
 const mapDispatchToProps = {

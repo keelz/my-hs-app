@@ -5,10 +5,13 @@ import { selectActiveSets } from '../../selectors/Collection';
 import SetSelector from '../../../components/Collection/SetSelector';
 
 const mapStateToProps = (state: IRootState) => ({
-  collectionSetFilterAction,
   sets: selectActiveSets(state),
 });
 
-const ConnectedSetSelector = connect(mapStateToProps)(SetSelector);
+const mapDispatchToProps = {
+  collectionSetFilterAction,
+};
+
+const ConnectedSetSelector = connect(mapStateToProps, mapDispatchToProps)(SetSelector);
 
 export default ConnectedSetSelector;

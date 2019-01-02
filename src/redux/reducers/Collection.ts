@@ -60,17 +60,17 @@ export const collectionSetActiveCardAction = (activeCard: ICard) =>
   });
 
 export const collectionSetActiveClassNameAction = (activeClassName: string) =>
- (dispatch: Dispatch<any>) =>
+ (dispatch: Dispatch<IActionType<any>>) =>
  dispatch({
    type: COLLECTION_SET_ACTIVE_CLASSNAME,
    payload: { activeClassName },
  });
 
-export const collectionSetFilterAction = (key: string, value: string | string[]) =>
- (dispatch: Dispatch<any>) =>
+export const collectionSetFilterAction = (key: string, value: string | string[], add?: boolean) =>
+ (dispatch: Dispatch<IActionType<any>>) =>
  dispatch({
    type: COLLECTION_SET_FILTER,
-   payload: { filters: { [key]: value } },
+   payload: { add, filters: { [key]: value } },
  });
 
 export const collectionSetModalAction = (modal: MODAL_STATE) =>

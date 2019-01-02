@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import APP from '../constants/app';
+import { CardSet } from '../models/Cards.model';
 import { selectCardsWithFilters } from '../../redux/selectors/Collection';
-import HSJSON from '../constants/hsJson';
 import {
   ICollectionState,
   collectionDeleteFilterAction,
@@ -14,7 +14,11 @@ import {
   SafeMiddlewareOperation,
 } from '../../redux/Types';
 
+const { FILTERS } = APP.COLLECTION;
+
 export interface ICollectionService {
+  handleSetCardSetFilter: MiddlewareOperation;
+  handleSetCostFilter: MiddlewareOperation;
   setActiveClassname: MiddlewareOperation;
   setFilter: MiddlewareOperation;
   setPagination: MiddlewareOperation;
@@ -24,21 +28,99 @@ export interface ICollectionService {
 const service: ICollectionService = {
   /**
    * UNSAFE MIDDLEWARE OPERATION
+   * handle set cost filter side effects.
+   * 1. if the new filter value already exists
+   *    1.a. remove the filter
+   *    1.b. reset pagination
+   *    1.c. return
+   * 2. call next and reset pagination
+   */
+  handleSetCostFilter: (api: AppMiddlewareApi) =>
+    (next: Dispatch<IActionType<any>>) =>
+    (action: IActionType<ICollectionState>) => {
+      const currentFilters = api.getState().Collection.filters;
+      const newFilters = action.payload!.filters;
+      // 1. if the new filter value already exists
+      if (!!currentFilters[FILTERS.COST]
+        && newFilters[FILTERS.COST] === currentFilters[FILTERS.COST]) {
+        // 1.a. remove the filter
+        collectionDeleteFilterAction(FILTERS.COST)(api.dispatch);
+        // 1.b. reset pagination
+        service.resetPagination(api)(action);
+        // 1.c. return
+        return;
+      }
+      // 2. call next and reset pagination
+      next(action);
+      service.resetPagination(api)(action);
+    },
+
+  /**
+   * UNSAFE MIDDLEWARE OPERATION
+   * handle set card set filter
+   * 1. if filter value is equal to NONE then delete all card set filters and return
+   * 2. mutate payload
+   *    2.a. if set filter already exists then mutate based on add porperty
+   *    2.b. otherwise mutate to a single element string array
+   * 3. call next
+   */
+  handleSetCardSetFilter: (api: AppMiddlewareApi) =>
+    (next: Dispatch<IActionType<any>>) =>
+    (action: IActionType<any>) => {
+      const currentFilters = api.getState().Collection.filters;
+      const currentSetFilters = currentFilters[FILTERS.SET] as string[];
+      const newFilters = action.payload.filters;
+      const { add } = action.payload;
+      const setValue = newFilters[FILTERS.SET];
+      // 1. if filter value is equal to NONE then delete all card set filters and return
+      if (setValue === CardSet.NONE) {
+        collectionDeleteFilterAction(FILTERS.SET)(api.dispatch);
+        return;
+      }
+      // 2. mutate payload
+      // 2.a. if set filter already exists then mutate based on add porperty value and current state
+      if (!!currentSetFilters) {
+        const nextSetFilters = add
+          // add the set value to existing filters
+          ? currentSetFilters.indexOf(setValue) >= 0
+            ? currentSetFilters
+            : [...currentSetFilters, setValue]
+          // otherwise, either remove the set value if it already exists,
+          // or return a single element array containing the set value
+          : currentSetFilters.indexOf(setValue) >= 0
+            ? [
+              ...currentSetFilters.slice(
+                0,
+                currentSetFilters.indexOf(setValue) - 1
+              ),
+              ...currentSetFilters.slice(
+                currentSetFilters.indexOf(setValue) + 1,
+                currentSetFilters.length
+              ),
+            ] : [setValue];
+        action.payload.filters[FILTERS.SET] = nextSetFilters;
+      } else {
+        // 2.b otherwise mutate to a single element string array
+        action.payload.filters[FILTERS.SET] = [setValue];
+      }
+      // 3. call next
+      next(action);
+    },
+
+  /**
+   * UNSAFE MIDDLEWARE OPERATION
    * handle set active classname side effects.
-   * 1. if the class name doesn't change, do nothing.
-   * 2. if the class name changes, reset pagination.
+   * 1. if the class name doesn't change then do nothing
+   * 2. otherwise, call next and reset pagination
    */
   setActiveClassname: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
     (action: IActionType<ICollectionState>) => {
       const { activeClassName } = action.payload!;
       const currentClassname = api.getState().Collection.activeClassName;
-      // *** ANTI=PATTERN, UNSAFE MIDDLEWARE OPERATION, MUTATE ACTION ***
-      // if the new value matches the perviously perstisted value then the
-      // desired effect is to do nothing. We achieve the desired effect by
-      // returning without calling the next method.
+      // 1. if the class name doesn't change then do nothing
       if (activeClassName === currentClassname) return;
-      // otherwise call next and reset pagination
+      // 2. otherwise, call next and reset pagination
       next(action);
       service.resetPagination(api)(action);
     },
@@ -46,33 +128,26 @@ const service: ICollectionService = {
   /**
    * UNSAFE MIDDLEWARE OPERATION
    * handle set card filters action side effects.
-   * 1. remove the cost filter if new value already exists
-   * 2. reset pagination
+   * 1. handle set cost filter
+   * 2. handle set card set filter
+   * 3. call next and reset pagination
    * @param api {AppMiddlewareApi}
    */
   setFilter: (api: AppMiddlewareApi) =>
     (next: Dispatch<IActionType<any>>) =>
     (action: IActionType<any>) => {
-      const state = api.getState();
-      const currentFilters = state.Collection.filters;
-      const newFilters = action.payload.filters;
-      // remove the cost filter if it already exists
-      if (!!newFilters[HSJSON.RESPONSE_PARAMS.COST]
-        && !!currentFilters[HSJSON.RESPONSE_PARAMS.COST]
-        && newFilters[HSJSON.RESPONSE_PARAMS.COST]
-        === currentFilters[HSJSON.RESPONSE_PARAMS.COST]) {
-        // dispatch delete filter action
-        collectionDeleteFilterAction(HSJSON.RESPONSE_PARAMS.COST)(api.dispatch);
-        // reset pagination
-        service.resetPagination(api)(action);
-        // *** ANTI-PATTERN, UNSAFE MIDDLEWARE OPERATION, MUTATE ACTION ***
-        // The desired effect when the set filter action is called with the cost filter,
-        // and the value of the cost filter has been previously persisted, is to remove
-        // the cost filter. We achieve the desired effect by calling the delete filter
-        // action and returning without calling the next method.
-        return;
+      const nextFilter = Object.keys(action.payload.filters).shift();
+      switch (nextFilter) {
+        // 1. handle set cost filter
+        case FILTERS.COST:
+          service.handleSetCostFilter(api)(next)(action);
+          return;
+        // 2. handle set card set filter
+        case FILTERS.SET:
+          service.handleSetCardSetFilter(api)(next)(action);
+          return;
       }
-      // otherwise call next and reset pagination
+      // 3. call next and reset pagination
       next(action);
       service.resetPagination(api)(action);
     },
@@ -112,10 +187,8 @@ const service: ICollectionService = {
       if (undefined === payload) return next(action);
       // deconstruct pagination properties from payload.
       const { currentPage, pages } = payload.pagination;
-      // *** ANTI-PATTERN, UNSAFE MIDDLEWARE OPERATION, MUTATE ACTION ***
       // prevent paging backward.
       if (currentPage < 0) return; // prevent pass through
-      // *** ANTI-PATTERN, UNSAFE MIDDLEWARE OPERATION, MUTATE ACTION ***
       // prevent paging forward.
       if (currentPage >= pages) return; // prevent pass through
       // pass through.

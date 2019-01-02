@@ -7,6 +7,8 @@ import {
 } from '../../../redux/reducers/Collection';
 
 const mockCollectionService = {
+  handleSetCardSetFilter: jest.fn(),
+  handleSetCostFilter: jest.fn(),
   setActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
   setFilter: jest.fn(() => jest.fn(() => jest.fn())),
   setPagination: jest.fn(() => jest.fn(() => jest.fn())),

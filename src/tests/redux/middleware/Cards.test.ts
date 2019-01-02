@@ -2,6 +2,8 @@ import { composeMiddleware } from '../../../redux/middleware/Cards';
 import { CARDS_SET_CARDS } from '../../../redux/reducers/Cards';
 
 const mockCollectionService = {
+  handleSetCardSetFilter: jest.fn(),
+  handleSetCostFilter: jest.fn(),
   setActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
   setFilter: jest.fn(() => jest.fn(() => jest.fn())),
   setPagination: jest.fn(() => jest.fn(() => jest.fn())),
