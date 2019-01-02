@@ -15,11 +15,11 @@ export const composeMiddleware = (service: ICollectionService) =>
   (action: IActionType<any>) => {
     switch (action.type) {
       case COLLECTION_SET_ACTIVE_CLASSNAME:
-        return service.handleSetActiveClassname(api)(next)(action);
+        return service.setActiveClassname(api)(next)(action);
       case COLLECTION_SET_FILTER:
-        return service.handleSetFilter(api)(next)(action);
+        return service.setFilter(api)(next)(action);
       case COLLECTION_SET_PAGINATION:
-        return service.handleSetPagination(api)(next)(action);
+        return service.setPagination(api)(next)(action);
       default:
         return next(action);
     }

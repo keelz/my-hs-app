@@ -1,6 +1,5 @@
 import * as Selector from '../../../redux/selectors/Collection';
 import APP from '../../../common/constants/app';
-import HSJSON from '../../../common/constants/hsJson';
 import { IRootState, PLAY_STYLE } from '../../../redux/Types';
 import { defaultState as cardsStateFactory } from '../../../redux/reducers/Cards';
 import { defaultState as collectionStateFactory } from '../../../redux/reducers/Collection';
@@ -72,7 +71,7 @@ describe('cards selector', () => {
     it('selects cards with filters correctly', () => {
       const state = composeState();
       state.Collection.filters = {
-        [HSJSON.RESPONSE_PARAMS.COST]: '2',
+        [FILTERS.COST]: '2',
         [FILTERS.PLAY_STYLE]: PLAY_STYLE.STANDARD,
       };
       const result = selectCardsWithFilters(state);
@@ -81,7 +80,7 @@ describe('cards selector', () => {
 
     it('selects cards with greater than or equal to 7 cost correctly', () => {
       const state = composeState();
-      state.Collection.filters = { [HSJSON.RESPONSE_PARAMS.COST]: '7' };
+      state.Collection.filters = { [FILTERS.COST]: '7' };
       const result = selectCardsWithFilters(state);
       expect(result).toMatchSnapshot();
     });

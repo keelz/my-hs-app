@@ -6,5 +6,6 @@ exports[`Collection/Footer snapshots renders without crashing 1`] = `
 >
   <Connect(PlayStyle) />
   <Connect(ManaBar) />
+  <Connect(SetSelector) />
 </div>
 `;

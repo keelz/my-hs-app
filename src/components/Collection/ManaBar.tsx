@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { IComponentProps } from '../../common/models/App.model';
 import { composeClassname } from '../../common/utils';
-import HSJSON from '../../common/constants/hsJson';
+import APP from '../../common/constants/app';
 import { NavBar, NavItem } from '../NavBar';
 import ManaGem from '../ManaGem';
+
+const { FILTERS } = APP.COLLECTION;
 
 interface IManaBarProps extends IComponentProps {}
 
 export interface IManaBarStateProps {
   activeGem?: number;
-  setFilter: (field: string, value: string) => any;
+  setFilter: (field: string, value: string | string[]) => any;
 }
 
 type Props = IManaBarProps & IManaBarStateProps;
@@ -19,7 +21,7 @@ export const composeManaGems = (): number[] =>
 
 export const composeClickAction = (action: (field: string, value: string) => any) =>
   (index: number) =>
-  action(HSJSON.RESPONSE_PARAMS.COST, index.toString());
+  action(FILTERS.COST, index.toString());
 
 const ManaBar: React.SFC<Props> = props =>
   <NavBar

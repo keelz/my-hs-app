@@ -30,7 +30,7 @@ export type SafeMiddlewareOperation = (api: AppMiddlewareApi) =>
   (action: IActionType<any>) => void;
 
 export type CollectionFilters = {
-  [field: string]: string
+  [field: string]: string | string[]
 };
 
 export enum MODAL_STATE { CLOSED, OPEN }

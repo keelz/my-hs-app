@@ -7,9 +7,11 @@ import {
 } from '../../../redux/reducers/Collection';
 
 const mockCollectionService = {
-  handleSetActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
-  handleSetFilter: jest.fn(() => jest.fn(() => jest.fn())),
-  handleSetPagination: jest.fn(() => jest.fn(() => jest.fn())),
+  handleSetCardSetFilter: jest.fn(),
+  handleSetCostFilter: jest.fn(),
+  setActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
+  setFilter: jest.fn(() => jest.fn(() => jest.fn())),
+  setPagination: jest.fn(() => jest.fn(() => jest.fn())),
   resetPagination: jest.fn(() => jest.fn()),
 };
 
@@ -25,7 +27,7 @@ describe('collection middleware', () => {
   it('handles an unknown action correctly', () => {
     const action = { type: 'UNKNOWN' };
     composeMiddleware(mockCollectionService)(mockStore)(next)(action);
-    expect(mockCollectionService.handleSetPagination).not.toHaveBeenCalled();
+    expect(mockCollectionService.setPagination).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({ type: 'UNKNOWN' });
   });
 
@@ -38,7 +40,7 @@ describe('collection middleware', () => {
       },
     };
     mw(mockStore)(next)(action);
-    expect(mockCollectionService.handleSetActiveClassname).toHaveBeenCalled();
+    expect(mockCollectionService.setActiveClassname).toHaveBeenCalled();
   });
 
   it(`handles ${COLLECTION_SET_FILTER} correctly`, () => {
@@ -48,7 +50,7 @@ describe('collection middleware', () => {
       payload: {},
     };
     mw(mockStore)(next)(action);
-    expect(mockCollectionService.handleSetFilter).toHaveBeenCalled();
+    expect(mockCollectionService.setFilter).toHaveBeenCalled();
   });
 
   it(`handles ${COLLECTION_SET_PAGINATION} correctly`, () => {
@@ -65,6 +67,6 @@ describe('collection middleware', () => {
       },
     };
     mw(mockStore)(next)(action);
-    expect(mockCollectionService.handleSetPagination).toHaveBeenCalled();
+    expect(mockCollectionService.setPagination).toHaveBeenCalled();
   });
 });

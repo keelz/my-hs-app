@@ -2,9 +2,11 @@ import { composeMiddleware } from '../../../redux/middleware/Cards';
 import { CARDS_SET_CARDS } from '../../../redux/reducers/Cards';
 
 const mockCollectionService = {
-  handleSetActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
-  handleSetFilter: jest.fn(() => jest.fn(() => jest.fn())),
-  handleSetPagination: jest.fn(() => jest.fn(() => jest.fn())),
+  handleSetCardSetFilter: jest.fn(),
+  handleSetCostFilter: jest.fn(),
+  setActiveClassname: jest.fn(() => jest.fn(() => jest.fn())),
+  setFilter: jest.fn(() => jest.fn(() => jest.fn())),
+  setPagination: jest.fn(() => jest.fn(() => jest.fn())),
   resetPagination: jest.fn(() => jest.fn()),
 };
 
@@ -20,7 +22,7 @@ describe('cards middleware', () => {
   it('handles an unknown action correctly', () => {
     const action = { type: 'UNKNOWN' };
     composeMiddleware(mockCollectionService)(mockStore)(next)(action);
-    expect(mockCollectionService.handleSetPagination).not.toHaveBeenCalled();
+    expect(mockCollectionService.setPagination).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalledWith({ type: 'UNKNOWN' });
   });
 
