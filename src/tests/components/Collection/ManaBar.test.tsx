@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import HSJSON from '../../../common/constants/hsJson';
+import APP from '../../../common/constants/app';
 import ManaBar, {
   composeClickAction,
   composeManaGems
 } from '../../../components/Collection/ManaBar';
+
+const { FILTERS } = APP.COLLECTION;
 
 const defaultProps = Object.freeze({
   setFilter: jest.fn(),
@@ -55,7 +57,7 @@ describe('Collection ManaBar', () => {
       const testAction = jest.fn();
       const linkAction = composeClickAction(testAction);
       linkAction(3);
-      expect(testAction).toHaveBeenCalledWith(HSJSON.RESPONSE_PARAMS.COST, '3');
+      expect(testAction).toHaveBeenCalledWith(FILTERS.COST, '3');
     });
   });
 });
